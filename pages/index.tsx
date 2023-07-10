@@ -1,6 +1,6 @@
-import { Wrapper } from '@/modules/common/components/Wrapper';
+import { Wrapper } from '../modules/common/components/Wrapper';
 
-const Home = () => {
+const Home = (): JSX.Element => {
     return (
         <Wrapper>
             <div>HOME Page</div>
