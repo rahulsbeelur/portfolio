@@ -1,7 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 
 module.exports = {
-    plugins: [require('@tailwindcss/line-clamp')],
     content: [
         './pages/**/*.{js,ts,jsx,tsx}',
         './components/**/*.{js,ts,jsx,tsx}',
@@ -14,20 +13,12 @@ module.exports = {
             boxShadow: {
                 '3xl': '0px 6px 12px -6px rgba(24, 39, 75, 0.12), 0px 8px 24px -4px rgba(24, 39, 75, 0.08)',
                 bottom: '0px 1px 0px #DDDEE5' //used in Blog cards
-            },
-            backgroundImage: {
-                backgroundLogo: "url('/home/BackgroundLogo.png')"
-            },
-            lineClamp: {
-                7: '7',
-                8: '8',
-                9: '9'
             }
         },
         screens: {
-            desktop: { min: '1218px' },
-            tablet: { max: '1217px', min: '768px' },
-            mobile: { max: '767px' }
+            desktop: { min: '769px' },
+            tablet: { max: '768px', min: '426px' },
+            mobile: { max: '425px' }
         },
         colors: {
             'linked-in-button': '#0A66C2',
@@ -136,7 +127,7 @@ module.exports = {
             '0.5px': '0.5px',
             '1.5px': '1.5px'
         },
-        // z-index is used in other components, which may may look broken when that component is over a sidebar or appbar.
+        // z-index is used in other components, which may look broken when that component is over a sidebar or appbar.
         //  Hence a z-index with value 9999 is added to make sure the sidebar and appbar always stays on top of the page.
         zIndex: {
             max: '9999',
