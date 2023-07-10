@@ -1,6 +1,8 @@
+import { ThemeProvider } from '@/context/ThemeProvider';
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
+import { Layout } from '@/layouts/Layout';
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     return (
@@ -8,7 +10,11 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
             <Head>
                 <title>Rahul S Beelur</title>
             </Head>
-            Hello World!
+            <ThemeProvider>
+                <Layout>
+                    <Component {...pageProps} />
+                </Layout>
+            </ThemeProvider>
         </>
     );
 }
