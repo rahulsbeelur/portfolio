@@ -1,9 +1,10 @@
-import { ThemeProvider } from '@/context/ThemeProvider';
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import { Layout } from '@/layouts/Layout';
+import { ThemeProvider } from '../context/ThemeProvider';
+import { Layout } from '../layouts/Layout';
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     return (
         <>
