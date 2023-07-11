@@ -17,6 +17,27 @@
 }
 
 @font-face {
+    font-family: 'Poppins';
+    font-weight: 400;
+    src: url('/Poppins-Regular.ttf');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-weight: 600;
+    src: url('/Poppins-Bold.ttf');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-weight: 700;
+    src: url('/Poppins-SemiBold.ttf');
+    font-display: swap;
+}
+
+@font-face {
     font-family: 'Roboto Mono';
     src: url('/RobotoMono-Regular.ttf');
     font-display: swap;
