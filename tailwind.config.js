@@ -16,9 +16,9 @@ module.exports = {
             }
         },
         screens: {
-            desktop: { min: '769px' },
-            tablet: { max: '768px', min: '426px' },
-            mobile: { max: '425px' }
+            desktop: { min: '1000px' },
+            tablet: { max: '1000px', min: '610px' },
+            mobile: { max: '610px' }
         },
         colors: {
             'linked-in-button': '#0A66C2',
@@ -113,7 +113,9 @@ module.exports = {
             white: '#FFFFFF'
         },
         fontFamily: {
-            lato: ['Lato']
+            lato: ['Lato'],
+            poppins: ['Poppins'],
+            robotoMono: ['Roboto Mono']
         },
         fontWeight: {
             basic: 325
@@ -130,8 +132,7 @@ module.exports = {
         // z-index is used in other components, which may look broken when that component is over a sidebar or appbar.
         //  Hence a z-index with value 9999 is added to make sure the sidebar and appbar always stays on top of the page.
         zIndex: {
-            max: '9999',
-            50: 50
+            max: '9999'
         }
     }
 };
