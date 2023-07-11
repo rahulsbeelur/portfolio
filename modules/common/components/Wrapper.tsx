@@ -8,7 +8,7 @@ interface WrapperProps {
 export const Wrapper = ({ children, classes }: WrapperProps): JSX.Element => {
     return (
         <div
-            className={`mx-auto w-full max-w-[1440px] desktop:p-20 px-4 py-6 tablet:px-20 tablet:py-16 ${classes}`}>
+            className={`mx-auto w-full max-w-[1440px] desktop:p-10 px-4 py-6 tablet:p-8 ${classes}`}>
             {children}
         </div>
     );

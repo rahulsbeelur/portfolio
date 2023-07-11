@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import Head from 'next/head';
 import { useTheme } from '../context/useTheme';
 import { ThemeColors } from '../context/ThemeProvider';
+import { AppBar } from '../components/AppBar';
 
 interface LayoutProps {
     children: ReactNode;
@@ -17,6 +18,7 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
                     content={isDarkTheme ? ThemeColors.DarkMode : ThemeColors.LightMode}
                 />
             </Head>
+            <AppBar />
             {children}
         </>
     );
