@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Hamburger from 'hamburger-react';
 import { HeaderNavigationButtons } from './HeaderNavigationButtons';
 import { ThemeSwitcher } from './ThemeSwitcher';
+import { Theme } from '../context/ThemeProvider';
 
 export const AppBar = (): JSX.Element => {
     const [isOpen, setOpen] = useState(false);
@@ -89,7 +90,7 @@ export const AppBar = (): JSX.Element => {
                     <div
                         className={`relative flex w-full top-0 h-[100vh] ${
                             isOpen ? 'slide' : 'slide-out !h-0'
-                        }  bg-white dark:bg-neutral-black-darker desktop:hidden`}>
+                        }  ${Theme.Light} dark:${Theme.Dark} desktop:hidden`}>
                         <Wrapper classes="mobile:mt-10">
                             <aside
                                 className={`relative w-full flex flex-col top-0 items-center gap-2 py-0 px-4 desktop:hidden ${
