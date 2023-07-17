@@ -3,6 +3,8 @@ import { Wrapper } from '../modules/common/components/Wrapper';
 import Link from 'next/link';
 import Hamburger from 'hamburger-react';
 import { HeaderNavigationButtons } from './HeaderNavigationButtons';
+import { ThemeSwitcher } from './ThemeSwitcher';
+import { Theme } from '../context/ThemeProvider';
 
 export const AppBar = (): JSX.Element => {
     const [isOpen, setOpen] = useState(false);
@@ -13,15 +15,15 @@ export const AppBar = (): JSX.Element => {
             <Link href="/">
                 <div className="flex desktop:flex-row desktop:gap-3 gap-0 flex-col">
                     <div className="flex flex-row gap-3">
-                        <div className="mt-auto mb-auto desktop:w-5 desktop:h-5 w-4 h-4 bg-neutral-black-default"></div>
-                        <p className="desktop:h4 tablet:h5 h6 font-[700] mt-auto mb-auto whitespace-nowrap">
+                        <div className="mt-auto mb-auto desktop:w-5 desktop:h-5 w-4 h-4 bg-neutral-black-default dark:bg-neutral-black-lighter"></div>
+                        <p className="desktop:h4 tablet:h5 h6 font-[700] mt-auto mb-auto whitespace-nowrap text-neutral-black-dark dark:text-neutral-white-light">
                             Rahul S Beelur
                         </p>
                     </div>
                     <p className="desktop:sub-headline2 sub-headline3 !font-[400] desktop:mt-auto desktop:!leading-[50px] whitespace-nowrap tablet:hidden mobile:hidden">
                         /
                     </p>
-                    <p className="desktop:sub-headline2 tablet:sub-headline3 mobile:sub-headline4 !font-[400] desktop:mt-auto desktop:!leading-[50px] !uppercase !tracking-1.5px whitespace-nowrap">
+                    <p className="desktop:sub-headline2 tablet:sub-headline3 mobile:sub-headline4 !font-[400] desktop:mt-auto desktop:!leading-[50px] !uppercase !tracking-1.5px whitespace-nowrap text-neutral-black-dark dark:text-neutral-white-light">
                         Software Developer
                     </p>
                 </div>
@@ -53,6 +55,9 @@ export const AppBar = (): JSX.Element => {
                 <div className={`flex flex-row justify-between w-full ${isOpen ? 'hidden' : ''}`}>
                     {NameBanner()}
                     <div className="flex flex-row gap-3 mt-auto mobile:hidden">
+                        <div className="m-auto">
+                            <ThemeSwitcher />
+                        </div>
                         <HeaderNavigationButtons />
                     </div>
                 </div>
@@ -69,7 +74,10 @@ export const AppBar = (): JSX.Element => {
                                 {NameBanner()}
                             </div>
 
-                            <div className="flex flex-row justify-end">
+                            <div className="flex flex-row justify-end dark:text-neutral-white-lighter">
+                                <div className="mt-auto mb-auto mr-2">
+                                    <ThemeSwitcher />
+                                </div>
                                 <Hamburger
                                     toggled={isOpen}
                                     toggle={handleHamburgerClick}
@@ -82,7 +90,7 @@ export const AppBar = (): JSX.Element => {
                     <div
                         className={`relative flex w-full top-0 h-[100vh] ${
                             isOpen ? 'slide' : 'slide-out !h-0'
-                        }  bg-white dark:bg-neutral-black-darker desktop:hidden`}>
+                        }  ${Theme.Light} dark:${Theme.Dark} desktop:hidden`}>
                         <Wrapper classes="mobile:mt-10">
                             <aside
                                 className={`relative w-full flex flex-col top-0 items-center gap-2 py-0 px-4 desktop:hidden ${

@@ -16,9 +16,9 @@ module.exports = {
             }
         },
         screens: {
-            desktop: { min: '1000px' },
-            tablet: { max: '1000px', min: '610px' },
-            mobile: { max: '610px' }
+            desktop: { min: '1052px' },
+            tablet: { max: '1051px', min: '660px' },
+            mobile: { max: '661px' }
         },
         colors: {
             'linked-in-button': '#0A66C2',
