@@ -6,6 +6,8 @@ import { HeaderNavigationButtons } from './HeaderNavigationButtons';
 
 export const AppBar = (): JSX.Element => {
     const [isOpen, setOpen] = useState(false);
+    const [showTabletNav, setShowTabletNav] = useState(false);
+
     const NameBanner = (): JSX.Element => {
         return (
             <Link href="/">
@@ -25,6 +27,16 @@ export const AppBar = (): JSX.Element => {
                 </div>
             </Link>
         );
+    };
+
+    const handleHamburgerClick = (): void => {
+        setOpen(!isOpen);
+        if (!isOpen) {
+            setShowTabletNav(false);
+            setTimeout(() => {
+                setShowTabletNav(true);
+            }, 200);
+        }
     };
 
     useEffect(() => {
@@ -60,7 +72,7 @@ export const AppBar = (): JSX.Element => {
                             <div className="flex flex-row justify-end">
                                 <Hamburger
                                     toggled={isOpen}
-                                    toggle={setOpen}
+                                    toggle={handleHamburgerClick}
                                     size={24}
                                     duration={0.6}
                                 />
@@ -76,7 +88,7 @@ export const AppBar = (): JSX.Element => {
                                 className={`relative w-full flex flex-col top-0 items-center gap-2 py-0 px-4 desktop:hidden ${
                                     isOpen ? '' : 'hidden'
                                 }`}>
-                                <HeaderNavigationButtons setOpenMenu={setOpen} />
+                                {showTabletNav && <HeaderNavigationButtons setOpenMenu={setOpen} />}
                             </aside>
                         </Wrapper>
                     </div>
