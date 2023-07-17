@@ -74,7 +74,7 @@ export const AppBar = (): JSX.Element => {
                             </div>
 
                             <div className="flex flex-row justify-end dark:text-neutral-white-lighter">
-                                <div className="m-auto">
+                                <div className="mt-auto mb-auto mr-2">
                                     <ThemeSwitcher />
                                 </div>
                                 <Hamburger
