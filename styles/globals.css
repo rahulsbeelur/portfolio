@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+#__next {
+    height: 100vh;
+}
+
 @font-face {
     font-family: 'Lato';
     font-weight: 400;
