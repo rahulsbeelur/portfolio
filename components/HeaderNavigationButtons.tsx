@@ -31,8 +31,8 @@ export const HeaderNavigationButtons = ({
                     <Link
                         className={`sub-headline2 tablet:sub-headline3 mobile:h5 mobile:!text-[20px] !uppercase mt-auto desktop:!leading-[52px] ${
                             isNavigationButtonActive(pathname, item.href)
-                                ? ''
-                                : 'text-neutral-black-lighter dark:text-neutral-black-light'
+                                ? 'dark:text-neutral-white-light'
+                                : 'text-neutral-black-lighter dark:text-neutral-black-default'
                         }
                        `}
                         aria-label={item.name}
