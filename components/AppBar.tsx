@@ -5,6 +5,7 @@ import Hamburger from 'hamburger-react';
 import { HeaderNavigationButtons } from './HeaderNavigationButtons';
 import { ThemeSwitcher } from './ThemeSwitcher';
 import { Theme } from '../context/ThemeProvider';
+import { personDetails } from '../modules/common/data/person';
 
 export const AppBar = (): JSX.Element => {
     const [isOpen, setOpen] = useState(false);
@@ -17,14 +18,14 @@ export const AppBar = (): JSX.Element => {
                     <div className="flex flex-row gap-3">
                         <div className="mt-auto mb-auto desktop:w-5 desktop:h-5 w-4 h-4 bg-primary-background-color dark:bg-neutral-black-light"></div>
                         <p className="desktop:h4 tablet:h5 h6 font-[700] mt-auto mb-auto whitespace-nowrap text-neutral-black-dark dark:text-neutral-white-light">
-                            Rahul S Beelur
+                            {personDetails.name}
                         </p>
                     </div>
                     <p className="desktop:sub-headline2 sub-headline3 !font-[400] desktop:mt-auto desktop:!leading-[50px] whitespace-nowrap tablet:hidden mobile:hidden">
                         /
                     </p>
                     <p className="desktop:sub-headline2 tablet:sub-headline3 mobile:sub-headline4 !font-[400] desktop:mt-auto desktop:!leading-[50px] !uppercase !tracking-1.5px whitespace-nowrap text-neutral-black-dark dark:text-neutral-white-light">
-                        Software Developer
+                        {personDetails.designation}
                     </p>
                 </div>
             </Link>
