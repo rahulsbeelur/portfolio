@@ -44,8 +44,7 @@ const Home = (): JSX.Element => {
                                         href={socialHandle.link}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        aria-label={socialHandle.name}
-                                        >
+                                        aria-label={socialHandle.name}>
                                         <SVGIcons
                                             type={socialHandle.name as IconType}
                                             width={26}
