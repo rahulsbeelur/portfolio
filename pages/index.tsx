@@ -6,8 +6,8 @@ import { SVGIcons, IconType } from '../icons/SVGIcons';
 
 const Home = (): JSX.Element => {
     const socialHandlesList = [
-        { name: 'linked-in', link: 'https://www.linkedin.com/in/rahul-beelur/' },
-        { name: 'twitter', link: 'https://twitter.com/rahul_beelur' }
+        { name: 'linked-in', link: personDetails.linkedInLink },
+        { name: 'twitter', link: personDetails.twitterLink }
     ];
 
     return (
