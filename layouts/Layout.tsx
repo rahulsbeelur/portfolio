@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { useTheme } from '../context/useTheme';
 import { ThemeColors } from '../context/ThemeProvider';
 import { AppBar } from '../components/AppBar';
+import { Footer } from '../components/Footer';
 
 interface LayoutProps {
     children: ReactNode;
@@ -20,6 +21,7 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
             </Head>
             <AppBar />
             {children}
+            <Footer />
         </>
     );
 };
