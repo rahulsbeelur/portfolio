@@ -11,7 +11,7 @@ const Home = (): JSX.Element => {
             <div className="absolute desktop:hidden tablet:hidden bg-white dark:bg-neutral-black-darker w-full h-[300px]"></div>
             <Wrapper classes="relative h-full">
                 <div className="pl-[22%] tablet:pl-[15%] pt-[5%] mobile:p-0 mobile:justify-center flex flex-row mobile:flex-col h-full gap-10">
-                    <div className="w-[40%] mobile:w-[100%] h-[50%] shadow-md hover:shadow-2xl shadow-neutral-black-default dark:shadow dark:hover:shadow-md dark:shadow-primary-lighter dark:hover:shadow-neutral-white-default">
+                    <div className="w-[40%] mobile:w-[100%] h-[50%] shadow-md shadow-neutral-black-default ">
                         <div className="flex flex-col gap-6 bg-primary-background-color-lighter dark:bg-neutral-black-lighter text-neutral-black-darker p-10 text-center">
                             <div className="rounded-full overflow-hidden w-[80%] ml-auto mr-auto">
                                 <Image
