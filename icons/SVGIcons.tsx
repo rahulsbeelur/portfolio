@@ -1,11 +1,11 @@
 import React from 'react';
 import { LinkedIn } from './LinkedIn';
 import { Twitter } from './Twitter';
-import { CopyRights } from './CopyRights';
 import { Download } from './Download';
 import { Github } from './Github';
+import { Mail } from './Mail';
 
-export type IconType = 'linked-in' | 'twitter' | 'git-hub' | 'copy-rights' | 'download';
+export type IconType = 'linked-in' | 'twitter' | 'git-hub' | 'mail' | 'download';
 
 export interface IconProps {
     type: IconType;
@@ -30,8 +30,8 @@ export const SVGIcons = ({
             return <LinkedIn height={iconHeight} width={iconWidth} className={className} />;
         case 'git-hub':
             return <Github height={iconHeight} width={iconWidth} className={className} />;
-        case 'copy-rights':
-            return <CopyRights height={iconHeight} width={iconWidth} className={className} />;
+        case 'mail':
+            return <Mail height={iconHeight} width={iconWidth} className={className} />;
         case 'download':
             return <Download height={iconHeight} width={iconWidth} className={className} />;
     }

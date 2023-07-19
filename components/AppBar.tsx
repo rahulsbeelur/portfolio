@@ -51,7 +51,7 @@ export const AppBar = (): JSX.Element => {
     }, [isOpen]);
 
     return (
-        <div className="sticky top-0 z-max bg-white dark:bg-neutral-black-darker">
+        <div className="mobile:fixed sticky mobile:w-full top-0 z-max bg-white dark:bg-neutral-black-darker">
             <Wrapper>
                 <div className="flex mobile:flex-row">
                     <div
