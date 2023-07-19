@@ -9,10 +9,10 @@ const Home = (): JSX.Element => {
             <div className="relative flex desktop:flex-row mobile:flex-col w-full mobile:bg-primary-background-color mobile:dark:bg-neutral-black-light">
                 <div className="absolute desktop:w-[40%] tablet:w-[40%] mobile:hidden bg-primary-background-color dark:bg-neutral-black-light h-[100%]"></div>
                 <div className="absolute desktop:w-[60%] tablet:w-[60%] mobile:hidden"></div>
-                <div className="absolute desktop:hidden tablet:hidden bg-white dark:bg-neutral-black-darker w-full h-[300px]"></div>
+                <div className="absolute desktop:hidden tablet:hidden bg-white dark:bg-neutral-black-darker w-full h-[400px]"></div>
                 <Wrapper classes="relative h-full">
-                    <div className="pl-[22%] tablet:pl-[15%] pt-[5%] mobile:p-0 mobile:justify-center flex flex-row mobile:flex-col h-full gap-10">
-                        <div className="w-[40%] mobile:w-[100%] h-[50%] shadow-md shadow-neutral-black-default ">
+                    <div className="pl-[22%] tablet:pl-[15%] py-[5%] mobile:p-0 mobile:justify-center flex flex-row mobile:flex-col h-full gap-10">
+                        <div className="w-[40%] mobile:w-[100%] h-[50%] shadow-md shadow-neutral-black-default mobile:mt-[120px]">
                             <div className="flex flex-col gap-6 bg-primary-background-color-lighter dark:bg-neutral-black-lighter text-neutral-black-darker p-10 text-center">
                                 <div className="rounded-full overflow-hidden w-[80%] ml-auto mr-auto">
                                     <Image
