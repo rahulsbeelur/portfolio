@@ -34,6 +34,7 @@ export const AppBar = (): JSX.Element => {
 
     const handleHamburgerClick = (): void => {
         setOpen(!isOpen);
+        document.documentElement.scrollTop = 0;
         if (!isOpen) {
             setShowTabletNav(false);
             setTimeout(() => {
