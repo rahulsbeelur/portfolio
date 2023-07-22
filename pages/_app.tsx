@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     return (
         <>
             <Head>
-                <title>Rahul S Beelur</title>
+                <title>I'm Rahul S Beelur</title>
             </Head>
             <ThemeProvider>
                 <Layout>

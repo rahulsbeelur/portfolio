@@ -2,8 +2,18 @@ import Image from 'next/image';
 import { Wrapper } from '../modules/common/components/Wrapper';
 import { personDetails } from '../modules/common/data/person';
 import { SocialHandles } from '../modules/common/components/SocialHandles';
+import { checkImageResolutions } from '../modules/common/utils/imageUtils';
+import { MdxPaths } from '../constant/paths';
+import { getMDData } from '../modules/common/utils/mdxUtils';
+import { AboutMeIntroduction } from '../modules/about-me/models/type';
+import { renderMDSection } from '../modules/common/utils/mdxBundlerUtils';
+import { MDModel } from '../modules/common/models/MDXModel';
 
-const Home = (): JSX.Element => {
+const Home = ({
+    introductionContent
+}: {
+    introductionContent: AboutMeIntroduction;
+}): JSX.Element => {
     return (
         <div className="mx-auto max-w-[2560px]">
             <div className="relative flex desktop:flex-row mobile:flex-col w-full mobile:bg-primary-background-color mobile:dark:bg-neutral-black-light">
@@ -38,17 +48,8 @@ const Home = (): JSX.Element => {
                             </div>
                         </div>
 
-                        <div className="desktop:body1 body2 w-[40%] mobile:w-full mobile:text-neutral-black-dark flex flex-col justify-center">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam error
-                            eum id inventore velit, laborum consequatur, unde obcaecati est
-                            exercitationem, ea iure facere placeat praesentium aspernatur fugiat ab
-                            possimus? Minima. Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit. Aliquam error eum id inventore velit, laborum consequatur, unde
-                            obcaecati est exercitationem, ea iure facere placeat praesentium
-                            aspernatur fugiat ab possimus? Minima. Lorem ipsum dolor sit amet,
-                            consectetur adipisicing elit. Aliquam error eum id inventore velit,
-                            laborum consequatur, unde obcaecati est exercitationem, ea iure facere
-                            placeat praesentium aspernatur fugiat ab possimus? Minima.
+                        <div className="w-[40%] mobile:w-full flex flex-col justify-center">
+                            {renderMDSection(introductionContent.code, introductionContent.layout)}
                         </div>
                     </div>
                 </Wrapper>
@@ -74,3 +75,20 @@ const Home = (): JSX.Element => {
 };
 
 export default Home;
+
+export const getStaticProps = async (): Promise<{
+    props: { introductionContent: AboutMeIntroduction };
+}> => {
+    checkImageResolutions('public');
+    const introductionContent = await getMDData<AboutMeIntroduction>(
+        `${MdxPaths.AboutMeIntroduction}/introduction.mdx`
+    );
+    return {
+        props: {
+            introductionContent: {
+                code: introductionContent.code,
+                layout: introductionContent.frontmatter.layout ?? 'DefaultLayout'
+            }
+        }
+    };
+};

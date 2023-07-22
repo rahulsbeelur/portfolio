@@ -1,7 +1,16 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { blogPagePresent } from '../modules/blog/utils/blogUtils';
 
-export const navigation = [
+export const navigationWithBlog = [
+    { name: 'About Me', href: '/' },
+    { name: 'Resume', href: '/resume' },
+    { name: 'Projects', href: '/projects' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'Contact', href: '/contact' }
+];
+
+export const navigationWithoutBlog = [
     { name: 'About Me', href: '/' },
     { name: 'Resume', href: '/resume' },
     { name: 'Projects', href: '/projects' },
@@ -18,6 +27,7 @@ export const HeaderNavigationButtons = ({
     setOpenMenu?: React.Dispatch<React.SetStateAction<boolean>>;
 }): JSX.Element => {
     const { pathname } = useRouter();
+    const navigation = blogPagePresent ? [...navigationWithBlog] : [...navigationWithoutBlog];
     return (
         <>
             {navigation.map((item) => (
