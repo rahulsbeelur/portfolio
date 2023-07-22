@@ -23,7 +23,7 @@ const Home = ({
                     <div className="pl-[22%] tablet:pl-[15%] py-[5%] mobile:p-0 mobile:justify-center flex flex-row mobile:flex-col h-full gap-10">
                         <div className="w-[40%] mobile:w-[100%] h-[50%] shadow-md shadow-neutral-black-default mobile:mt-[120px]">
                             <div className="flex flex-col gap-6 bg-primary-background-color-lighter dark:bg-neutral-black-lighter text-neutral-black-darker p-10 text-center">
-                                <div className="rounded-full overflow-hidden w-[250px] h-[250px] tablet:w-[150px] tablet:h-[150px] mobile:w-[225px] mobile:h-[225px] ml-auto mr-auto">
+                                <div className="rounded-full overflow-hidden desktop:w-[200px] desktop:h-[200px] w-[150px] h-[150px] ml-auto mr-auto">
                                     <Image
                                         src="/my-photo.jpeg"
                                         alt="personal image"
