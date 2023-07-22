@@ -7,7 +7,6 @@ import { MdxPaths } from '../constant/paths';
 import { getMDData } from '../modules/common/utils/mdxUtils';
 import { AboutMeIntroduction } from '../modules/about-me/models/type';
 import { renderMDSection } from '../modules/common/utils/mdxBundlerUtils';
-import { MDModel } from '../modules/common/models/MDXModel';
 
 const Home = ({
     introductionContent
