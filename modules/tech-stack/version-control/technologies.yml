@@ -1,0 +1,7 @@
+technologies:
+    - fileName: git
+      title: Git
+    - fileName: github
+      title: GitHub
+    - fileName: gitlab
+      title: GitLab

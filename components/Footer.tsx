@@ -7,7 +7,7 @@ import Link from 'next/link';
 export const Footer = (): JSX.Element => {
     return (
         <div>
-            <div className="border-t-[1px] border-neutral-black-dark dark:border-neutral-black-light max-w-[2560px] mx-auto mobile:border-0"></div>
+            <div className="border-t-[1px] border-neutral-black-dark dark:border-neutral-black-light max-w-[2560px] mx-auto "></div>
             <Wrapper>
                 <div className="flex mobile:flex-col-reverse flex-row justify-between gap-10">
                     <div className="mt-auto h7 tablet:small4 !leading-[44px] mobile:mx-auto mobile:body3">

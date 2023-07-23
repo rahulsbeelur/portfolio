@@ -1,0 +1,13 @@
+technologies:
+    - fileName: python
+      title: Python
+    - fileName: flask
+      title: Flask
+    - fileName: aws-lambda
+      title: AWS Lambda
+    - fileName: aws-s3
+      title: AWS S3
+    - fileName: nodejs
+      title: NodeJs
+    - fileName: postgresql
+      title: PostgreSQL
