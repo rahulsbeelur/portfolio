@@ -59,18 +59,20 @@ const Home = ({
                 </Wrapper>
             </div>
             <Wrapper classes="flex flex-col justify-center mobile:pt-0">
-                <p className="h4 desktop:h2 mx-auto py-6">My Skills</p>
+                <p className="h4 desktop:h2 mx-auto py-6 text-neutral-black-dark dark:text-neutral-white-light">
+                    My Skills
+                </p>
                 {Object.entries(techStack).map(([category, technologies]) => (
                     <div key={category} className="w-[80%] mx-auto flex flex-col p-4 mobile:w-full">
-                        <div className="flex flex-wrap flex-col p-4 mr-2 rounded bg-primary-background-color-lighter dark:bg-neutral-black-lighter shadow-md shadow-neutral-black-default dark:shadow-md ">
+                        <div className="flex flex-wrap flex-col p-4 rounded bg-primary-background-color-lighter dark:bg-neutral-black-lighter shadow-md shadow-neutral-black-default dark:shadow-md ">
                             <p className="flex justify-center h5 mobile:sub-headline1 text-neutral-black-dark">
-                                {headerCase(category).replace('-', ' ')}
+                                {category === 'DevOps'
+                                    ? category
+                                    : headerCase(category).replace('-', ' ')}
                             </p>
                             <div className="flex flex-wrap justify-center ">
                                 {technologies.map((tech) => (
-                                    <div
-                                        key={tech.fileName}
-                                        className="p-6 flex flex-col cursor-pointer transition-shadow shadow-image hover:shadow-md hover:bg-white hover:dark:bg-neutral-white-dark">
+                                    <div key={tech.fileName} className="p-6 flex flex-col ">
                                         <Image
                                             src={`/tech-stack/${paramCase(category)}/${
                                                 tech.fileName

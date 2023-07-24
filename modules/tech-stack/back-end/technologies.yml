@@ -11,3 +11,5 @@ technologies:
       title: NodeJs
     - fileName: postgresql
       title: PostgreSQL
+    - fileName: snowflake
+      title: Snowflake
