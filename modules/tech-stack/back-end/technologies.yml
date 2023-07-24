@@ -1,6 +1,4 @@
 technologies:
-    - fileName: python
-      title: Python
     - fileName: flask
       title: Flask
     - fileName: aws-lambda
@@ -13,3 +11,5 @@ technologies:
       title: PostgreSQL
     - fileName: snowflake
       title: Snowflake
+    - fileName: mysql
+      title: MySQL

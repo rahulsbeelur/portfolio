@@ -3,5 +3,7 @@ technologies:
       title: C
     - fileName: c++
       title: C++
+    - fileName: python
+      title: Python
     - fileName: java
       title: Java
