@@ -1,0 +1,19 @@
+technologies:
+    - fileName: java-script
+      title: JavaScript
+    - fileName: type-script
+      title: TypeScript
+    - fileName: angular
+      title: Angular
+    - fileName: react
+      title: React
+    - fileName: ionic
+      title: Ionic
+    - fileName: tailwindcss
+      title: Tailwind CSS
+    - fileName: html
+      title: HTML
+    - fileName: css
+      title: CSS
+    - fileName: materialui
+      title: Material-UI
