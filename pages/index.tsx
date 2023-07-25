@@ -34,6 +34,7 @@ const Home = ({
                                         alt="personal image"
                                         width={1000}
                                         height={1000}
+                                        priority
                                         className="object-cover w-full"
                                     />
                                 </div>

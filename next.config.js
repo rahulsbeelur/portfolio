@@ -14,7 +14,7 @@ module.exports = withMDX({
         domains: ['cdn.hashnode.com', 'marketplace.visualstudio.com', 'github.com']
     },
     webpack: (config) => {
-        const environmentVariables = ['BLOG_PAGE_PRESENT'];
+        const environmentVariables = ['NEXT_PUBLIC_BLOG_PAGE_PRESENT'];
         environmentVariables.forEach((variable) => {
             if (!process.env[variable]) {
                 throw new Error(`Environment variable ${variable} is not defined`);

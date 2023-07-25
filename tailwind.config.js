@@ -16,9 +16,14 @@ module.exports = {
             }
         },
         screens: {
-            desktop: { min: '1111px' },
-            tablet: { max: '1110px', min: '717px' },
-            mobile: { max: '716px' }
+            desktop: {
+                min: process.env.NEXT_PUBLIC_BLOG_PAGE_PRESENT === 'on' ? '1111px' : '1044px'
+            },
+            tablet: {
+                max: process.env.NEXT_PUBLIC_BLOG_PAGE_PRESENT === 'on' ? '1111px' : '1044px',
+                min: process.env.NEXT_PUBLIC_BLOG_PAGE_PRESENT === 'on' ? '717px' : '700px'
+            },
+            mobile: { max: process.env.NEXT_PUBLIC_BLOG_PAGE_PRESENT === 'on' ? '717px' : '700px' }
         },
         colors: {
             'linked-in-button': '#0A66C2',
