@@ -7,6 +7,8 @@ technologies:
       title: Angular
     - fileName: react
       title: React
+    - fileName: next-js
+      title: Next.js
     - fileName: ionic
       title: Ionic
     - fileName: tailwindcss
