@@ -4,6 +4,8 @@ import { useTheme } from '../context/useTheme';
 import { ThemeColors } from '../context/ThemeProvider';
 import { AppBar } from '../components/AppBar';
 import { Footer } from '../components/Footer';
+import { BackToTopButton } from '../components/BackToTopButton';
+import { ScrollDown } from '../components/ScrollDown';
 
 interface LayoutProps {
     children: ReactNode;
@@ -20,6 +22,8 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
                 />
             </Head>
             <AppBar />
+            <BackToTopButton />
+            <ScrollDown />
             {children}
             <Footer />
         </>

@@ -4,8 +4,9 @@ import { Twitter } from './Twitter';
 import { Download } from './Download';
 import { Github } from './Github';
 import { Mail } from './Mail';
+import { UpArrow } from './UpArrow';
 
-export type IconType = 'linked-in' | 'twitter' | 'git-hub' | 'mail' | 'download';
+export type IconType = 'linked-in' | 'twitter' | 'git-hub' | 'mail' | 'download' | 'up-arrow';
 
 export interface IconProps {
     type: IconType;
@@ -34,6 +35,8 @@ export const SVGIcons = ({
             return <Mail height={iconHeight} width={iconWidth} className={className} />;
         case 'download':
             return <Download height={iconHeight} width={iconWidth} className={className} />;
+        case 'up-arrow':
+            return <UpArrow height={iconHeight} width={iconWidth} className={className} />;
     }
     return <div></div>;
 };
