@@ -42,6 +42,7 @@ module.exports = {
             'primary-lighter': '#DBF3F8',
             'primary-background-color': '#E6DACE',
             'primary-background-color-lighter': '#F4ECE6',
+            'primary-background-color-darker': '#C4B9AD',
 
             'secondary-darker': '#271F39',
             'secondary-dark': '#4E3F71',
