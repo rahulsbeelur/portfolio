@@ -1,5 +1,7 @@
 technologies:
     - fileName: docker
       title: Docker
+      level: 3
     - fileName: linux
       title: Linux
+      level: 4

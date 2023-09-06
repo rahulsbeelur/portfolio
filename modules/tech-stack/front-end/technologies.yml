@@ -1,21 +1,31 @@
 technologies:
     - fileName: java-script
       title: JavaScript
+      level: 5
     - fileName: type-script
       title: TypeScript
+      level: 5
     - fileName: angular
       title: Angular
+      level: 4
     - fileName: react
       title: React
+      level: 5
     - fileName: next-js
       title: Next.js
+      level: 3
     - fileName: ionic
       title: Ionic
+      level: 4
     - fileName: tailwindcss
       title: Tailwind CSS
+      level: 5
     - fileName: html
       title: HTML
+      level: 5
     - fileName: css
       title: CSS
+      level: 4
     - fileName: materialui
       title: Material-UI
+      level: 2

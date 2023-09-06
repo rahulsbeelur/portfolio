@@ -86,6 +86,31 @@ const Home = ({
                                         <p className="mx-auto sub-headline4 text-neutral-black-dark mt-2">
                                             {tech.title}
                                         </p>
+                                        <div className="flex mx-auto">
+                                            {Array.from(
+                                                Array(tech.level ? tech.level : 2).keys()
+                                            ).map((number) => (
+                                                <Image
+                                                    key={`${tech.title}${number}`}
+                                                    src="/star.png"
+                                                    width={200}
+                                                    height={200}
+                                                    className="w-[10px] h-[10px]"
+                                                    alt="alt"
+                                                />
+                                            ))}
+                                        </div>
+                                        <div className="small4 text-black flex mx-auto">
+                                            (
+                                            {tech.level
+                                                ? tech.level > 4
+                                                    ? 'Expert'
+                                                    : tech.level > 2
+                                                    ? 'Intermediate'
+                                                    : 'Beginner'
+                                                : 'Beginner'}
+                                            )
+                                        </div>
                                     </div>
                                 ))}
                             </div>
@@ -102,6 +127,7 @@ export default Home;
 interface Technology {
     fileName: string;
     title: string;
+    level: number;
 }
 
 interface TechnologiesData {
