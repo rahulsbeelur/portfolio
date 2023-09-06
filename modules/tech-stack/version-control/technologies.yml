@@ -1,7 +1,10 @@
 technologies:
     - fileName: git
       title: Git
+      level: 5
     - fileName: github
       title: GitHub
+      level: 4
     - fileName: gitlab
       title: GitLab
+      level: 3

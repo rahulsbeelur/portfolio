@@ -1,15 +1,22 @@
 technologies:
     - fileName: flask
       title: Flask
+      level: 2
     - fileName: aws-lambda
       title: AWS Lambda
+      level: 5
     - fileName: aws-s3
       title: AWS S3
+      level: 4
     - fileName: nodejs
       title: NodeJs
+      level: 3
     - fileName: postgresql
       title: PostgreSQL
+      level: 2
     - fileName: snowflake
       title: Snowflake
+      level: 4
     - fileName: mysql
       title: MySQL
+      level: 4
