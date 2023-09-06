@@ -89,8 +89,9 @@ const Home = ({
                                         <div className="flex mx-auto">
                                             {Array.from(
                                                 Array(tech.level ? tech.level : 2).keys()
-                                            ).map(() => (
+                                            ).map((number) => (
                                                 <Image
+                                                    key={`${tech.title}${number}`}
                                                     src="/star.png"
                                                     width={200}
                                                     height={200}
