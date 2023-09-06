@@ -2,8 +2,8 @@ import fs from 'fs';
 import { CommonPaths } from '../../../constant/paths';
 import sizeOf from 'buffer-image-size';
 
-const minHeight = 64; // min image height in pixels.
-const minWidth = 64; // min image width in pixels.
+const minHeight = 16; // min image height in pixels.
+const minWidth = 16; // min image width in pixels.
 
 export const getImagePaths = (folderPath: string): string[] => {
     const paths = fs.readdirSync(`${CommonPaths.Public}/${folderPath}`);
