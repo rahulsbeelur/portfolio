@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { blogPagePresent } from '../modules/blog/utils/blogUtils';
 
 export const navigationWithBlog = [
     { name: 'About Me', href: '/' },
@@ -27,10 +26,13 @@ export const HeaderNavigationButtons = ({
     setOpenMenu?: React.Dispatch<React.SetStateAction<boolean>>;
 }): JSX.Element => {
     const { pathname } = useRouter();
-    const navigation = blogPagePresent ? [...navigationWithBlog] : [...navigationWithoutBlog];
+    const navigationHeader =
+        process.env.NEXT_PUBLIC_BLOG_PAGE_PRESENT === 'on'
+            ? [...navigationWithBlog]
+            : [...navigationWithoutBlog];
     return (
         <>
-            {navigation.map((item) => (
+            {navigationHeader.map((item) => (
                 <div
                     key={item.name}
                     onClick={(): void => {
