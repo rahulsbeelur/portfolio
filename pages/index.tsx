@@ -80,7 +80,7 @@ const Home = ({
                                             }.png`}
                                             width={200}
                                             height={200}
-                                            className="w-[100px] h-[100px] tablet:w-[75px] tablet:h-[75px] mobile:w-[75px] mobile:h-[75px] mx-auto"
+                                            className="w-[75px] h-[75px] mx-auto"
                                             alt="alt"
                                         />
                                         <p className="mx-auto sub-headline4 text-neutral-black-dark mt-2">

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Button } from '../modules/common/components/Button';
 
 export const ScrollDown = (): JSX.Element => {
-    const [showScrollDown, setScrollDown] = useState(false);
+    const [showScrollDown, setScrollDown] = useState(true);
     useEffect(() => {
         window.addEventListener('scroll', showButtonOnScroll);
         return () => {
@@ -11,10 +11,7 @@ export const ScrollDown = (): JSX.Element => {
     }, []);
 
     const showButtonOnScroll = (): void => {
-        if (
-            window.scrollY > 10 &&
-            window.innerHeight + window.scrollY < document.body.scrollHeight
-        ) {
+        if (window.innerHeight + window.scrollY < document.body.scrollHeight) {
             setScrollDown(true);
         } else {
             setScrollDown(false);
@@ -28,7 +25,7 @@ export const ScrollDown = (): JSX.Element => {
     return (
         <>
             {showScrollDown && (
-                <div className="fixed right-4 bottom-5 opacity-50">
+                <div className="fixed right-4 z-max bottom-5 opacity-50">
                     <Button
                         icon={{
                             src: 'up-arrow',
