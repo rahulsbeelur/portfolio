@@ -6,6 +6,7 @@ import { AppBar } from '../components/AppBar';
 import { Footer } from '../components/Footer';
 import { BackToTopButton } from '../components/BackToTopButton';
 import { ScrollDown } from '../components/ScrollDown';
+import { MobileFooter } from '../components/MobileFooter';
 
 interface LayoutProps {
     children: ReactNode;
@@ -26,6 +27,7 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
             <ScrollDown />
             {children}
             <Footer />
+            <MobileFooter />
         </>
     );
 };
