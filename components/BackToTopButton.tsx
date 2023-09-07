@@ -29,7 +29,7 @@ export const BackToTopButton = (): JSX.Element => {
     return (
         <>
             {showBackToTopButton && (
-                <div className="fixed right-4 bottom-20 opacity-50">
+                <div className="fixed right-4 z-max bottom-20 opacity-50">
                     <Button
                         icon={{
                             src: 'up-arrow',

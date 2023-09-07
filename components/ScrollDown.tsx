@@ -25,7 +25,7 @@ export const ScrollDown = (): JSX.Element => {
     return (
         <>
             {showScrollDown && (
-                <div className="fixed right-4 z-50 bottom-5 opacity-50">
+                <div className="fixed right-4 z-max bottom-5 opacity-50">
                     <Button
                         icon={{
                             src: 'up-arrow',
