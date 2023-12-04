@@ -14,12 +14,13 @@ interface ButtonProps {
         className?: string;
     };
     onClick?: React.MouseEventHandler<HTMLButtonElement>;
+    mouseover?: React.MouseEventHandler<HTMLButtonElement>;
     className?: string;
     ariaLabel?: string;
 }
 
 export const Button = (props: ButtonProps): JSX.Element => {
-    const { classes, isDisabled, text, icon, onClick, ariaLabel } = props;
+    const { classes, isDisabled, text, icon, onClick, mouseover, ariaLabel } = props;
     return (
         <button
             disabled={isDisabled}
@@ -27,7 +28,8 @@ export const Button = (props: ButtonProps): JSX.Element => {
             className={`flex ${
                 icon?.position === 'right' ? 'flex-row-reverse' : 'flex-row'
             } ${classes}`}
-            onClick={onClick}>
+            onClick={onClick}
+            onMouseEnter={mouseover}>
             {icon && (
                 <SVGIcons
                     type={icon.src}

@@ -52,71 +52,64 @@ const Home = ({
                                 </div>
                             </div>
                         </div>
-
-                        <div className="w-[40%] mobile:w-full flex flex-col justify-center">
-                            {renderMDSection(introductionContent.code, introductionContent.layout)}
+                        <div className="flex flex-col w-[50%] my-auto">
+                            <div className="h1 mobile:h3 animate-bounce">Hello</div>
+                            <div className="w-[100%] mobile:w-full flex flex-col justify-center">
+                                {renderMDSection(
+                                    introductionContent.code,
+                                    introductionContent.layout
+                                )}
+                            </div>
                         </div>
                     </div>
                 </Wrapper>
             </div>
             <Wrapper classes="flex flex-col justify-center mobile:pt-0">
                 <p className="h4 desktop:h2 mx-auto py-6 text-neutral-black-dark dark:text-neutral-white-light">
-                    My Skills
+                    My Top Skills
                 </p>
-                {Object.entries(techStack).map(([category, technologies]) => (
-                    <div key={category} className="w-[80%] mx-auto flex flex-col p-4 mobile:w-full">
-                        <div className="flex flex-wrap flex-col p-4 rounded bg-primary-background-color-lighter dark:bg-neutral-black-lighter shadow-md shadow-neutral-black-default dark:shadow-md ">
-                            <p className="flex justify-center h5 mobile:sub-headline1 text-neutral-black-dark">
-                                {category === 'DevOps'
-                                    ? category
-                                    : headerCase(category).replace('-', ' ')}
-                            </p>
-                            <div className="flex flex-wrap justify-center ">
-                                {technologies.map((tech) => (
-                                    <div key={tech.fileName} className="p-6 flex flex-col ">
-                                        <Image
-                                            src={`/tech-stack/${paramCase(category)}/${
-                                                tech.fileName
-                                            }.png`}
-                                            width={200}
-                                            height={200}
-                                            className="w-[75px] h-[75px] mx-auto"
-                                            alt="alt"
-                                        />
-                                        <p className="mx-auto sub-headline4 text-neutral-black-dark mt-2">
-                                            {tech.title}
-                                        </p>
-                                        <div className="flex mx-auto">
-                                            {Array.from(
-                                                Array(tech.level ? tech.level : 2).keys()
-                                            ).map((number) => (
-                                                <Image
-                                                    key={`${tech.title}${number}`}
-                                                    src="/star.png"
-                                                    width={200}
-                                                    height={200}
-                                                    className="w-[10px] h-[10px]"
-                                                    alt="alt"
-                                                />
-                                            ))}
+                <div className="flex flex-wrap">
+                    {Object.entries(techStack).map(([category, technologies]) => (
+                        <div
+                            key={category}
+                            className="w-[40%] mx-auto flex flex-col p-4 mobile:w-full">
+                            <div className="flex flex-wrap flex-col p-4 rounded bg-primary-background-color-lighter dark:bg-neutral-black-lighter shadow-md shadow-neutral-black-default dark:shadow-md ">
+                                <p className="flex justify-center h5 mobile:sub-headline1 text-neutral-black-dark">
+                                    {category === 'DevOps'
+                                        ? category
+                                        : headerCase(category).replace('-', ' ')}
+                                </p>
+                                <div className="flex flex-wrap justify-center ">
+                                    {technologies.map((tech) => (
+                                        <div key={tech.fileName} className="p-6 flex flex-col ">
+                                            <Image
+                                                src={`/tech-stack/${paramCase(category)}/${
+                                                    tech.fileName
+                                                }.png`}
+                                                width={200}
+                                                height={200}
+                                                className="w-[75px] h-[75px] mx-auto"
+                                                alt="alt"
+                                            />
+                                            <p className="mx-auto sub-headline4 text-neutral-black-dark mt-2">
+                                                {tech.title}
+                                            </p>
+                                            <div className="small4 text-black flex mx-auto">
+                                                {tech.level
+                                                    ? tech.level > 4
+                                                        ? '<Experienced/>'
+                                                        : tech.level > 2
+                                                        ? '<Skillful/>'
+                                                        : '<Beginner/>'
+                                                    : '<Beginner/>'}
+                                            </div>
                                         </div>
-                                        <div className="small4 text-black flex mx-auto">
-                                            (
-                                            {tech.level
-                                                ? tech.level > 4
-                                                    ? 'Expert'
-                                                    : tech.level > 2
-                                                    ? 'Intermediate'
-                                                    : 'Beginner'
-                                                : 'Beginner'}
-                                            )
-                                        </div>
-                                    </div>
-                                ))}
+                                    ))}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </Wrapper>
         </div>
     );
