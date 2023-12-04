@@ -52,8 +52,8 @@ const Home = ({
                                 </div>
                             </div>
                         </div>
-                        <div className="flex flex-col w-[50%] my-auto">
-                            <div className="h1 mobile:h3 animate-bounce">Hello</div>
+                        <div className="flex flex-col w-[50%] my-auto mobile:w-full">
+                            <div className="h1 mobile:h3 tablet:h2 animate-bounce">Hello</div>
                             <div className="w-[100%] mobile:w-full flex flex-col justify-center">
                                 {renderMDSection(
                                     introductionContent.code,
@@ -66,7 +66,7 @@ const Home = ({
             </div>
             <Wrapper classes="flex flex-col justify-center mobile:pt-0">
                 <p className="h4 desktop:h2 mx-auto py-6 text-neutral-black-dark dark:text-neutral-white-light">
-                    My Top Skills
+                    Skill Mastery Spotlight
                 </p>
                 <div className="flex flex-wrap">
                     {Object.entries(techStack).map(([category, technologies]) => (
@@ -88,7 +88,7 @@ const Home = ({
                                                 }.png`}
                                                 width={200}
                                                 height={200}
-                                                className="w-[75px] h-[75px] mx-auto"
+                                                className="w-[60px] h-[60px] mx-auto"
                                                 alt="alt"
                                             />
                                             <p className="mx-auto sub-headline4 text-neutral-black-dark mt-2">
