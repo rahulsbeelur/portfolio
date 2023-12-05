@@ -53,7 +53,9 @@ const Home = ({
                             </div>
                         </div>
                         <div className="flex flex-col w-[50%] my-auto mobile:w-full">
-                            <div className="h1 mobile:h3 tablet:h2 animate-bounce">Hello</div>
+                            <div className="animate-bounce desktop:h1 h3 text-neutral-black-dark dark:text-neutral-white-light mobile:text-neutral-black-dark mobile:dark:text-neutral-black-dark">
+                                Hello
+                            </div>
                             <div className="w-[100%] mobile:w-full flex flex-col justify-center">
                                 {renderMDSection(
                                     introductionContent.code,
