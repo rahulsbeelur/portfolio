@@ -5,7 +5,6 @@ import { ThemeColors } from '../context/ThemeProvider';
 import { AppBar } from '../components/AppBar';
 import { Footer } from '../components/Footer';
 import { BackToTopButton } from '../components/BackToTopButton';
-import { ScrollDown } from '../components/ScrollDown';
 import { MobileFooter } from '../components/MobileFooter';
 
 interface LayoutProps {
@@ -24,7 +23,7 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
             </Head>
             <AppBar />
             <BackToTopButton />
-            <ScrollDown />
+            {/* <ScrollDown /> */}
             {children}
             <Footer />
             <MobileFooter />
