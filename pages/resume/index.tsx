@@ -8,7 +8,7 @@ const Resume = (): JSX.Element => {
             <div className="mx-auto max-w-[2560px] desktop:mt-[138px] tablet:mt-[128px] mt-20">
                 <div className="flex justify-end mobile:justify-center">
                     <button
-                        className="h5 mobile:small1 tablet:h6 bg-primary-background-color hover:bg-primary-background-color-darker dark:bg-neutral-black-light hover:dark:bg-neutral-black-default p-3 rounded-lg shadow-[0_4px_8px_rgba(28,28,40)] dark:shadow-none dark:hover:shadow-md text-neutral-black-darker"
+                        className="h5 mobile:small1 tablet:h6 bg-primary-background-color hover:bg-primary-background-color-darker dark:bg-neutral-black-light hover:dark:bg-neutral-black-default p-3 rounded-lg shadow-[0_4px_8px_rgba(28,28,40)] dark:shadow-lg dark:shadow-[#50504e] text-neutral-black-darker"
                         aria-label="Download Resume"
                         onClick={(): void => document.getElementById('resumeToDownload')?.click()}>
                         Download Resume
