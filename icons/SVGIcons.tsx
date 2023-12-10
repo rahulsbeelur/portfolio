@@ -5,8 +5,16 @@ import { Download } from './Download';
 import { Github } from './Github';
 import { Mail } from './Mail';
 import { UpArrow } from './UpArrow';
+import { Resume } from './Resume';
 
-export type IconType = 'linked-in' | 'twitter' | 'git-hub' | 'mail' | 'download' | 'up-arrow';
+export type IconType =
+    | 'linked-in'
+    | 'twitter'
+    | 'git-hub'
+    | 'mail'
+    | 'download'
+    | 'up-arrow'
+    | 'resume';
 
 export interface IconProps {
     type: IconType;
@@ -37,6 +45,8 @@ export const SVGIcons = ({
             return <Download height={iconHeight} width={iconWidth} className={className} />;
         case 'up-arrow':
             return <UpArrow height={iconHeight} width={iconWidth} className={className} />;
+        case 'resume':
+            return <Resume height={iconHeight} width={iconWidth} className={className} />;
     }
     return <div></div>;
 };
