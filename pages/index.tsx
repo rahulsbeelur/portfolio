@@ -26,7 +26,7 @@ const Home = ({
                 <div className="absolute desktop:hidden tablet:hidden bg-white dark:bg-neutral-black-darker w-full h-[400px]"></div>
                 <Wrapper classes="relative h-full">
                     <div className="pl-[22%] tablet:pl-[15%] py-[5%] mobile:p-0 mobile:justify-center flex flex-row mobile:flex-col h-full gap-10">
-                        <div className="w-[40%] tablet:w-[50%] mobile:w-[100%] h-[50%] shadow-md shadow-neutral-black-default mobile:mt-[120px]">
+                        <div className="w-[40%] tablet:w-[60%] mobile:w-[100%] h-[50%] shadow-md shadow-neutral-black-default mobile:mt-[120px]">
                             <div className="flex flex-col gap-6 bg-primary-background-color-lighter dark:bg-neutral-black-lighter text-neutral-black-darker p-10 text-center">
                                 <div className="rounded-full overflow-hidden desktop:w-[200px] desktop:h-[200px] w-[150px] h-[150px] ml-auto mr-auto">
                                     <Image
