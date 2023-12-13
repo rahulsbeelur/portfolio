@@ -4,7 +4,8 @@ export enum CommonPaths {
 }
 
 export enum MdxPaths {
-    AboutMeIntroduction = 'modules/about-me/mdx'
+    AboutMeIntroduction = 'modules/about-me/mdx',
+    WorkExperience = 'modules/resume/mdx/work-experience'
 }
 
 export enum TechnologiesPath {
