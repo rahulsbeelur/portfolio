@@ -3,7 +3,7 @@ import { MDXComponents } from 'mdx/types';
 export const ResumeLayout: MDXComponents = {
     h1: (props): JSX.Element => (
         <h1
-            className="desktop:h1 h3 text-neutral-black-dark dark:text-neutral-white-light mobile:text-neutral-black-dark mobile:dark:text-neutral-black-dark"
+            className="h6 mobile:text-right text-neutral-black-dark dark:text-neutral-white-light mobile:text-neutral-black-dark mobile:dark:text-neutral-black-dark"
             {...props}
         />
     ),

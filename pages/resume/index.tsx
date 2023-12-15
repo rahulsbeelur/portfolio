@@ -4,8 +4,13 @@ import { Wrapper } from '../../modules/common/components/Wrapper';
 import { Download } from '../../icons/Download';
 import { getMDData } from '../../modules/common/utils/mdxUtils';
 import { MdxPaths } from '../../constant/paths';
+import { renderMDSection } from '../../modules/common/utils/mdxBundlerUtils';
 
-const Resume = ({ workExperience }: { workExperience: WorkExperience[] }): JSX.Element => {
+const Resume = ({
+    workExperience
+}: {
+    workExperience: { code: string; frontmatter: WorkExperience }[];
+}): JSX.Element => {
     return (
         <Wrapper classes="bg-primary-background-color dark:bg-neutral-black-light">
             <div className="mx-auto max-w-[2560px] desktop:mt-[138px] tablet:mt-[128px] mt-24">
@@ -34,16 +39,24 @@ const Resume = ({ workExperience }: { workExperience: WorkExperience[] }): JSX.E
                             <div
                                 key={workExperience.indexOf(experience)}
                                 className="min-h-[250px] desktop:sub-headline3 sub-headline4 bg-white dark:bg-neutral-black-darker mt-5 p-3 rounded-lg shadow-[0_4px_8px_rgba(28,28,40)] dark:shadow-[0_4px_12px_rgba(80,80,78)] dark:text-white">
-                                <div className="flex justify-between sub-headline3">
+                                <div className="flex mobile:flex-col justify-between sub-headline3 mobile:gap-0 gap-[100px]">
                                     <div className="flex-col mt-10">
-                                        <div>
-                                            {experience.startDate} to
-                                            {experience.endDate ? experience.endDate : 'Present'}
+                                        <div className="whitespace-nowrap body1 mobile:sub-headline3">
+                                            {experience.frontmatter.startDate} - {}
+                                            {experience.frontmatter.endDate
+                                                ? experience.frontmatter.endDate
+                                                : 'Present'}
                                         </div>
-                                        <div>{experience.companyName}</div>
-                                        <div>{experience.role}</div>
+                                        <div>
+                                            <div className="sub-headline4 desktop:sub-headline3 whitespace-nowrap">
+                                                {experience.frontmatter.role}
+                                            </div>
+                                            <div className="flex body3 desktop:body1">
+                                                {experience.frontmatter.companyName}
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div>2</div>
+                                    <div>{renderMDSection(experience.code, 'ResumeLayout')}</div>
                                 </div>
                             </div>
                         ))}
@@ -72,15 +85,14 @@ interface WorkExperience {
 }
 
 export const getStaticProps = async (): Promise<{
-    props: { workExperience: WorkExperience[] };
+    props: { workExperience: { code: string; frontmatter: WorkExperience }[] };
 }> => {
     const files = fs.readdirSync(MdxPaths.WorkExperience).reverse();
-    const workExperience: WorkExperience[] = await Promise.all(
+    const workExperience: { code: string; frontmatter: WorkExperience }[] = await Promise.all(
         files.map(async (file) => {
-            const { frontmatter }: { frontmatter: WorkExperience } = await getMDData(
-                MdxPaths.WorkExperience + '/' + file
-            );
-            return frontmatter;
+            const { code, frontmatter }: { code: string; frontmatter: WorkExperience } =
+                await getMDData(MdxPaths.WorkExperience + '/' + file);
+            return { code, frontmatter };
         })
     );
     return {
