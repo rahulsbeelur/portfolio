@@ -4,12 +4,16 @@ import { Wrapper } from '../../modules/common/components/Wrapper';
 import { Download } from '../../icons/Download';
 import { getMDData } from '../../modules/common/utils/mdxUtils';
 import { MdxPaths } from '../../constant/paths';
-import { ResumeCard } from '../../modules/common/components/ResumeCard';
+import { WorkExperienceCard } from '../../modules/common/components/WorkExperienceCard';
+import { EducationCard } from '../../modules/common/components/EducationCard';
 
 const Resume = ({
-    workExperience
+    resume
 }: {
-    workExperience: { code: string; frontmatter: WorkExperience }[];
+    resume: {
+        workExperience: { code: string; frontmatter: WorkExperience }[];
+        education: { code: string; frontmatter: Education }[];
+    };
 }): JSX.Element => {
     return (
         <Wrapper classes="bg-primary-background-color dark:bg-neutral-black-light normal-case">
@@ -35,10 +39,10 @@ const Resume = ({
                 <div className="flex justify-center mt-10 text-neutral-black-darker">
                     <div className="w-[60%] tablet:w-[80%] mobile:w-full">
                         <div className="h4 mobile:h5">Work Experience</div>
-                        {ResumeCard(workExperience)}
-                        {/* <div className="h4 mobile:h5 mt-[120px] mobile:mt-10">Education</div>
-                        {ResumeCard(workExperience)}
-                        <div className="h4 mobile:h5 mt-20">Languages</div>
+                        {WorkExperienceCard(resume.workExperience)}
+                        <div className="h4 mobile:h5 mt-[120px] mobile:mt-10">Education</div>
+                        {EducationCard(resume.education)}
+                        {/* <div className="h4 mobile:h5 mt-20">Languages</div>
                         <div className="desktop:sub-headline3 sub-headline4 bg-white dark:bg-neutral-black-darker mt-5 p-3 shadow-[0_4px_8px_rgba(28,28,40)] dark:shadow-[0_4px_12px_rgba(80,80,78)] dark:text-white">
                             Card
                         </div> */}
@@ -58,20 +62,47 @@ export interface WorkExperience {
     endDate?: string;
 }
 
+export interface Education {
+    name: string;
+    degreeType: string;
+    location: string;
+    score: string;
+    startDate: string;
+    endDate?: string;
+    course?: string;
+}
+
 export const getStaticProps = async (): Promise<{
-    props: { workExperience: { code: string; frontmatter: WorkExperience }[] };
+    props: {
+        resume: {
+            workExperience: { code: string; frontmatter: WorkExperience }[];
+            education: { code: string; frontmatter: Education }[];
+        };
+    };
 }> => {
-    const files = fs.readdirSync(MdxPaths.WorkExperience).reverse();
+    const experienceFiles = fs.readdirSync(MdxPaths.WorkExperience).reverse();
     const workExperience: { code: string; frontmatter: WorkExperience }[] = await Promise.all(
-        files.map(async (file) => {
+        experienceFiles.map(async (file) => {
             const { code, frontmatter }: { code: string; frontmatter: WorkExperience } =
                 await getMDData(MdxPaths.WorkExperience + '/' + file);
             return { code, frontmatter };
         })
     );
+    const educationFiles = fs.readdirSync(MdxPaths.Education).reverse();
+    const education: { code: string; frontmatter: Education }[] = await Promise.all(
+        educationFiles.map(async (file) => {
+            const { code, frontmatter }: { code: string; frontmatter: Education } = await getMDData(
+                MdxPaths.Education + '/' + file
+            );
+            return { code, frontmatter };
+        })
+    );
     return {
         props: {
-            workExperience
+            resume: {
+                workExperience,
+                education
+            }
         }
     };
 };
