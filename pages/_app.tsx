@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                 <meta property="og:title" content="I`m Rahul S Beelur" />
                 <meta
                     property="og:description"
-                    content="As a software developer, I create innovative solutions by writing efficient, maintainable code. I implement software applications, ensuring they meet high standards of quality and functionality. I thrive in collaborative environments, embracing new technologies to deliver cutting-edge software that addresses diverse challenges."
+                    content="As a software developer, I craft efficient, high-quality code to deliver innovative solutions. I thrive in collaborative environments, embracing new technologies to address diverse challenges and create cutting-edge software."
                 />
                 <meta property="og:image" content="/open-graph.gif" />
                 <meta property="og:image:type" content="image/gif" />
