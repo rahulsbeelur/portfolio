@@ -4,7 +4,7 @@ import { Wrapper } from '../../modules/common/components/Wrapper';
 import { Download } from '../../icons/Download';
 import { getMDData } from '../../modules/common/utils/mdxUtils';
 import { MdxPaths } from '../../constant/paths';
-import { renderMDSection } from '../../modules/common/utils/mdxBundlerUtils';
+import { ResumeCard } from '../../modules/common/components/ResumeCard';
 
 const Resume = ({
     workExperience
@@ -12,7 +12,7 @@ const Resume = ({
     workExperience: { code: string; frontmatter: WorkExperience }[];
 }): JSX.Element => {
     return (
-        <Wrapper classes="bg-primary-background-color dark:bg-neutral-black-light">
+        <Wrapper classes="bg-primary-background-color dark:bg-neutral-black-light normal-case">
             <div className="mx-auto max-w-[2560px] desktop:mt-[138px] tablet:mt-[128px] mt-24">
                 <div className="flex justify-center mobile:justify-center">
                     <button
@@ -34,40 +34,14 @@ const Resume = ({
                 </div>
                 <div className="flex justify-center mt-10 text-neutral-black-darker">
                     <div className="w-[60%] tablet:w-[80%] mobile:w-full">
-                        <div className="desktop:sub-headline1 sub-headline2">Work Experience</div>
-                        {workExperience.map((experience) => (
-                            <div
-                                key={workExperience.indexOf(experience)}
-                                className="min-h-[250px] desktop:sub-headline3 sub-headline4 bg-white dark:bg-neutral-black-darker mt-5 p-3 rounded-lg shadow-[0_4px_8px_rgba(28,28,40)] dark:shadow-[0_4px_12px_rgba(80,80,78)] dark:text-white">
-                                <div className="flex mobile:flex-col justify-between sub-headline3 mobile:gap-0 gap-[100px]">
-                                    <div className="flex-col mt-10">
-                                        <div className="whitespace-nowrap body1 mobile:sub-headline3">
-                                            {experience.frontmatter.startDate} - {}
-                                            {experience.frontmatter.endDate
-                                                ? experience.frontmatter.endDate
-                                                : 'Present'}
-                                        </div>
-                                        <div>
-                                            <div className="sub-headline4 desktop:sub-headline3 whitespace-nowrap">
-                                                {experience.frontmatter.role}
-                                            </div>
-                                            <div className="flex body3 desktop:body1">
-                                                {experience.frontmatter.companyName}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>{renderMDSection(experience.code, 'ResumeLayout')}</div>
-                                </div>
-                            </div>
-                        ))}
-                        <div className="desktop:sub-headline1 sub-headline2 mt-20">Education</div>
-                        <div className="desktop:sub-headline3 sub-headline4 bg-white dark:bg-neutral-black-darker mt-5 p-3 rounded-lg shadow-[0_4px_8px_rgba(28,28,40)] dark:shadow-[0_4px_12px_rgba(80,80,78)] dark:text-white">
+                        <div className="h4 mobile:h5">Work Experience</div>
+                        {ResumeCard(workExperience)}
+                        {/* <div className="h4 mobile:h5 mt-[120px] mobile:mt-10">Education</div>
+                        {ResumeCard(workExperience)}
+                        <div className="h4 mobile:h5 mt-20">Languages</div>
+                        <div className="desktop:sub-headline3 sub-headline4 bg-white dark:bg-neutral-black-darker mt-5 p-3 shadow-[0_4px_8px_rgba(28,28,40)] dark:shadow-[0_4px_12px_rgba(80,80,78)] dark:text-white">
                             Card
-                        </div>
-                        <div className="desktop:sub-headline1 sub-headline2 mt-20">Languages</div>
-                        <div className="desktop:sub-headline3 sub-headline4 bg-white dark:bg-neutral-black-darker mt-5 p-3 rounded-lg shadow-[0_4px_8px_rgba(28,28,40)] dark:shadow-[0_4px_12px_rgba(80,80,78)] dark:text-white">
-                            Card
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
@@ -77,7 +51,7 @@ const Resume = ({
 
 export default Resume;
 
-interface WorkExperience {
+export interface WorkExperience {
     companyName: string;
     role: string;
     startDate: string;
