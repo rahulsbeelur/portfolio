@@ -75,7 +75,7 @@ const Home = ({
                         <div
                             key={category}
                             className="w-[40%] mx-auto flex flex-col p-4 mobile:w-full">
-                            <div className="flex flex-wrap flex-col p-4 rounded bg-primary-background-color-lighter dark:bg-neutral-black-lighter shadow-md shadow-neutral-black-default dark:shadow-md ">
+                            <div className="flex flex-wrap flex-col p-4 bg-primary-background-color-lighter dark:bg-neutral-black-lighter shadow-md shadow-neutral-black-default dark:shadow-md ">
                                 <p className="flex justify-center h5 mobile:sub-headline1 text-neutral-black-dark">
                                     {category === 'DevOps'
                                         ? category
