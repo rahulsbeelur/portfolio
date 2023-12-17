@@ -96,7 +96,7 @@ export const AppBar = (): JSX.Element => {
                             className={`relative flex w-full top-0 h-[100vh]  ${
                                 isOpen ? 'slide' : 'slide-out !h-0'
                             }  ${Theme.Light} dark:${Theme.Dark} desktop:hidden`}>
-                            <Wrapper classes="mobile:mt-10">
+                            <Wrapper>
                                 <aside
                                     className={`relative w-full flex flex-col top-0 items-center gap-2 py-0 px-4 desktop:hidden ${
                                         isOpen ? '' : 'hidden'

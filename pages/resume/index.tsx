@@ -29,6 +29,7 @@ const Resume = ({
                             height={30}
                             width={30}
                             className="mobile:w-5 mobile:h-5 tablet:w-6 tablet:h-6"
+                            onClick={(): void => console.log('clicked')}
                         />
                         <a
                             download="rahul-s-beelur-resume.pdf"
