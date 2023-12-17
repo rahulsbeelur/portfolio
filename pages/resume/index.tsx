@@ -13,6 +13,7 @@ const Resume = ({
     resume: {
         workExperience: { code: string; frontmatter: WorkExperience }[];
         education: { code: string; frontmatter: Education }[];
+        speakingLanguages: string[];
     };
 }): JSX.Element => {
     return (
@@ -36,20 +37,30 @@ const Resume = ({
                         />
                     </button>
                 </div>
-                <div className="flex justify-center mt-10 text-neutral-black-darker">
+                <div className="flex justify-center mobile:flex-col mt-10 text-neutral-black-darker">
                     <div className="w-[80%] tablet:w-[100%] mobile:w-full flex gap-10 mobile:flex-col">
                         <div className="w-[60%] mobile:w-full">
                             <div className="h4 mobile:h5">Work Experience</div>
                             {WorkExperienceCard(resume.workExperience)}
                         </div>
                         <div className="w-[30%] tablet:w-[40%] mobile:w-full">
-                            <div className="h4 mobile:h5 mobile:mt-10">Education</div>
-                            {EducationCard(resume.education)}
+                            <div>
+                                <div className="h4 mobile:h5 mobile:mt-10">Education</div>
+                                {EducationCard(resume.education)}
+                            </div>
+                            <div className="mt-10 desktop:mt-20">
+                                <div className="h4 mobile:h5">Languages</div>
+                                <div className="desktop:sub-headline3 sub-headline4 bg-white dark:bg-neutral-black-darker mt-5 p-3 shadow-[0_4px_8px_rgba(28,28,40)] dark:shadow-[0_4px_12px_rgba(80,80,78)] dark:text-white">
+                                    <div className="text-left flex flex-col">
+                                        {resume.speakingLanguages.map((language) => (
+                                            <div key={resume.speakingLanguages.indexOf(language)}>
+                                                {language}
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        {/* <div className="h4 mobile:h5 mt-20">Languages</div>
-                        <div className="desktop:sub-headline3 sub-headline4 bg-white dark:bg-neutral-black-darker mt-5 p-3 shadow-[0_4px_8px_rgba(28,28,40)] dark:shadow-[0_4px_12px_rgba(80,80,78)] dark:text-white">
-                            Card
-                        </div> */}
                     </div>
                 </div>
             </div>
@@ -76,11 +87,16 @@ export interface Education {
     course?: string;
 }
 
+export interface SpeakingLanguages {
+    languages: string[];
+}
+
 export const getStaticProps = async (): Promise<{
     props: {
         resume: {
             workExperience: { code: string; frontmatter: WorkExperience }[];
             education: { code: string; frontmatter: Education }[];
+            speakingLanguages: string[];
         };
     };
 }> => {
@@ -101,11 +117,15 @@ export const getStaticProps = async (): Promise<{
             return { code, frontmatter };
         })
     );
+    const speakingLanguages: { frontmatter: SpeakingLanguages } = await getMDData(
+        MdxPaths.SpeakingLanguages
+    );
     return {
         props: {
             resume: {
                 workExperience,
-                education
+                education,
+                speakingLanguages: speakingLanguages.frontmatter.languages
             }
         }
     };
