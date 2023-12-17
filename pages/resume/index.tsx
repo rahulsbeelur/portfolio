@@ -37,11 +37,15 @@ const Resume = ({
                     </button>
                 </div>
                 <div className="flex justify-center mt-10 text-neutral-black-darker">
-                    <div className="w-[60%] tablet:w-[80%] mobile:w-full">
-                        <div className="h4 mobile:h5">Work Experience</div>
-                        {WorkExperienceCard(resume.workExperience)}
-                        <div className="h4 mobile:h5 mt-[120px] mobile:mt-10">Education</div>
-                        {EducationCard(resume.education)}
+                    <div className="w-[80%] tablet:w-[100%] mobile:w-full flex gap-10 mobile:flex-col">
+                        <div className="w-[60%] mobile:w-full">
+                            <div className="h4 mobile:h5">Work Experience</div>
+                            {WorkExperienceCard(resume.workExperience)}
+                        </div>
+                        <div className="w-[30%] tablet:w-[40%] mobile:w-full">
+                            <div className="h4 mobile:h5 mobile:mt-10">Education</div>
+                            {EducationCard(resume.education)}
+                        </div>
                         {/* <div className="h4 mobile:h5 mt-20">Languages</div>
                         <div className="desktop:sub-headline3 sub-headline4 bg-white dark:bg-neutral-black-darker mt-5 p-3 shadow-[0_4px_8px_rgba(28,28,40)] dark:shadow-[0_4px_12px_rgba(80,80,78)] dark:text-white">
                             Card
