@@ -16,7 +16,7 @@ export const AppBar = (): JSX.Element => {
             <Link href="/">
                 <div className="flex desktop:flex-row desktop:gap-3 gap-0 flex-col">
                     <div className="flex flex-row gap-3">
-                        <div className="mt-auto mb-auto desktop:w-5 desktop:h-5 w-4 h-4 bg-primary-background-color dark:bg-neutral-black-light"></div>
+                        <div className="mt-auto mb-auto desktop:w-5 desktop:h-5 w-4 h-4 bg-[#696969]"></div>
                         <p className="desktop:h4 tablet:h5 h6 font-[700] mt-auto mb-auto whitespace-nowrap text-neutral-black-dark dark:text-neutral-white-light">
                             {personDetails.name}
                         </p>

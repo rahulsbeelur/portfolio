@@ -4,8 +4,8 @@ import { Wrapper } from '../../modules/common/components/Wrapper';
 import { Download } from '../../icons/Download';
 import { getMDData } from '../../modules/common/utils/mdxUtils';
 import { MdxPaths } from '../../constant/paths';
-import { WorkExperienceCard } from '../../modules/common/components/WorkExperienceCard';
-import { EducationCard } from '../../modules/common/components/EducationCard';
+import { WorkExperienceCard } from '../../modules/resume/components/WorkExperienceCard';
+import { EducationCard } from '../../modules/resume/components/EducationCard';
 
 const Resume = ({
     resume

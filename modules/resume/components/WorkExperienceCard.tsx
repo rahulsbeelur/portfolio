@@ -1,5 +1,5 @@
 import { WorkExperience } from '../../../pages/resume';
-import { renderMDSection } from '../utils/mdxBundlerUtils';
+import { renderMDSection } from '../../common/utils/mdxBundlerUtils';
 
 export const WorkExperienceCard = (
     content: { code: string; frontmatter: WorkExperience }[]
