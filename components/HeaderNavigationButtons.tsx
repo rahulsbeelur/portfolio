@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 export const navigationWithBlog = [
     { name: 'About Me', href: '/' },
     { name: 'Resume', href: '/resume' },
-    // { name: 'Projects', href: '/projects' },
+    { name: 'Projects', href: '/projects' },
     { name: 'Blog', href: '/blog' },
     { name: 'Contact', href: '/contact' }
 ];
@@ -12,7 +12,7 @@ export const navigationWithBlog = [
 export const navigationWithoutBlog = [
     { name: 'About Me', href: '/' },
     { name: 'Resume', href: '/resume' },
-    // { name: 'Projects', href: '/projects' },
+    { name: 'Projects', href: '/projects' },
     { name: 'Contact', href: '/contact' }
 ];
 

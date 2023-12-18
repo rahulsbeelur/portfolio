@@ -17,10 +17,10 @@ module.exports = {
         },
         screens: {
             desktop: {
-                min: process.env.NEXT_PUBLIC_BLOG_PAGE_PRESENT === 'on' ? '1111px' : '1044px'
+                min: process.env.NEXT_PUBLIC_BLOG_PAGE_PRESENT === 'on' ? '1111px' : '1078px'
             },
             tablet: {
-                max: process.env.NEXT_PUBLIC_BLOG_PAGE_PRESENT === 'on' ? '1111px' : '1044px',
+                max: process.env.NEXT_PUBLIC_BLOG_PAGE_PRESENT === 'on' ? '1111px' : '1078px',
                 min: process.env.NEXT_PUBLIC_BLOG_PAGE_PRESENT === 'on' ? '717px' : '700px'
             },
             mobile: { max: process.env.NEXT_PUBLIC_BLOG_PAGE_PRESENT === 'on' ? '717px' : '700px' }
