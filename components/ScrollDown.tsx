@@ -11,8 +11,6 @@ export const ScrollDown = (): JSX.Element => {
     }, []);
 
     const showButtonOnScroll = (): void => {
-        console.log(window.innerHeight, window.scrollY);
-        console.log(document.body.scrollHeight);
         if (window.innerHeight + window.scrollY - 100 < document.body.scrollHeight) {
             setScrollDown(true);
         } else {
