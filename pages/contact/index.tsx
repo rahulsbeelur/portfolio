@@ -160,7 +160,7 @@ const Contact: React.FC = () => {
 
                         <div className="flex items-center justify-center">
                             <button
-                                className="sub-headline2 mobile:sub-headline3 tablet:sub-headline2 bg-primary-background-color dark:bg-neutral-black-light  hover:bg-primary-background-color-darker hover:dark:bg-neutral-black-default p-3 px-10 rounded-lg shadow-[0_4px_8px_rgba(28,28,40)] dark:shadow-[0_4px_12px_rgba(80,80,78)] text-neutral-black-darker"
+                                className="sub-headline2 mobile:sub-headline3 tablet:sub-headline2 bg-primary-background-color dark:bg-[#A9A9A9]  hover:bg-primary-background-color-darker hover:dark:bg-neutral-black-default p-3 px-10 rounded-lg shadow-[0_4px_8px_rgba(28,28,40)] text-neutral-black-darker"
                                 type="submit">
                                 Submit
                             </button>

@@ -37,7 +37,7 @@ const Resume = ({
                         />
                     </button>
                 </div>
-                <div className="flex justify-center mobile:flex-col mt-10 text-neutral-black-darker">
+                <div className="flex justify-center mobile:flex-col mt-10 text-neutral-black-darker dark:text-neutral-white-darker">
                     <div className="w-[80%] tablet:w-[100%] mobile:w-full flex gap-10 mobile:flex-col">
                         <div className="w-[60%] mobile:w-full">
                             <div className="h4 mobile:h5">Work Experience</div>
@@ -45,7 +45,7 @@ const Resume = ({
                         </div>
                         <div className="w-[30%] tablet:w-[40%] mobile:w-full">
                             <div>
-                                <div className="h4 mobile:h5 mobile:mt-10">Education</div>
+                                <div className="h4 mobile:h5">Education</div>
                                 {EducationCard(resume.education)}
                             </div>
                             <div className="mt-10 desktop:mt-20">

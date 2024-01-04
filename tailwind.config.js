@@ -101,7 +101,7 @@ module.exports = {
             'neutral-black-darker': '#1C1C28',
             'neutral-black-dark': '#28293D',
             'neutral-black-default': '#555770',
-            'neutral-black-light': '#8E90A6',
+            'neutral-black-light': '#28293D',
             'neutral-black-lighter': '#C7C8D9',
 
             'neutral-white-darker': '#E3E4EB',

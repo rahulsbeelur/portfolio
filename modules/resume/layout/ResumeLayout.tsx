@@ -15,7 +15,7 @@ export const ResumeLayout: MDXComponents = {
     ),
     p: (props): JSX.Element => (
         <p
-            className="desktop:body1 body2 text-neutral-black-default flex dark:text-neutral-white-lighter mobile:text-neutral-black-dark mobile:mt-4"
+            className="desktop:body1 body2 text-neutral-black-default flex dark:text-neutral-white-darker mobile:text-neutral-black-dark mobile:mt-4"
             {...props}
         />
     ),
