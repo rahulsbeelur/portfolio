@@ -55,7 +55,7 @@ const Contact: React.FC = () => {
                                                 errors.name
                                                     ? 'border-semantic-error-darker '
                                                     : 'border-gray-300 dark:border-neutral-black-dark'
-                                            } rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-neutral-black-darker `}
+                                            } rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-neutral-white-default dark:bg-neutral-black-darker `}
                                             type="text"
                                             placeholder="Name"
                                         />
@@ -85,7 +85,7 @@ const Contact: React.FC = () => {
                                                 errors.email
                                                     ? 'border-semantic-error-darker '
                                                     : 'border-gray-300 dark:border-neutral-black-dark'
-                                            } rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-neutral-black-darker`}
+                                            } rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-neutral-white-default dark:bg-neutral-black-darker`}
                                             type="email"
                                             placeholder="Email"
                                         />
@@ -115,7 +115,7 @@ const Contact: React.FC = () => {
                                                 errors.subject
                                                     ? 'border-semantic-error-darker '
                                                     : 'border-gray-300 dark:border-neutral-black-dark'
-                                            } rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-neutral-black-darker`}
+                                            } rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none bg-neutral-white-default focus:shadow-outline dark:bg-neutral-black-darker`}
                                             type="text"
                                             placeholder="Subject"
                                         />
@@ -145,7 +145,7 @@ const Contact: React.FC = () => {
                                                 errors.message
                                                     ? 'border-semantic-error-darker '
                                                     : 'border-gray-300 dark:border-neutral-black-dark'
-                                            } rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-neutral-black-darker`}
+                                            } rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none bg-neutral-white-default focus:shadow-outline dark:bg-neutral-black-darker`}
                                             placeholder="Message"
                                         />
                                         {errors.message && (
