@@ -11,9 +11,9 @@ technologies:
     - fileName: snowflake
       title: Snowflake
       level: 4
-    - fileName: nodejs
-      title: NodeJs
-      level: 3
+    # - fileName: nodejs
+    #   title: NodeJs
+    #   level: 3
     # - fileName: postgresql
     #   title: PostgreSQL
     #   level: 2

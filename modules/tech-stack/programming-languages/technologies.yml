@@ -8,6 +8,6 @@ technologies:
     - fileName: python
       title: Python
       level: 4
-    - fileName: java
-      title: Java
-      level: 2
+    # - fileName: java
+    #   title: Java
+    #   level: 2
