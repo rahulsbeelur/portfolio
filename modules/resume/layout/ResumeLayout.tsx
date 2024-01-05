@@ -19,9 +19,7 @@ export const ResumeLayout: MDXComponents = {
             {...props}
         />
     ),
-    ul: (props): JSX.Element => (
-        <ul {...props} className="desktop:mt-4 flex flex-col gap-2 desktop:gap-4" />
-    ),
+    ul: (props): JSX.Element => <ul {...props} className="flex flex-col gap-2 desktop:gap-4" />,
     li: (props): JSX.Element => (
         <li
             className="desktop:body1 text-neutral-black-default dark:text-neutral-white-darker body2 list-disc ml-4"

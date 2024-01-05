@@ -31,7 +31,7 @@ export const HeaderNavigationButtons = ({
             ? [...navigationWithBlog]
             : [...navigationWithoutBlog];
     return (
-        <div className="mobile:mt-10 text-center flex mobile:flex-col gap-5 mobile:gap-0">
+        <div className="mobile:mt-10 text-center flex mobile:flex-col gap-5 mobile:gap-5">
             {navigationHeader.map((item) => (
                 <div
                     key={item.name}
