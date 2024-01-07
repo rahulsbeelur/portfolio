@@ -27,10 +27,10 @@ const Home = ({
                 <Wrapper classes="relative h-full">
                     <div className="pl-[22%] tablet:pl-[15%] py-[5%] mobile:p-0 mobile:justify-center flex flex-row mobile:flex-col h-full gap-10">
                         <div className="w-[40%] tablet:w-[50%] mobile:w-[100%] h-[50%] shadow-md shadow-neutral-black-default mobile:mt-[120px]">
-                            <div className="flex flex-col gap-6 bg-primary-background-color-lighter dark:bg-neutral-black-lighter text-neutral-black-darker p-10 text-center">
+                            <div className="flex flex-col gap-6 bg-primary-background-color-lighter dark:bg-neutral-black-default text-neutral-black-darker p-10 text-center">
                                 <div className="rounded-full overflow-hidden desktop:w-[200px] desktop:h-[200px] w-[150px] h-[150px] ml-auto mr-auto">
                                     <Image
-                                        src="/my-photo.jpeg"
+                                        src="/my-photo.gif"
                                         alt="personal image"
                                         width={1000}
                                         height={1000}
@@ -38,11 +38,11 @@ const Home = ({
                                         className="object-cover w-full"
                                     />
                                 </div>
-                                <p className="desktop:h5 tablet:h5 h5 font-[700] mt-auto mb-auto text-neutral-black-dark">
+                                <p className="desktop:h5 tablet:h5 h5 font-[700] mt-auto mb-auto text-neutral-black-dark dark:text-neutral-white-darker">
                                     {personDetails.name}
                                 </p>
-                                <div className="border border-1 text-neutral-black-dark w-[20%] ml-auto mr-auto"></div>
-                                <p className="desktop:sub-headline3 tablet:sub-headline4 mobile:hidden !font-[400] desktop:mt-auto !uppercase !tracking-[5px] text-neutral-black-dark ">
+                                <div className="border border-1 text-neutral-black-dark dark:text-neutral-white-darker w-[20%] ml-auto mr-auto"></div>
+                                <p className="dark:text-neutral-white-darker desktop:sub-headline3 tablet:sub-headline4 mobile:hidden !font-[400] desktop:mt-auto !uppercase !tracking-[5px] text-neutral-black-dark ">
                                     {personDetails.designation}
                                 </p>
                             </div>
@@ -75,8 +75,8 @@ const Home = ({
                         <div
                             key={category}
                             className="w-[40%] mx-auto flex flex-col p-4 mobile:w-full">
-                            <div className="flex flex-wrap flex-col p-4 bg-primary-background-color-lighter dark:bg-neutral-black-lighter shadow-md shadow-neutral-black-default dark:shadow-md ">
-                                <p className="flex justify-center h5 mobile:sub-headline1 text-neutral-black-dark">
+                            <div className="flex flex-wrap flex-col p-4 bg-primary-background-color-lighter dark:bg-neutral-black-default shadow-md shadow-neutral-black-default dark:shadow-md ">
+                                <p className="flex justify-center h5 mobile:sub-headline1 text-neutral-black-darker">
                                     {category === 'DevOps'
                                         ? category
                                         : headerCase(category).replace('-', ' ')}
@@ -93,7 +93,7 @@ const Home = ({
                                                 className="w-[60px] h-[60px] mx-auto"
                                                 alt="alt"
                                             />
-                                            <p className="mx-auto sub-headline4 text-neutral-black-dark mt-2">
+                                            <p className="mx-auto sub-headline4 text-neutral-black-darker mt-2">
                                                 {tech.title}
                                             </p>
                                             <div className="small4 text-black flex mx-auto">
