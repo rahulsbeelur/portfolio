@@ -30,7 +30,7 @@ const Home = ({
                             <div className="flex flex-col gap-6 bg-primary-background-color-lighter dark:bg-neutral-black-default text-neutral-black-darker p-10 text-center">
                                 <div className="rounded-full overflow-hidden desktop:w-[200px] desktop:h-[200px] w-[150px] h-[150px] ml-auto mr-auto">
                                     <Image
-                                        src="/my-photo.gif"
+                                        src="/my-photo.jpeg"
                                         alt="personal image"
                                         width={1000}
                                         height={1000}
