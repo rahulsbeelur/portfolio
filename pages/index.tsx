@@ -96,7 +96,7 @@ const Home = ({
                                             <p className="mx-auto sub-headline4 text-neutral-black-darker mt-2">
                                                 {tech.title}
                                             </p>
-                                            <div className="small4 text-black flex mx-auto">
+                                            {/* <div className="small4 text-black flex mx-auto">
                                                 {tech.level
                                                     ? tech.level > 4
                                                         ? '<Experienced/>'
@@ -104,7 +104,7 @@ const Home = ({
                                                         ? '<Skillful/>'
                                                         : '<Beginner/>'
                                                     : '<Beginner/>'}
-                                            </div>
+                                            </div> */}
                                         </div>
                                     ))}
                                 </div>
