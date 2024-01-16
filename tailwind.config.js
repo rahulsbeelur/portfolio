@@ -9,12 +9,7 @@ module.exports = {
     ],
     darkMode: 'class',
     theme: {
-        extend: {
-            boxShadow: {
-                '3xl': '0px 6px 12px -6px rgba(24, 39, 75, 0.12), 0px 8px 24px -4px rgba(24, 39, 75, 0.08)',
-                bottom: '0px 1px 0px #DDDEE5' //used in Blog cards
-            }
-        },
+
         screens: {
             desktop: {
                 min: process.env.NEXT_PUBLIC_BLOG_PAGE_PRESENT === 'on' ? '1111px' : '1078px'
@@ -26,14 +21,6 @@ module.exports = {
             mobile: { max: process.env.NEXT_PUBLIC_BLOG_PAGE_PRESENT === 'on' ? '717px' : '700px' }
         },
         colors: {
-            'linked-in-button': '#0A66C2',
-            'linked-in-button-hover': '#085098',
-            'linked-in-background': '#0A66C21A',
-            'linked-in-background-dark': '#0A66C280',
-            'twitter-button': '#1DA1F2',
-            'twitter-button-hover': '#0C80C9',
-            'twitter-background': '#1DA1F21A',
-            'twitter-background-dark': '#1DA1F280',
 
             'primary-dark': '#2090A5',
             'primary-darker': '#104853',
@@ -110,12 +97,6 @@ module.exports = {
             'neutral-white-light': '#FAFAFC',
             'neutral-white-lighter': '#FCFCFE',
             'complimentary-blue-tint': '#F3FBFD',
-            //top-bottom-color is used in the work section cards to have top and bottom border lines
-            'top-bottom-color': '#DDDEE5',
-            // dark-xl color is used in tech stack cards in services page for hover shadow color in dark mode
-            'dark-xl': 'rgba(210, 210, 210, 0.25)',
-            'modal-bg': 'rgba(0,0,0,0.6)',
-            'outline-light-200': '#E5E5EA',
 
             black: '#000000',
             white: '#FFFFFF'
@@ -136,11 +117,6 @@ module.exports = {
             '0.3px': '0.3px',
             '0.5px': '0.5px',
             '1.5px': '1.5px'
-        },
-        // z-index is used in other components, which may look broken when that component is over a sidebar or appbar.
-        //  Hence a z-index with value 9999 is added to make sure the sidebar and appbar always stays on top of the page.
-        zIndex: {
-            max: '9999'
         }
     }
 };
