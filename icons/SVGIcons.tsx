@@ -1,7 +1,6 @@
 import React from 'react';
 import { LinkedIn } from './LinkedIn';
 import { Twitter } from './Twitter';
-import { Download } from './Download';
 import { Github } from './Github';
 import { Mail } from './Mail';
 import { UpArrow } from './UpArrow';
@@ -41,8 +40,6 @@ export const SVGIcons = ({
             return <Github height={iconHeight} width={iconWidth} className={className} />;
         case 'mail':
             return <Mail height={iconHeight} width={iconWidth} className={className} />;
-        case 'download':
-            return <Download height={iconHeight} width={iconWidth} className={className} />;
         case 'up-arrow':
             return <UpArrow height={iconHeight} width={iconWidth} className={className} />;
         case 'resume':

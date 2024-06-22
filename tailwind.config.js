@@ -9,7 +9,6 @@ module.exports = {
     ],
     darkMode: 'class',
     theme: {
-
         screens: {
             desktop: {
                 min: process.env.NEXT_PUBLIC_BLOG_PAGE_PRESENT === 'on' ? '1111px' : '1078px'
@@ -21,7 +20,6 @@ module.exports = {
             mobile: { max: process.env.NEXT_PUBLIC_BLOG_PAGE_PRESENT === 'on' ? '717px' : '700px' }
         },
         colors: {
-
             'primary-dark': '#2090A5',
             'primary-darker': '#104853',
             'primary-default': '#4CC5DC',

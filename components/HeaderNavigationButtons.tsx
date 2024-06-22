@@ -5,15 +5,13 @@ export const navigationWithBlog = [
     { name: 'About Me', href: '/' },
     { name: 'Resume', href: '/resume' },
     { name: 'Projects', href: '/projects' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Contact', href: '/contact' }
+    { name: 'Blog', href: '/blog' }
 ];
 
 export const navigationWithoutBlog = [
     { name: 'About Me', href: '/' },
     { name: 'Resume', href: '/resume' },
-    { name: 'Projects', href: '/projects' },
-    { name: 'Contact', href: '/contact' }
+    { name: 'Projects', href: '/projects' }
 ];
 
 const isNavigationButtonActive = (pathname: string, href: string): boolean => {
