@@ -136,88 +136,8 @@
         @apply font-robotoMono text-[14px] font-[400] not-italic leading-7 tracking-0.3px;
     }
 
-    .button1 {
-        @apply font-lato text-[16px] font-[700] capitalize not-italic leading-[24px] tracking-0.5px;
-    }
-
-    .button2 {
-        @apply font-lato text-[14px] font-[700] capitalize not-italic leading-[20px] tracking-0.5px;
-    }
-
-    .button3 {
-        @apply font-lato text-[12px] font-[700] capitalize not-italic leading-[16px] tracking-0.5px;
-    }
-
-    .caption1 {
-        @apply font-lato text-[12px] font-[400] not-italic leading-[16px] tracking-0.3px;
-    }
-
-    .caption2 {
-        @apply font-lato text-[10px] font-[400] not-italic leading-[12px] tracking-0.3px;
-    }
-
-    .overline1 {
-        @apply font-lato text-[12px] font-[400] uppercase not-italic leading-[16px] tracking-1.5px;
-    }
-
-    .overline2 {
-        @apply font-lato text-[10px] font-[400] uppercase not-italic leading-[12px] tracking-1.5px;
-    }
-
-    .contained-button {
-        @apply bg-primary-dark text-neutral-white-lighter hover:bg-primary-darker disabled:bg-neutral-white-darker disabled:dark:bg-neutral-black-default disabled:text-neutral-black-light;
-    }
-
-    .outlined-button {
-        @apply border border-solid border-primary-dark dark:hover:text-primary-lighter dark:hover:border-primary-lighter text-primary-dark hover:border hover:border-primary-darker hover:text-primary-darker disabled:border-neutral-black-lighter disabled:text-neutral-black-lighter;
-    }
-
-    .text-button {
-        @apply border-none text-primary-dark dark:hover:text-primary-lighter dark:text-primary-default hover:text-primary-darker disabled:text-neutral-black-lighter;
-    }
-
-    .button-large {
-        @apply flex gap-2 py-3 px-4 button1;
-    }
-    .button-medium {
-        @apply flex gap-[6px] py-[10px] px-[14px] button2;
-    }
-    .button-small {
-        @apply flex gap-[6px] py-2 px-3 button3;
-    }
-
-    .chip-large {
-        @apply flex gap-[6px] py-[10px] px-[14px];
-    }
-    .chip-medium {
-        @apply flex gap-[6px] py-2 px-3;
-    }
-
-    .chip-small {
-        @apply flex gap-[6px] py-[2px] px-3;
-    }
-
-    .chip-large {
-        @apply flex gap-[6px] py-[10px] px-[14px];
-    }
-    .chip-medium {
-        @apply flex gap-[6px] py-2 px-3;
-    }
-
-    .chip-small {
-        @apply flex gap-[6px] py-[2px] px-3;
-    }
-
     button {
         @apply flex flex-row items-center justify-center gap-2 rounded;
-    }
-
-    .contained-chip-button {
-        @apply rounded-[120px] bg-primary-dark text-neutral-white-light hover:bg-primary-darker dark:hover:text-neutral-black-dark dark:hover:bg-primary-default disabled:border-primary-dark disabled:dark:bg-neutral-black-default dark:disabled:text-neutral-white-light;
-    }
-
-    .outlined-chip-button {
-        @apply border-2 rounded-[120px] border-primary-dark text-primary-dark hover:border-primary-darker hover:text-primary-darker dark:hover:border-primary-default dark:hover:text-primary-default;
     }
 
     .slide {
@@ -228,21 +148,7 @@
         @apply top-[-500px] duration-300 ease-in-out;
     }
 
-    .text-field-large {
-        @apply outline outline-1 hover:outline-[1.5px] focus:outline-[2px] outline-neutral-black-light focus:outline-primary-default hover:outline-primary-default py-3 px-[14px] rounded body2;
-    }
-
-    .text-field-medium {
-        @apply outline outline-1 outline-neutral-black-light focus:outline-[2px] focus:outline-primary-default hover:outline-primary-default py-[10px] px-3 rounded body3;
-    }
     .no-scrollbar::-webkit-scrollbar {
         @apply hidden;
     }
-}
-
-/* These values prevents carousel from collapsing when slidesToShow > number of slides  */
-.slick-track,
-.slick-list {
-    width: 100%;
-    min-width: 100%;
 }
