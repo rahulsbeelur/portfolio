@@ -7,6 +7,7 @@ import { Footer } from '../components/Footer';
 import { BackToTopButton } from '../components/BackToTopButton';
 import { MobileFooter } from '../components/MobileFooter';
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 interface LayoutProps {
     children: ReactNode;
@@ -24,9 +25,9 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
             </Head>
             <AppBar />
             <BackToTopButton />
-            {/* <ScrollDown /> */}
             {children}
             <Analytics />
+            <SpeedInsights />
             <Footer />
             <MobileFooter />
         </>
