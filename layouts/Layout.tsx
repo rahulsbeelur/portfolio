@@ -6,8 +6,8 @@ import { AppBar } from '../components/AppBar';
 import { Footer } from '../components/Footer';
 import { BackToTopButton } from '../components/BackToTopButton';
 import { MobileFooter } from '../components/MobileFooter';
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 interface LayoutProps {
     children: ReactNode;
