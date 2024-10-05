@@ -24,7 +24,7 @@ export const ProjectCard = ({
             {projects.map((project) => (
                 <Link
                     key={projects.indexOf(project)}
-                    href={project.frontmatter.deployedLink}
+                    href={(project.frontmatter?.deployedLink ?? project.frontmatter.gitHubLink) ?? ''}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={project.frontmatter.projectName}
@@ -58,7 +58,7 @@ export const ProjectCard = ({
                                     {project.frontmatter.summary}
                                 </div>
                                 <button className="flex mx-auto rounded-lg shadow-[0_4px_8px_rgba(28,28,40)] hover:bg-primary-background-color-darker hover:dark:bg-neutral-black-default dark:shadow-none w-[40%] h-[40px] bg-primary-background-color dark:bg-[#A9A9A9] sub-headline2 text-neutral-black-darker mobile:mb-8">
-                                    Deployment
+                                {(project.frontmatter?.deployedLink ? 'Deployment' : 'GitHub Repo')}
                                 </button>
                             </div>
                         </div>
