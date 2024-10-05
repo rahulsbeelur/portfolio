@@ -30,9 +30,10 @@ export default Projects;
 export interface Project {
     projectName: string;
     techStack: string[];
-    deployedLink: string;
     summary: string;
     image: string;
+    deployedLink?: string;
+    gitHubLink?: string;
 }
 
 export const getStaticProps = async (): Promise<{
