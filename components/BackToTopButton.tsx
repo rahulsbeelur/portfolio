@@ -35,10 +35,10 @@ export const BackToTopButton = (): JSX.Element => {
                             src: 'up-arrow',
                             width: 12,
                             height: 12,
-                            className: 'text-neutral-black-default dark:text-neutral-white-darker',
+                            className: 'text-foreground',
                             position: 'left'
                         }}
-                        classes="bg-primary-background-color hover:bg-primary-background-color-darker dark:bg-neutral-black-default hover:dark:bg-neutral-black-light p-3 rounded-lg shadow-[0_4px_8px_rgba(28,28,40)]"
+                        classes="bg-surface border dev-divider hover:text-accent p-3 rounded-lg shadow-[var(--shadow)]"
                         onClick={scrollToTop}
                         ariaLabel="Back to top button"
                     />

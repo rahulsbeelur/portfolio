@@ -1,5 +1,5 @@
 import React, { createContext, ReactNode, useEffect, useState } from 'react';
-import { getValueFromLocalStorage, setValueToLocalStorage } from './utils';
+import { setValueToLocalStorage } from './utils';
 
 const themeKey = 'theme';
 export enum Theme {
@@ -11,11 +11,6 @@ export enum ThemeColors {
     DarkMode = '#1C1C28',
     LightMode = '#FFFFFF'
 }
-
-const defaultTheme =
-    typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches
-        ? Theme.Dark
-        : Theme.Light;
 
 export interface ThemeContextData {
     changeTheme: (theme: Theme) => void;
@@ -31,33 +26,44 @@ export const ThemeContext = createContext<ThemeContextData>({
     isDarkTheme: false
 });
 
-export const ThemeProvider = ({ children }: ThemeProviderProps): JSX.Element => {
-    const preferedTheme = getValueFromLocalStorage(themeKey, defaultTheme);
-    const [isDarkTheme, setIsDarkTheme] = useState(false);
+const getInitialTheme = (): Theme => {
+    if (typeof window === 'undefined') {
+        return Theme.Light;
+    }
 
-    const changeTheme = (theme: Theme): void => {
-        const bodyClassList = document.querySelector('body')?.classList;
-        document.body.style.background =
-            theme === Theme.Dark ? ThemeColors.DarkMode : ThemeColors.LightMode;
-        if (theme === Theme.Dark) {
-            bodyClassList?.add('dark');
-            setValueToLocalStorage(themeKey, Theme.Dark);
-            setIsDarkTheme(true);
-        } else if (theme === Theme.Light) {
-            bodyClassList?.remove('dark');
-            setValueToLocalStorage(themeKey, Theme.Light);
-            setIsDarkTheme(false);
-        }
+    const storedTheme = window.localStorage.getItem(themeKey);
+    if (storedTheme === Theme.Dark || storedTheme === Theme.Light) {
+        return storedTheme;
+    }
+
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? Theme.Dark : Theme.Light;
+};
+
+const applyThemeClass = (theme: Theme): void => {
+    if (typeof document === 'undefined') {
+        return;
+    }
+
+    const isDark = theme === Theme.Dark;
+    document.documentElement.classList.toggle(Theme.Dark, isDark);
+    document.body.classList.toggle(Theme.Dark, isDark);
+    document.documentElement.style.colorScheme = isDark ? Theme.Dark : Theme.Light;
+};
+
+export const ThemeProvider = ({ children }: ThemeProviderProps): JSX.Element => {
+    const [theme, setTheme] = useState<Theme>(getInitialTheme);
+    const isDarkTheme = theme === Theme.Dark;
+
+    const changeTheme = (nextTheme: Theme): void => {
+        applyThemeClass(nextTheme);
+        setValueToLocalStorage(themeKey, nextTheme);
+        setTheme(nextTheme);
     };
 
     useEffect(() => {
-        if (preferedTheme !== Theme.Light) {
-            document.querySelector('body')?.classList.add(Theme.Dark);
-            setIsDarkTheme(true);
-        }
-        document.body.style.background =
-            preferedTheme === Theme.Dark ? ThemeColors.DarkMode : ThemeColors.LightMode;
-    }, []);
+        applyThemeClass(theme);
+        setValueToLocalStorage(themeKey, theme);
+    }, [theme]);
 
     return (
         <ThemeContext.Provider

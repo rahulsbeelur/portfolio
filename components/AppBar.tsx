@@ -14,19 +14,15 @@ export const AppBar = (): JSX.Element => {
     const NameBanner = (): JSX.Element => {
         return (
             <Link href="/">
-                <div className="flex desktop:flex-row desktop:gap-3 gap-0 flex-col">
-                    <div className="flex flex-row gap-3">
-                        <div className="mt-auto mb-auto desktop:w-5 desktop:h-5 w-4 h-4 bg-[#696969]"></div>
-                        <p className="desktop:h4 tablet:h5 h6 font-[700] mt-auto mb-auto whitespace-nowrap text-neutral-black-dark dark:text-neutral-white-light">
-                            {personDetails.name}
+                <div className="flex items-center gap-3">
+                    <div className="flex flex-col">
+                        <p className="whitespace-nowrap font-robotoMono text-[18px] font-[700] leading-6 tracking-0 text-foreground">
+                            rahul.sb
+                        </p>
+                        <p className="font-robotoMono text-[10px] uppercase tracking-[0.28em] text-muted">
+                            {personDetails.designation}
                         </p>
                     </div>
-                    <p className="desktop:sub-headline2 sub-headline3 !font-[400] desktop:mt-auto desktop:!leading-[50px] whitespace-nowrap tablet:hidden mobile:hidden">
-                        /
-                    </p>
-                    <p className="desktop:sub-headline2 tablet:sub-headline3 mobile:sub-headline4 !font-[400] desktop:mt-auto desktop:!leading-[50px] !uppercase !tracking-1.5px whitespace-nowrap text-neutral-black-dark dark:text-neutral-white-light">
-                        {personDetails.designation}
-                    </p>
                 </div>
             </Link>
         );
@@ -51,7 +47,7 @@ export const AppBar = (): JSX.Element => {
     }, [isOpen]);
 
     return (
-        <div className="fixed z-[999] w-full top-0 z-max bg-white dark:bg-neutral-black-darker">
+        <div className="fixed top-0 z-[999] z-max w-full border-b dev-divider bg-[var(--nav-bg)] backdrop-blur-xl">
             <Wrapper>
                 <div className="flex mobile:flex-row">
                     <div
@@ -79,7 +75,7 @@ export const AppBar = (): JSX.Element => {
                                     {NameBanner()}
                                 </div>
 
-                                <div className="flex flex-row justify-end dark:text-neutral-white-lighter">
+                                <div className="flex flex-row justify-end">
                                     <div className="mt-auto mb-auto mr-2">
                                         <ThemeSwitcher />
                                     </div>

@@ -7,32 +7,28 @@ import Link from 'next/link';
 export const Footer = (): JSX.Element => {
     return (
         <div className="mobile:hidden">
-            <div className="border-t-[1px] border-neutral-black-dark dark:border-neutral-black-light max-w-[2560px] mx-auto"></div>
+            <div className="border-t dev-divider"></div>
             <Wrapper>
-                <div className="flex justify-between">
-                    <div className="flex flex-col gap-2 w-fit">
-                        <p className="sub-headline3 tablet:sub-headline2 desktop:sub-headline1 mobile:mx-0 flex justify-center">
-                            Get In Touch
+                <div className="flex desktop:flex-row flex-col justify-between items-start gap-6 py-10">
+                    <div className="space-y-3">
+                        <p className="sub-headline3 text-foreground">
+                            Let’s build with clarity and confidence.
                         </p>
-                        <div className="flex gap-6">
+                        <div className="flex gap-4">
                             <SocialHandles />
                         </div>
                     </div>
-                    <div className="mt-auto h7 tablet:small4 !leading-[44px] mobile:mx-auto mobile:body3 mb-[-30px]">
-                        &copy; 2023 {personDetails.name}. All rights reserved.
-                    </div>
-                    <Link
-                        href={`mailto:srahulbeelur@gmail.com?`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="mail">
-                        <p className="sub-headline3 tablet:sub-headline2 desktop:sub-headline1 mobile:mx-0 flex desktop:justify-center tablet:justify-center">
-                            Write
-                        </p>
-                        <p className="mobile:body1 h7 mt-auto desktop:!leading-[44px] tablet:!leading-[44px]">
+                    <div className="space-y-2 text-right">
+                        <p className="small2 text-muted">&copy; 2026 {personDetails.name}</p>
+                        <Link
+                            href={`mailto:srahulbeelur@gmail.com?`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="mail"
+                            className="text-sm text-accent hover:underline">
                             {personDetails.mailId}
-                        </p>
-                    </Link>
+                        </Link>
+                    </div>
                 </div>
             </Wrapper>
         </div>

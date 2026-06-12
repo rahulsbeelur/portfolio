@@ -2,16 +2,16 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 export const navigationWithBlog = [
-    { name: 'About Me', href: '/' },
+    { name: 'Profile', href: '/' },
     { name: 'Resume', href: '/resume' },
-    { name: 'Projects', href: '/projects' },
+    { name: 'Work', href: '/projects' },
     { name: 'Blog', href: '/blog' }
 ];
 
 export const navigationWithoutBlog = [
-    { name: 'About Me', href: '/' },
+    { name: 'Profile', href: '/' },
     { name: 'Resume', href: '/resume' },
-    { name: 'Projects', href: '/projects' }
+    { name: 'Work', href: '/projects' }
 ];
 
 const isNavigationButtonActive = (pathname: string, href: string): boolean => {
@@ -29,7 +29,7 @@ export const HeaderNavigationButtons = ({
             ? [...navigationWithBlog]
             : [...navigationWithoutBlog];
     return (
-        <div className="mobile:mt-10 text-center flex mobile:flex-col gap-5 mobile:gap-5">
+        <div className="mobile:mt-10 text-center flex mobile:flex-col gap-3 mobile:gap-5">
             {navigationHeader.map((item) => (
                 <div
                     key={item.name}
@@ -39,12 +39,11 @@ export const HeaderNavigationButtons = ({
                         }
                     }}>
                     <Link
-                        className={`sub-headline2 tablet:sub-headline3 mobile:h5 mobile:!text-[20px] !uppercase mt-auto desktop:!leading-[52px] ${
+                        className={`btn-nav ${
                             isNavigationButtonActive(pathname, item.href)
-                                ? 'dark:text-neutral-white-light'
-                                : 'text-neutral-black-lighter dark:text-neutral-black-default'
-                        }
-                       `}
+                                ? 'active'
+                                : 'opacity-80 hover:opacity-100'
+                        }`}
                         aria-label={item.name}
                         href={item.href}>
                         {item.name}

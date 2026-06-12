@@ -1,6 +1,7 @@
 import fs from 'fs';
 import React from 'react';
 import { Wrapper } from '../../modules/common/components/Wrapper';
+import { SEO } from '../../modules/common/components/SEO';
 import { ProjectCard } from '../../modules/projects/components/ProjectCard';
 import { getMDData } from '../../modules/common/utils/mdxUtils';
 import { MdxPaths } from '../../constant/paths';
@@ -11,14 +12,21 @@ const Projects = ({
     projects: { code: string; frontmatter: Project }[];
 }): JSX.Element => {
     return (
-        <Wrapper classes="bg-primary-background-color dark:bg-neutral-black-light normal-case">
-            <div className="mx-auto max-w-[2560px] desktop:mt-[138px] tablet:mt-[128px] mt-24 h5">
-                <div className="flex justify-center">
-                    <div className="mt-auto mb-auto desktop:w-5 desktop:h-5 w-4 h-4 bg-[#696969]"></div>
-                    <div className="text-center ml-2 text-neutral-black-darker dark:text-neutral-white-darker">
-                        Projects
-                    </div>
-                </div>
+        <Wrapper classes="engineer-grid normal-case">
+            <SEO
+                title="Projects | Rahul S Beelur"
+                description="Selected projects by Rahul S Beelur, including product interfaces, full-stack builds, and implementation details across React, Next.js, Python, and Node.js."
+                path="/projects"
+            />
+            <div className="mx-auto max-w-[1180px] desktop:mt-[138px] tablet:mt-[128px] mt-24 py-8">
+                <header className="mb-10 max-w-3xl">
+                    <p className="font-robotoMono text-sm text-accent">git log --projects</p>
+                    <h1 className="desktop:h2 h4 mt-2 text-foreground">Projects that show how I build.</h1>
+                    <p className="body1 mt-4 text-foreground/75">
+                        Selected work with the stack, constraints, and implementation choices visible
+                        instead of hidden behind a sales pitch.
+                    </p>
+                </header>
                 {ProjectCard({ projects })}
             </div>
         </Wrapper>
