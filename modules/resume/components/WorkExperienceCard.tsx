@@ -5,42 +5,34 @@ export const WorkExperienceCard = (
     content: { code: string; frontmatter: WorkExperience }[]
 ): JSX.Element => {
     return (
-        <div className="flex flex-col gap-5">
-            {content.map((experience, index) => (
+        <>
+            {content.map((experience) => (
                 <div
-                    key={`${experience.frontmatter.companyName}-${experience.frontmatter.role}`}
-                    className="repo-card rounded-2xl p-5 text-foreground">
-                    <div className="flex mobile:flex-col gap-8">
-                        <div className="flex w-[32%] mobile:w-full flex-col gap-4">
-                            <div className="flex items-center gap-3">
-                                <span className="flex h-8 w-8 items-center justify-center rounded-xl border dev-divider bg-surface font-robotoMono text-xs text-accent">
-                                    {String(index + 1).padStart(2, '0')}
-                                </span>
-                                <div className="font-robotoMono text-xs text-muted">
-                                    work.commit
-                                </div>
-                            </div>
-                            <div className="whitespace-nowrap body2 text-foreground/80">
+                    key={content.indexOf(experience)}
+                    className="mx-auto bg-white dark:bg-neutral-black-darker my-5 p-3 shadow-[0_4px_8px_rgba(28,28,40)] dark:shadow-[0_4px_12px_rgba(80,80,78)] dark:text-neutral-white-darker">
+                    <div className="flex mobile:flex-col desktop:justify-between tablet:justify-between mobile:gap-0 gap-[100px] tablet:gap-[40px]">
+                        <div className="flex-col w-[30%] mobile:w-full">
+                            <div className="whitespace-nowrap body1 mobile:sub-headline3">
                                 {experience.frontmatter.startDate} - {}
                                 {experience.frontmatter.endDate
                                     ? experience.frontmatter.endDate
                                     : 'Present'}
                             </div>
                             <div>
-                                <div className="sub-headline2 text-foreground">
+                                <div className="w-[100%] sub-headline4 desktop:sub-headline3">
                                     {experience.frontmatter.role}
                                 </div>
-                                <div className="body2 text-muted">
+                                <div className="flex body3 desktop:body1">
                                     {experience.frontmatter.companyName}
                                 </div>
                             </div>
                         </div>
-                        <div className="w-[68%] mobile:w-full tablet:w-full">
+                        <div className="w-[70%] mobile:w-full tablet:w-full">
                             {renderMDSection(experience.code, 'ResumeLayout')}
                         </div>
                     </div>
                 </div>
             ))}
-        </div>
+        </>
     );
 };

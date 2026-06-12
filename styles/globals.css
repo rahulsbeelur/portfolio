@@ -5,51 +5,97 @@
 #__next {
     height: 100vh;
 }
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@400;600;700&display=swap');
+
+@font-face {
+    font-family: 'Lato';
+    font-weight: 400;
+    src: url('/Lato-Regular.ttf');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lato';
+    font-weight: 700;
+    src: url('/Lato-Bold.ttf');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-weight: 400;
+    src: url('/Poppins-Regular.ttf');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-weight: 600;
+    src: url('/Poppins-Bold.ttf');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-weight: 700;
+    src: url('/Poppins-SemiBold.ttf');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto Mono';
+    src: url('/RobotoMono-Regular.ttf');
+    font-display: swap;
+}
 
 :root {
-    --bg: #F4F6F8;
-    --surface: rgba(255, 255, 255, 0.72);
-    --text: #1C2127;
-    --primary: #3B4958;
-    --muted: #5F6B7C;
-    --accent: #76A99A;
-    --card: rgba(255, 255, 255, 0.82);
-    --border: rgba(28, 33, 39, 0.1);
-    --soft-border: rgba(28, 33, 39, 0.07);
-    --code-bg: rgba(240, 242, 245, 0.68);
-    --nav-bg: rgba(240, 242, 245, 0.9);
-    --panel-bg: rgba(255, 255, 255, 0.52);
-    --shadow: none;
-    --grid-line: rgba(28, 33, 39, 0.07);
-    --grid-accent-a: rgba(118, 169, 154, 0.06);
-    --grid-accent-b: rgba(95, 107, 124, 0.05);
+    --bg: #F7F8FB;
+    --surface: rgba(255, 255, 255, 0.82);
+    --surface-rgb: 255 255 255;
+    --text: #101828;
+    --text-rgb: 16 24 40;
+    --primary: #2563EB;
+    --muted: #667085;
+    --muted-rgb: 102 112 133;
+    --accent: #0F766E;
+    --accent-rgb: 15 118 110;
+    --card: rgba(255, 255, 255, 0.92);
+    --border: rgba(16, 24, 40, 0.12);
+    --soft-border: rgba(16, 24, 40, 0.08);
+    --code-bg: rgba(247, 248, 251, 0.94);
+    --nav-bg: rgba(255, 255, 255, 0.88);
+    --shadow: 0 18px 50px rgba(16, 24, 40, 0.09);
+    --grid-line: rgba(16, 24, 40, 0.07);
+    --grid-accent-a: rgba(15, 118, 110, 0.08);
+    --grid-accent-b: rgba(37, 99, 235, 0.08);
 }
 
 .dark {
-    --bg: #111417;
-    --surface: rgba(24, 29, 34, 0.78);
-    --text: #EEF2F5;
-    --primary: #B7C2CE;
-    --muted: #9CA8B4;
-    --accent: #76A99A;
-    --card: rgba(17, 20, 23, 0.86);
+    --bg: #050816;
+    --surface: rgba(13, 19, 36, 0.82);
+    --surface-rgb: 13 19 36;
+    --text: #E6EEF8;
+    --text-rgb: 230 238 248;
+    --primary: #8B5CF6;
+    --muted: #9AA8BC;
+    --muted-rgb: 154 168 188;
+    --accent: #2DD4BF;
+    --accent-rgb: 45 212 191;
+    --card: rgba(7, 12, 24, 0.9);
     --border: rgba(255, 255, 255, 0.1);
     --soft-border: rgba(255, 255, 255, 0.075);
-    --code-bg: rgba(18, 24, 29, 0.74);
-    --nav-bg: rgba(17, 20, 23, 0.88);
-    --panel-bg: rgba(17, 20, 23, 0.62);
-    --shadow: none;
-    --grid-line: rgba(238, 242, 245, 0.075);
-    --grid-accent-a: rgba(118, 169, 154, 0.08);
-    --grid-accent-b: rgba(183, 194, 206, 0.05);
+    --code-bg: rgba(3, 7, 18, 0.66);
+    --nav-bg: rgba(7, 12, 24, 0.84);
+    --shadow: 0 20px 70px rgba(0, 0, 0, 0.32);
+    --grid-line: rgba(148, 163, 184, 0.08);
+    --grid-accent-a: rgba(45, 212, 191, 0.08);
+    --grid-accent-b: rgba(139, 92, 246, 0.11);
 }
 
 body {
-    font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    font-family: Lato, Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     min-height: 100vh;
     background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.72) 0%, rgba(244, 246, 248, 0.92) 44%, var(--bg) 100%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, rgba(247, 248, 251, 0.94) 42%, var(--bg) 100%),
         var(--bg);
     color: var(--text);
     -webkit-font-smoothing: antialiased;
@@ -91,7 +137,6 @@ body {
         @apply text-[14px] font-poppins font-basic not-italic leading-[24px];
     }
 
-
     .sub-headline1 {
         @apply font-inter text-[22px] font-[700] capitalize not-italic leading-[32px] tracking-0.1px;
     }
@@ -125,19 +170,19 @@ body {
     }
 
     .small1 {
-        @apply font-inter text-[16px] font-[600] not-italic leading-[28px] tracking-0.3px;
+        @apply font-lato text-[16px] font-[600] not-italic leading-[28px] tracking-0.3px;
     }
 
     .small2 {
-        @apply font-inter text-[14px] font-[600] not-italic leading-[24px] tracking-0.3px;
+        @apply font-lato text-[14px] font-[600] not-italic leading-[24px] tracking-0.3px;
     }
 
     .small3 {
-        @apply font-inter text-[12px] font-[600] not-italic leading-[20px] tracking-0.3px;
+        @apply font-lato text-[12px] font-[600] not-italic leading-[20px] tracking-0.3px;
     }
 
     .small4 {
-        @apply font-inter text-[10px] font-[600] not-italic leading-[16px] tracking-0.3px;
+        @apply font-lato text-[10px] font-[600] not-italic leading-[16px] tracking-0.3px;
     }
 
     .table-of-contents {
@@ -187,19 +232,20 @@ body {
     }
 
     .btn-nav {
-        @apply inline-flex items-center justify-center gap-2 px-2 py-1 font-robotoMono text-[13px] font-[400] uppercase tracking-[0.18em] transition-all duration-200;
-        background: transparent;
-        color: var(--muted);
-        border: 1px solid transparent;
+        @apply inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-[13px] font-[600] normal-case transition-all duration-200;
+        background: var(--surface);
+        color: var(--text);
+        border: 1px solid var(--soft-border);
     }
 
     .btn-nav:hover {
-        color: var(--text);
+        background: color-mix(in srgb, var(--accent), transparent 92%);
+        border-color: color-mix(in srgb, var(--accent), transparent 72%);
     }
 
     .btn-nav.active {
-        background: transparent;
-        border-color: transparent;
+        background: color-mix(in srgb, var(--accent), transparent 87%);
+        border-color: color-mix(in srgb, var(--accent), transparent 58%);
         color: var(--text);
     }
 
@@ -207,32 +253,6 @@ body {
         color: var(--accent) !important;
     }
 
-    .btn-primary {
-        @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 font-[600];
-        background: linear-gradient(135deg, #8B5CF6 0%, #2DD4BF 100%);
-        color: #041016;
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        box-shadow: 0 14px 34px rgba(45, 212, 191, 0.14);
-        transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
-    }
-
-    .btn-primary:hover {
-        transform: translateY(-2px);
-        filter: brightness(0.97);
-        box-shadow: 0 10px 28px rgba(2,6,23,0.08);
-    }
-
-    .btn-primary:active {
-        transform: translateY(0);
-        box-shadow: 0 6px 12px rgba(2,6,23,0.06);
-    }
-
-    .btn-primary:focus {
-        outline: none;
-        box-shadow: 0 0 0 5px rgba(79,70,229,0.12);
-    }
-
-    /* Semantic utilities to avoid hard-coded neutral classes */
     .text-foreground {
         color: var(--text) !important;
     }
@@ -245,10 +265,6 @@ body {
         background: var(--surface) !important;
     }
 
-    .border-surface {
-        border-color: var(--soft-border) !important;
-    }
-
     .text-primary {
         color: var(--primary) !important;
     }
@@ -259,7 +275,7 @@ body {
             linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
             linear-gradient(135deg, var(--grid-accent-a), transparent 34%),
             linear-gradient(315deg, var(--grid-accent-b), transparent 38%);
-        background-size: 40px 40px, 40px 40px, 100% 100%, 100% 100%;
+        background-size: 56px 56px, 56px 56px, 100% 100%, 100% 100%;
     }
 
     .terminal-panel {
@@ -273,26 +289,6 @@ body {
     .metric-tile {
         background: var(--surface);
         border: 1px solid var(--soft-border);
-    }
-
-    .system-panel {
-        background: var(--card);
-        border: 1px solid var(--border);
-    }
-
-    .system-action {
-        @apply inline-flex min-w-[152px] items-center justify-center gap-3 border dev-divider px-6 py-4 font-robotoMono text-xs font-[700] uppercase tracking-[0.22em] text-foreground transition;
-        background: color-mix(in srgb, var(--surface), transparent 28%);
-    }
-
-    .system-action:hover {
-        background: var(--surface);
-        color: var(--accent);
-    }
-
-    .bg-accent-pulse {
-        background: var(--accent);
-        box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent), transparent 78%);
     }
 
     .code-chip {

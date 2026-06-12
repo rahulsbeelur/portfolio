@@ -1,7 +1,8 @@
 import { getMDXComponent } from 'mdx-bundler/client';
-import { MDXContentProps } from 'mdx-bundler/dist/types';
-import { FunctionComponent, useMemo } from 'react';
+import { FunctionComponent, useMemo, ComponentProps } from 'react';
 import { MDXLayouts } from '../layouts/MDXLayouts';
+
+type MDXContentProps = ComponentProps<ReturnType<typeof getMDXComponent>>;
 
 export const renderMDSection = (code: string, layout: string, memoize = true): JSX.Element => {
     let Component: FunctionComponent<MDXContentProps>;

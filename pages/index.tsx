@@ -1,7 +1,6 @@
 import fs from 'fs';
 import YAML from 'yaml';
 import Image from 'next/image';
-import Link from 'next/link';
 import { Wrapper } from '../modules/common/components/Wrapper';
 import { SEO } from '../modules/common/components/SEO';
 import { personDetails } from '../modules/common/data/person';
@@ -21,96 +20,63 @@ const Home = ({
     techStack: TechnologiesData;
 }): JSX.Element => {
     return (
-        <div className="engineer-grid relative overflow-hidden">
+        <div className="engineer-grid relative overflow-hidden desktop:pt-[120px] mobile:pt-[128px]">
             <SEO
-                title="Rahul S Beelur | Software Developer"
-                description="Portfolio of Rahul S Beelur, a software developer focused on clean systems, useful product interfaces, reliable APIs, and readable code."
+                title="Rahul S Beelur | Backend Systems & AI Engineer"
+                description="Backend systems engineer specializing in AI solutions. Build scalable systems with Go, Python, and modern cloud infrastructure. Experienced in APIs, machine learning pipelines, and distributed systems."
             />
-            <Wrapper classes="relative min-h-screen">
-                <section className="relative flex min-h-[calc(100vh-96px)] flex-col items-center justify-center pt-28 text-center mobile:pt-36">
+            <Wrapper classes="relative py-16">
+                <section className="grid desktop:grid-cols-[1.18fr_0.92fr] gap-10 items-center">
                     <div className="space-y-10">
-                        <div className="mx-auto flex flex-wrap items-center justify-center gap-4 font-robotoMono text-xs uppercase tracking-[0.32em] text-muted">
-                            <span className="flex items-center gap-2">
-                                <span className="h-2 w-2 rounded-full bg-accent-pulse" />
-                                operational
-                            </span>
-                            <span className="text-[var(--grid-line)]">//</span>
-                            <span>engineering systems</span>
+                        <div className="inline-flex flex-wrap items-center gap-3 rounded-full border dev-divider bg-surface/70 px-4 py-2 text-sm text-muted backdrop-blur-sm">
+                            <span className="font-robotoMono text-[12px] text-accent">~/rahul/portfolio</span>
+                            <span className="text-foreground/80">Projects, experience, shipped systems</span>
                         </div>
-                        <h1 className="font-robotoMono text-[96px] font-[400] leading-none tracking-0 text-foreground desktop:text-[112px] tablet:text-[76px] mobile:text-[42px]">
-                            rahul.sb
+                        <h1 className="desktop:h1 tablet:h2 text-[46px] font-poppins font-[600] leading-[56px] text-foreground max-w-3xl">
+                            Backend Engineer → AI Engineer in progress.
                         </h1>
-                        <p className="mx-auto max-w-3xl font-robotoMono text-sm uppercase leading-7 tracking-[0.28em] text-muted mobile:text-xs">
-                            clean interfaces / dependable APIs / maintainable product systems
-                        </p>
-                        <div className="flex flex-wrap justify-center gap-4">
-                            <Link href="/projects" className="system-action">
-                                mission logs
-                                <span>-></span>
-                            </Link>
-                            <Link href="/resume" className="system-action">
-                                personnel file
-                                <span>-></span>
-                            </Link>
+                        <div className="space-y-6 text-foreground/80 max-w-2xl">
+                            {renderMDSection(introductionContent.code, introductionContent.layout)}
                         </div>
-                    </div>
-                    <div className="absolute inset-x-0 bottom-6 flex justify-between px-4 font-robotoMono text-[11px] uppercase tracking-[0.24em] text-muted mobile:bottom-3 mobile:flex-col mobile:items-center mobile:gap-2">
-                        <span>system: online</span>
-                        <span>v.2026.06</span>
-                    </div>
-                </section>
-            </Wrapper>
-
-            <div className="border-y dev-divider bg-[var(--panel-bg)]">
-                <Wrapper classes="py-0">
-                    <div className="grid grid-cols-[1.1fr_0.9fr] gap-0 desktop:min-h-[280px] tablet:grid-cols-1 mobile:grid-cols-1">
-                        <nav className="grid border-r dev-divider tablet:border-r-0 mobile:border-r-0">
-                            {[
-                                { label: 'Access Logs', href: '/projects' },
-                                { label: 'Personnel File', href: '/resume' },
-                                { label: 'Open Channel', href: `mailto:${personDetails.mailId}` }
-                            ].map((item) => (
-                                <Link
-                                    key={item.label}
-                                    href={item.href}
-                                    className="group flex items-center justify-between border-b dev-divider px-8 py-7 font-robotoMono text-sm uppercase tracking-[0.22em] text-foreground transition hover:bg-[var(--surface)] mobile:px-4">
-                                    <span>{item.label}</span>
-                                    <span className="text-muted transition group-hover:translate-x-1 group-hover:text-accent">
-                                        -&gt;
-                                    </span>
-                                </Link>
-                            ))}
-                        </nav>
-                        <div className="grid grid-cols-2 mobile:grid-cols-1">
-                            <div className="border-r dev-divider p-8 mobile:border-r-0 mobile:border-b mobile:p-5">
-                                <p className="font-robotoMono text-[11px] uppercase tracking-[0.28em] text-muted">
-                                    active stack
+                        <div className="grid gap-4 sm:grid-cols-3">
+                            <div className="metric-tile p-5">
+                                <p className="font-robotoMono text-[12px] text-accent">stack.go</p>
+                                <p className="body2 mt-3 text-foreground">
+                                    Go · Kafka · PostgreSQL · Docker · Kubernetes
                                 </p>
-                                <p className="mt-5 font-robotoMono text-3xl text-foreground">05</p>
-                                <p className="body2 mt-2 text-muted">React, Next.js, TypeScript, Tailwind, Node.js</p>
                             </div>
-                            <div className="p-8 mobile:p-5">
-                                <p className="font-robotoMono text-[11px] uppercase tracking-[0.28em] text-muted">
-                                    operating mode
+                            <div className="metric-tile p-5">
+                                <p className="font-robotoMono text-[12px] text-accent">what_i_work_on</p>
+                                <p className="body2 mt-3 text-foreground">
+                                    Backend platforms, telemetry pipelines, device enrolments.
                                 </p>
-                                <p className="mt-5 font-robotoMono text-3xl text-foreground">ship</p>
-                                <p className="body2 mt-2 text-muted">Small decisions, clear commits, production checks.</p>
+                            </div>
+                            <div className="metric-tile p-5">
+                                <p className="font-robotoMono text-[12px] text-accent">what_i_debug</p>
+                                <p className="body2 mt-3 text-foreground">
+                                    Latency, message flows, distributed failures, production incidents.
+                                </p>
+                            </div>
+                            <div className="metric-tile p-5">
+                                <p className="font-robotoMono text-[12px] text-accent">what_i_explore</p>
+                                <p className="body2 mt-3 text-foreground">
+                                    AI agents, RAG pipelines, model serving, inference workloads.
+                                </p>
                             </div>
                         </div>
                     </div>
-                </Wrapper>
-            </div>
-
-            <Wrapper classes="py-16">
-                <section className="grid gap-8 desktop:grid-cols-[0.9fr_1.1fr]">
-                    <aside className="system-panel p-5">
+                    <aside className="terminal-panel p-5">
                         <div className="flex flex-col gap-6">
                             <div className="flex items-center justify-between border-b dev-divider pb-4">
-                                <p className="font-robotoMono text-xs uppercase tracking-[0.28em] text-muted">personnel file</p>
-                                <p className="font-robotoMono text-xs text-accent">verified</p>
+                                <div className="flex items-center gap-2">
+                                    <span className="h-3 w-3 rounded-full bg-[#EF4444]" />
+                                    <span className="h-3 w-3 rounded-full bg-[#F59E0B]" />
+                                    <span className="h-3 w-3 rounded-full bg-[#2DD4BF]" />
+                                </div>
+                                <p className="font-robotoMono text-xs text-muted">developer.profile.ts</p>
                             </div>
                             <div className="flex items-center gap-5">
-                                <div className="relative h-28 w-28 overflow-hidden border dev-divider bg-surface">
+                                <div className="relative h-28 w-28 overflow-hidden rounded-2xl border dev-divider bg-surface">
                                     <Image
                                         src="/my-photo.jpeg"
                                         alt="personal image"
@@ -121,36 +87,62 @@ const Home = ({
                                     />
                                 </div>
                                 <div className="space-y-1">
-                                    <p className="font-robotoMono text-xl text-foreground">{personDetails.name}</p>
+                                    <p className="h5 text-foreground">{personDetails.name}</p>
                                     <p className="font-robotoMono text-sm text-muted">
                                         {personDetails.designation}
                                     </p>
                                 </div>
                             </div>
-                            <div className="space-y-6 text-foreground/80">
-                                {renderMDSection(introductionContent.code, introductionContent.layout)}
-                            </div>
+                            <div className="editor-line rounded-2xl p-4 font-robotoMono text-sm leading-7 text-foreground/90">
+    <p><span className="text-accent">var</span> Rahul = struct {'{'}</p>
+    <p className="pl-4">{"Builds     []string"}</p>
+    <p className="pl-4">{"Exploring  []string"}</p>
+    <p className="pl-4">{"CaresAbout []string"}</p>
+    <p>{'}{'}</p>
+
+    <p className="pl-4">{"Builds: []string{"}</p>
+    <p className="pl-8">{'"distributed systems",'}</p>
+    <p className="pl-8">{'"backend platforms",'}</p>
+    <p className="pl-4">{'} ,'}</p>
+
+    <p className="pl-4">{"Exploring: []string{"}</p>
+    <p className="pl-8">{'"LLMs",'}</p>
+    <p className="pl-8">{'"RAG",'}</p>
+    <p className="pl-8">{'"AI systems",'}</p>
+    <p className="pl-4">{'} ,'}</p>
+
+    <p className="pl-4">{"CaresAbout: []string{"}</p>
+    <p className="pl-8">{'"performance",'}</p>
+    <p className="pl-8">{'"reliability",'}</p>
+    <p className="pl-8">{'"simplicity",'}</p>
+    <p className="pl-4">{'} ,'}</p>
+
+    <p>{'}'}</p>
+</div>
                             <div className="flex flex-wrap gap-3">
                                 <SocialHandles />
                             </div>
                         </div>
                     </aside>
-                    <div>
-                        <div className="mb-8 border-b dev-divider pb-5">
-                            <p className="font-robotoMono text-xs uppercase tracking-[0.28em] text-muted">toolchain.lock</p>
-                            <h2 className="mt-2 font-robotoMono text-3xl font-[400] text-foreground">Systems I reach for.</h2>
-                        </div>
-                        <div className="grid gap-4 desktop:grid-cols-2">
+                </section>
+            </Wrapper>
+            <div className="border-t dev-divider">
+                <Wrapper classes="py-12">
+                    <div className="mx-auto max-w-3xl text-center pb-8">
+                        <p className="font-robotoMono text-sm text-accent">toolchain.lock</p>
+                        <h2 className="desktop:h2 h4 text-foreground">Tools I reach for when building.</h2>
+                    </div>
+                    <div className="grid gap-6 desktop:grid-cols-2">
                         {Object.entries(techStack).map(([category, technologies]) => (
-                            <div key={category} className="system-panel p-5">
-                                <p className="font-robotoMono text-xs uppercase tracking-[0.24em] text-muted">
+                            <div key={category} className="glass-card p-6">
+                                <p className="font-robotoMono text-sm text-muted">
                                     {category === 'DevOps' ? category : headerCase(category).replace('-', ' ')}
                                 </p>
-                                <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                                <div className="mt-6 grid gap-4 sm:grid-cols-2">
                                     {technologies.map((tech) => (
                                         <div
                                             key={tech.fileName}
-                                            className="flex items-center gap-3 border dev-divider bg-surface/70 p-3">
+                                            className="flex items-center gap-3 rounded-2xl bg-surface/70 p-4 border dev-divider">
                                             <Image
                                                 src={`/tech-stack/${paramCase(category)}/${tech.fileName}.png`}
                                                 width={60}
@@ -166,10 +158,9 @@ const Home = ({
                                 </div>
                             </div>
                         ))}
-                        </div>
                     </div>
-                </section>
-            </Wrapper>
+                </Wrapper>
+            </div>
         </div>
     );
 };

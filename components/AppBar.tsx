@@ -15,11 +15,14 @@ export const AppBar = (): JSX.Element => {
         return (
             <Link href="/">
                 <div className="flex items-center gap-3">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-xl border dev-divider bg-surface font-robotoMono text-sm text-accent">
+                        RB
+                    </div>
                     <div className="flex flex-col">
-                        <p className="whitespace-nowrap font-robotoMono text-[18px] font-[700] leading-6 tracking-0 text-foreground">
-                            rahul.sb
+                        <p className="desktop:h5 whitespace-nowrap text-[18px] font-[700] leading-6 text-foreground">
+                            {personDetails.name}
                         </p>
-                        <p className="font-robotoMono text-[10px] uppercase tracking-[0.28em] text-muted">
+                        <p className="font-robotoMono text-xs text-muted">
                             {personDetails.designation}
                         </p>
                     </div>
@@ -47,9 +50,9 @@ export const AppBar = (): JSX.Element => {
     }, [isOpen]);
 
     return (
-        <div className="fixed top-0 z-[999] z-max w-full border-b dev-divider bg-[var(--nav-bg)] backdrop-blur-xl">
+        <div className="fixed z-[999] w-full top-0 z-max bg-transparent pt-3 backdrop-blur-sm">
             <Wrapper>
-                <div className="flex mobile:flex-row">
+                <div className="flex mobile:flex-row rounded-2xl border dev-divider p-3 shadow-[var(--shadow)] backdrop-blur-xl bg-[var(--nav-bg)]">
                     <div
                         className={`flex flex-row justify-between w-full ${
                             isOpen ? 'hidden' : ''

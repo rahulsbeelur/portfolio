@@ -7,7 +7,7 @@ import Link from 'next/link';
 export const MobileFooter = (): JSX.Element => {
     return (
         <div className="desktop:hidden tablet:hidden">
-            <div className="border-t dev-divider mx-auto"></div>
+            <div className="border-t-[1px] border-neutral-black-dark dark:border-neutral-black-light mx-auto"></div>
             <Wrapper classes="pb-0">
                 <div className="flex flex-col gap-20">
                     <div className="flex flex-col gap-6">
@@ -33,7 +33,7 @@ export const MobileFooter = (): JSX.Element => {
                         </Link>
                     </div>
                     <div className="mt-auto h7 tablet:small4 !leading-[44px] mobile:mx-auto mobile:body3">
-                        &copy; 2023 {personDetails.name}. All rights reserved.
+                        &copy; 2026 {personDetails.name}. All rights reserved.
                     </div>
                 </div>
             </Wrapper>

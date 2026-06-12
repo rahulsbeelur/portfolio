@@ -2,16 +2,16 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 export const navigationWithBlog = [
-    { name: 'Profile', href: '/' },
+    { name: 'About Me', href: '/' },
     { name: 'Resume', href: '/resume' },
-    { name: 'Work', href: '/projects' },
+    { name: 'Projects', href: '/projects' },
     { name: 'Blog', href: '/blog' }
 ];
 
 export const navigationWithoutBlog = [
-    { name: 'Profile', href: '/' },
+    { name: 'About Me', href: '/' },
     { name: 'Resume', href: '/resume' },
-    { name: 'Work', href: '/projects' }
+    { name: 'Projects', href: '/projects' }
 ];
 
 const isNavigationButtonActive = (pathname: string, href: string): boolean => {
@@ -40,10 +40,9 @@ export const HeaderNavigationButtons = ({
                     }}>
                     <Link
                         className={`btn-nav ${
-                            isNavigationButtonActive(pathname, item.href)
-                                ? 'active'
-                                : 'opacity-80 hover:opacity-100'
-                        }`}
+                            isNavigationButtonActive(pathname, item.href) ? 'active' : ''
+                        }
+                       `}
                         aria-label={item.name}
                         href={item.href}>
                         {item.name}

@@ -1,0 +1,13 @@
+technologies:
+    - fileName: docker
+      title: Docker
+      level: 5
+    - fileName: aws-lambda
+      title: AWS Lambda
+      level: 4
+    - fileName: aws-s3
+      title: AWS S3
+      level: 4
+    - fileName: linux
+      title: Linux
+      level: 4

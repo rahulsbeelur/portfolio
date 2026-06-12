@@ -1,0 +1,16 @@
+technologies:
+    - fileName: golang
+      title: Golang
+      level: 5
+    - fileName: python
+      title: Python
+      level: 5
+    - fileName: c++
+      title: C++
+      level: 3
+    - fileName: type-script
+      title: TypeScript
+      level: 4
+    - fileName: java-script
+      title: JavaScript
+      level: 4

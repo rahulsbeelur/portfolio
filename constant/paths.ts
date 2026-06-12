@@ -12,9 +12,11 @@ export enum MdxPaths {
 }
 
 export enum TechnologiesPath {
+    BackendCore = 'modules/tech-stack/backend-core/technologies.yml',
+    DataAndStorage = 'modules/tech-stack/data-and-storage/technologies.yml',
+    MessageQueuesStreaming = 'modules/tech-stack/message-queues-streaming/technologies.yml',
+    ObservabilityMonitoring = 'modules/tech-stack/observability-monitoring/technologies.yml',
+    InfrastructureDeployment = 'modules/tech-stack/infrastructure-deployment/technologies.yml',
     FrontEnd = 'modules/tech-stack/front-end/technologies.yml',
-    BackEnd = 'modules/tech-stack/back-end/technologies.yml',
-    //DevOps = 'modules/tech-stack/dev-ops/technologies.yml',
-    ProgrammingLanguages = 'modules/tech-stack/programming-languages/technologies.yml',
     VersionControl = 'modules/tech-stack/version-control/technologies.yml'
 }

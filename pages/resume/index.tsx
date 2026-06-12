@@ -55,9 +55,7 @@ const Resume = ({
                                 <div className="rounded-2xl border dev-divider bg-surface p-4 text-foreground">
                                     <div className="text-left flex flex-wrap gap-2">
                                         {resume.speakingLanguages.map((language) => (
-                                            <div
-                                                key={language}
-                                                className="code-chip">
+                                            <div key={language} className="code-chip">
                                                 {language}
                                             </div>
                                         ))}

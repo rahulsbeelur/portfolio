@@ -1,0 +1,10 @@
+technologies:
+    - fileName: grafana
+      title: Grafana
+      level: 4
+    - fileName: kibana
+      title: Kibana
+      level: 4
+    - fileName: prometheus
+      title: Prometheus
+      level: 3

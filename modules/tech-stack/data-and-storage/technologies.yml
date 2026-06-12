@@ -1,0 +1,13 @@
+technologies:
+    - fileName: postgresql
+      title: PostgreSQL
+      level: 5
+    - fileName: redis
+      title: Redis
+      level: 4
+    - fileName: mysql
+      title: MySQL
+      level: 3
+    - fileName: snowflake
+      title: Snowflake
+      level: 3

@@ -28,7 +28,7 @@ export const SocialHandles = (): JSX.Element => {
                                 type={socialHandle.name as IconType}
                                 width={26}
                                 height={26}
-                                className="text-foreground hover:text-primary"
+                                className="text-neutral-black-default hover:text-neutral-black-darker dark:text-primary-lighter dark:hover:text-primary-light"
                             />
                         </Link>
                     }

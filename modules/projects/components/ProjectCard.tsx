@@ -8,6 +8,7 @@ export const ProjectCard = ({
     projects: { code: string; frontmatter: Project }[];
 }): JSX.Element => {
     const accentColors: string[] = ['#2DD4BF', '#8B5CF6', '#F59E0B', '#38BDF8'];
+
     return (
         <div className="grid gap-6 desktop:grid-cols-3 tablet:grid-cols-2">
             {projects.map((project, index) => (
@@ -47,9 +48,7 @@ export const ProjectCard = ({
                             </p>
                             <div className="flex flex-wrap gap-2">
                                 {project.frontmatter.techStack.map((tech) => (
-                                    <span
-                                        key={tech}
-                                        className="code-chip">
+                                    <span key={tech} className="code-chip">
                                         {tech}
                                     </span>
                                 ))}

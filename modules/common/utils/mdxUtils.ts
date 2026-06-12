@@ -15,7 +15,7 @@ export const getMDData = async <T>(filePath: string): Promise<MDModel<T>> => {
     const { code, frontmatter } = await bundleMDX({
         source,
         cwd: process.cwd(),
-        mdxOptions(options) {
+        mdxOptions(options: any) {
             options.rehypePlugins = [
                 ...(options.rehypePlugins ?? []),
                 [rehypeHighlight, rehypeSanitize]
@@ -29,7 +29,7 @@ export const getMDData = async <T>(filePath: string): Promise<MDModel<T>> => {
             ];
             return options;
         }
-    });
+    } as any);
     return { code, frontmatter: <T>frontmatter };
 };
 
