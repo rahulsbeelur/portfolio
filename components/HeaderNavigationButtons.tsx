@@ -15,7 +15,7 @@ export const navigationWithoutBlog = [
 ];
 
 const isNavigationButtonActive = (pathname: string, href: string): boolean => {
-    return pathname === href;
+    return pathname === href || (href !== '/' && pathname.startsWith(href));
 };
 
 export const HeaderNavigationButtons = ({
@@ -24,10 +24,7 @@ export const HeaderNavigationButtons = ({
     setOpenMenu?: React.Dispatch<React.SetStateAction<boolean>>;
 }): JSX.Element => {
     const { pathname } = useRouter();
-    const navigationHeader =
-        process.env.NEXT_PUBLIC_BLOG_PAGE_PRESENT === 'on'
-            ? [...navigationWithBlog]
-            : [...navigationWithoutBlog];
+    const navigationHeader = [...navigationWithBlog];
     return (
         <div className="mobile:mt-10 text-center flex mobile:flex-col gap-3 mobile:gap-5">
             {navigationHeader.map((item) => (

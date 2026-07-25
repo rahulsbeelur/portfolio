@@ -8,7 +8,9 @@ export enum MdxPaths {
     WorkExperience = 'modules/resume/mdx/work-experience',
     Education = 'modules/resume/mdx/education',
     SpeakingLanguages = 'modules/resume/mdx/speak/languages.mdx',
-    Projects = 'modules/projects/mdx'
+    Projects = 'modules/projects/mdx',
+    Blog = 'modules/blog/mdx',
+    Pages = 'modules/pages/mdx'
 }
 
 export enum TechnologiesPath {

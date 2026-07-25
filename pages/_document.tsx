@@ -18,7 +18,7 @@ const themeScript = `
 
 export const Document = (): JSX.Element => {
     return (
-        <Html className="scroll-smooth">
+        <Html className="scroll-smooth" data-scroll-behavior="smooth">
             <Head>
                 <meta
                     name="google-site-verification"

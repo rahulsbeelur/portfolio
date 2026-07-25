@@ -1,0 +1,20 @@
+---
+title: Building backend systems that stay boring
+summary: Notes on designing backend services that are easier to operate, debug, and change.
+publishedAt: '2026-06-12'
+readingTime: 3 min read
+tags:
+  - Backend
+  - Reliability
+---
+
+Good backend systems are usually calm. They make the common path obvious, keep failure modes visible, and avoid cleverness where a plain interface would do.
+
+When I build services, I try to keep a few things consistent:
+
+- clear boundaries between transport, business logic, and persistence
+- logs and metrics that explain what the system is doing
+- small APIs that are easy to test and reason about
+- operational defaults that help during incidents
+
+That kind of simplicity is not basic. It is the work that makes a system easier to trust when traffic grows, requirements change, or something breaks at the worst possible time.

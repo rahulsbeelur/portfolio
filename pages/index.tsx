@@ -19,61 +19,48 @@ const Home = ({
     introductionContent: AboutMeIntroduction;
     techStack: TechnologiesData;
 }): JSX.Element => {
+    const highlights = introductionContent.highlights ?? [];
+    const profileSnippet = introductionContent.profileSnippet ?? [];
+
     return (
-        <div className="engineer-grid relative overflow-hidden desktop:pt-[120px] mobile:pt-[128px]">
+        <div className="relative overflow-hidden desktop:pt-[120px] mobile:pt-[128px]">
             <SEO
                 title="Rahul S Beelur | Backend Systems & AI Engineer"
                 description="Backend systems engineer specializing in AI solutions. Build scalable systems with Go, Python, and modern cloud infrastructure. Experienced in APIs, machine learning pipelines, and distributed systems."
             />
             <Wrapper classes="relative py-16">
-                <section className="grid desktop:grid-cols-[1.18fr_0.92fr] gap-10 items-center">
-                    <div className="space-y-10">
-                        <div className="inline-flex flex-wrap items-center gap-3 rounded-full border dev-divider bg-surface/70 px-4 py-2 text-sm text-muted backdrop-blur-sm">
-                            <span className="font-robotoMono text-[12px] text-accent">~/rahul/portfolio</span>
-                            <span className="text-foreground/80">Projects, experience, shipped systems</span>
+                <section className="grid gap-10 desktop:grid-cols-[1.05fr_0.95fr] items-start">
+                    <div className="space-y-8">
+                        <div className="inline-flex flex-wrap items-center gap-3 rounded-full border dev-divider bg-surface px-4 py-2 text-sm text-muted">
+                            <span className="font-robotoMono text-[12px]">{introductionContent.eyebrow}</span>
+                            <span>{introductionContent.summary}</span>
                         </div>
-                        <h1 className="desktop:h1 tablet:h2 text-[46px] font-poppins font-[600] leading-[56px] text-foreground max-w-3xl">
-                            Backend Engineer → AI Engineer in progress.
+                        <h1 className="max-w-3xl font-poppins text-[64px] font-[600] leading-[76px] text-foreground tablet:text-[52px] tablet:leading-[62px] mobile:text-[34px] mobile:leading-[43px]">
+                            {introductionContent.headline}
                         </h1>
                         <div className="space-y-6 text-foreground/80 max-w-2xl">
                             {renderMDSection(introductionContent.code, introductionContent.layout)}
                         </div>
-                        <div className="grid gap-4 sm:grid-cols-3">
-                            <div className="metric-tile p-5">
-                                <p className="font-robotoMono text-[12px] text-accent">stack.go</p>
-                                <p className="body2 mt-3 text-foreground">
-                                    Go · Kafka · PostgreSQL · Docker · Kubernetes
-                                </p>
-                            </div>
-                            <div className="metric-tile p-5">
-                                <p className="font-robotoMono text-[12px] text-accent">what_i_work_on</p>
-                                <p className="body2 mt-3 text-foreground">
-                                    Backend platforms, telemetry pipelines, device enrolments.
-                                </p>
-                            </div>
-                            <div className="metric-tile p-5">
-                                <p className="font-robotoMono text-[12px] text-accent">what_i_debug</p>
-                                <p className="body2 mt-3 text-foreground">
-                                    Latency, message flows, distributed failures, production incidents.
-                                </p>
-                            </div>
-                            <div className="metric-tile p-5">
-                                <p className="font-robotoMono text-[12px] text-accent">what_i_explore</p>
-                                <p className="body2 mt-3 text-foreground">
-                                    AI agents, RAG pipelines, model serving, inference workloads.
-                                </p>
-                            </div>
+                        <div className="grid gap-4 sm:grid-cols-2">
+                            {highlights.map((highlight) => (
+                                <div key={highlight.label} className="metric-tile p-5">
+                                    <p className="font-robotoMono text-[12px] text-muted">
+                                        {highlight.label}
+                                    </p>
+                                    <p className="body2 mt-3 text-foreground">{highlight.value}</p>
+                                </div>
+                            ))}
                         </div>
                     </div>
-                    <aside className="terminal-panel p-5">
+                    <aside className="quiet-card p-6 mobile:order-first">
                         <div className="flex flex-col gap-6">
                             <div className="flex items-center justify-between border-b dev-divider pb-4">
-                                <div className="flex items-center gap-2">
-                                    <span className="h-3 w-3 rounded-full bg-[#EF4444]" />
-                                    <span className="h-3 w-3 rounded-full bg-[#F59E0B]" />
-                                    <span className="h-3 w-3 rounded-full bg-[#2DD4BF]" />
-                                </div>
-                                <p className="font-robotoMono text-xs text-muted">developer.profile.ts</p>
+                                <p className="font-robotoMono text-xs text-muted">
+                                    {introductionContent.profileFileName}
+                                </p>
+                                <p className="font-robotoMono text-xs text-muted">
+                                    {introductionContent.profileStatus}
+                                </p>
                             </div>
                             <div className="flex items-center gap-5">
                                 <div className="relative h-28 w-28 overflow-hidden rounded-2xl border dev-divider bg-surface">
@@ -93,32 +80,13 @@ const Home = ({
                                     </p>
                                 </div>
                             </div>
-                            <div className="editor-line rounded-2xl p-4 font-robotoMono text-sm leading-7 text-foreground/90">
-    <p><span className="text-accent">var</span> Rahul = struct {'{'}</p>
-    <p className="pl-4">{"Builds     []string"}</p>
-    <p className="pl-4">{"Exploring  []string"}</p>
-    <p className="pl-4">{"CaresAbout []string"}</p>
-    <p>{'}{'}</p>
-
-    <p className="pl-4">{"Builds: []string{"}</p>
-    <p className="pl-8">{'"distributed systems",'}</p>
-    <p className="pl-8">{'"backend platforms",'}</p>
-    <p className="pl-4">{'} ,'}</p>
-
-    <p className="pl-4">{"Exploring: []string{"}</p>
-    <p className="pl-8">{'"LLMs",'}</p>
-    <p className="pl-8">{'"RAG",'}</p>
-    <p className="pl-8">{'"AI systems",'}</p>
-    <p className="pl-4">{'} ,'}</p>
-
-    <p className="pl-4">{"CaresAbout: []string{"}</p>
-    <p className="pl-8">{'"performance",'}</p>
-    <p className="pl-8">{'"reliability",'}</p>
-    <p className="pl-8">{'"simplicity",'}</p>
-    <p className="pl-4">{'} ,'}</p>
-
-    <p>{'}'}</p>
-</div>
+                            <div className="editor-line rounded-lg p-4 font-robotoMono text-sm leading-7 text-foreground/90">
+                                {profileSnippet.map((line) => (
+                                    <p key={line} className={line.startsWith('  ') ? 'pl-4' : ''}>
+                                        {line}
+                                    </p>
+                                ))}
+                            </div>
                             <div className="flex flex-wrap gap-3">
                                 <SocialHandles />
                             </div>
@@ -128,32 +96,36 @@ const Home = ({
             </Wrapper>
             <div className="border-t dev-divider">
                 <Wrapper classes="py-12">
-                    <div className="mx-auto max-w-3xl text-center pb-8">
-                        <p className="font-robotoMono text-sm text-accent">toolchain.lock</p>
-                        <h2 className="desktop:h2 h4 text-foreground">Tools I reach for when building.</h2>
+                    <div className="pb-8">
+                        <p className="font-robotoMono text-sm text-muted">
+                            {introductionContent.toolsEyebrow}
+                        </p>
+                        <h2 className="mt-2 text-[36px] font-poppins font-[600] leading-[46px] text-foreground mobile:text-[30px] mobile:leading-[38px]">
+                            {introductionContent.toolsTitle}
+                        </h2>
                     </div>
-                    <div className="grid gap-6 desktop:grid-cols-2">
+                    <div className="grid gap-3">
                         {Object.entries(techStack).map(([category, technologies]) => (
-                            <div key={category} className="glass-card p-6">
+                            <div
+                                key={category}
+                                className="quiet-card grid gap-4 p-4 desktop:grid-cols-[220px_1fr] desktop:items-center">
                                 <p className="font-robotoMono text-sm text-muted">
                                     {category === 'DevOps' ? category : headerCase(category).replace('-', ' ')}
                                 </p>
-                                <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                                <div className="flex flex-wrap gap-2">
                                     {technologies.map((tech) => (
-                                        <div
-                                            key={tech.fileName}
-                                            className="flex items-center gap-3 rounded-2xl bg-surface/70 p-4 border dev-divider">
-                                            <Image
-                                                src={`/tech-stack/${paramCase(category)}/${tech.fileName}.png`}
-                                                width={60}
-                                                height={60}
-                                                className="w-12 h-12"
-                                                alt={tech.title}
-                                            />
-                                            <div>
-                                                <p className="body2 text-foreground">{tech.title}</p>
-                                            </div>
-                                        </div>
+                                        <span key={tech.fileName} className="tool-chip">
+                                            <span className="relative h-4 w-4 shrink-0 overflow-hidden">
+                                                <Image
+                                                    src={`/tech-stack/${paramCase(category)}/${tech.fileName}.png`}
+                                                    alt=""
+                                                    width={24}
+                                                    height={24}
+                                                    className="h-full w-full object-contain"
+                                                />
+                                            </span>
+                                            {tech.title}
+                                        </span>
                                     ))}
                                 </div>
                             </div>
@@ -193,7 +165,16 @@ export const getStaticProps = async (): Promise<{
         props: {
             introductionContent: {
                 code: introductionContent.code,
-                layout: introductionContent.frontmatter.layout ?? 'DefaultLayout'
+                layout: introductionContent.frontmatter.layout ?? 'DefaultLayout',
+                eyebrow: introductionContent.frontmatter.eyebrow,
+                headline: introductionContent.frontmatter.headline,
+                summary: introductionContent.frontmatter.summary,
+                profileFileName: introductionContent.frontmatter.profileFileName,
+                profileStatus: introductionContent.frontmatter.profileStatus,
+                profileSnippet: introductionContent.frontmatter.profileSnippet,
+                highlights: introductionContent.frontmatter.highlights,
+                toolsEyebrow: introductionContent.frontmatter.toolsEyebrow,
+                toolsTitle: introductionContent.frontmatter.toolsTitle
             },
             techStack: technologies
         }

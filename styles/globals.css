@@ -48,64 +48,70 @@
 }
 
 :root {
-    --bg: #F7F8FB;
-    --surface: rgba(255, 255, 255, 0.82);
+    --bg: #F8FAFC;
+    --surface: rgba(255, 255, 255, 0.86);
     --surface-rgb: 255 255 255;
-    --text: #101828;
-    --text-rgb: 16 24 40;
-    --primary: #2563EB;
-    --muted: #667085;
-    --muted-rgb: 102 112 133;
-    --accent: #0F766E;
-    --accent-rgb: 15 118 110;
-    --card: rgba(255, 255, 255, 0.92);
-    --border: rgba(16, 24, 40, 0.12);
-    --soft-border: rgba(16, 24, 40, 0.08);
-    --code-bg: rgba(247, 248, 251, 0.94);
-    --nav-bg: rgba(255, 255, 255, 0.88);
-    --shadow: 0 18px 50px rgba(16, 24, 40, 0.09);
-    --grid-line: rgba(16, 24, 40, 0.07);
-    --grid-accent-a: rgba(15, 118, 110, 0.08);
-    --grid-accent-b: rgba(37, 99, 235, 0.08);
+    --text: #111827;
+    --text-rgb: 17 24 39;
+    --primary: #1F2937;
+    --muted: #64748B;
+    --muted-rgb: 100 116 139;
+    --accent: #334155;
+    --accent-rgb: 51 65 85;
+    --card: rgba(255, 255, 255, 0.9);
+    --border: rgba(15, 23, 42, 0.1);
+    --soft-border: rgba(15, 23, 42, 0.08);
+    --code-bg: rgba(241, 245, 249, 0.78);
+    --nav-bg: rgba(255, 255, 255, 0.9);
+    --shadow: 0 12px 34px rgba(15, 23, 42, 0.08);
+    --grid-line: rgba(15, 23, 42, 0.05);
+    --grid-accent-a: transparent;
+    --grid-accent-b: transparent;
 }
 
 .dark {
-    --bg: #050816;
-    --surface: rgba(13, 19, 36, 0.82);
-    --surface-rgb: 13 19 36;
-    --text: #E6EEF8;
-    --text-rgb: 230 238 248;
-    --primary: #8B5CF6;
-    --muted: #9AA8BC;
-    --muted-rgb: 154 168 188;
-    --accent: #2DD4BF;
-    --accent-rgb: 45 212 191;
-    --card: rgba(7, 12, 24, 0.9);
-    --border: rgba(255, 255, 255, 0.1);
-    --soft-border: rgba(255, 255, 255, 0.075);
-    --code-bg: rgba(3, 7, 18, 0.66);
-    --nav-bg: rgba(7, 12, 24, 0.84);
-    --shadow: 0 20px 70px rgba(0, 0, 0, 0.32);
-    --grid-line: rgba(148, 163, 184, 0.08);
-    --grid-accent-a: rgba(45, 212, 191, 0.08);
-    --grid-accent-b: rgba(139, 92, 246, 0.11);
+    --bg: #0B1120;
+    --surface: rgba(15, 23, 42, 0.86);
+    --surface-rgb: 15 23 42;
+    --text: #E5E7EB;
+    --text-rgb: 229 231 235;
+    --primary: #E5E7EB;
+    --muted: #94A3B8;
+    --muted-rgb: 148 163 184;
+    --accent: #CBD5E1;
+    --accent-rgb: 203 213 225;
+    --card: rgba(15, 23, 42, 0.86);
+    --border: rgba(148, 163, 184, 0.16);
+    --soft-border: rgba(148, 163, 184, 0.12);
+    --code-bg: rgba(2, 6, 23, 0.5);
+    --nav-bg: rgba(15, 23, 42, 0.9);
+    --shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+    --grid-line: rgba(148, 163, 184, 0.045);
+    --grid-accent-a: transparent;
+    --grid-accent-b: transparent;
 }
 
 body {
     font-family: Lato, Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     min-height: 100vh;
-    background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, rgba(247, 248, 251, 0.94) 42%, var(--bg) 100%),
-        var(--bg);
+    background-color: var(--bg);
+    background-image:
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.72) 0%, rgba(248, 250, 252, 0.94) 46%, var(--bg) 100%);
+    background-size: 48px 48px, 48px 48px, 100% 100%;
+    background-position: -1px -1px, -1px -1px, 0 0;
+    background-attachment: fixed;
     color: var(--text);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
 .dark body {
-    background:
-        linear-gradient(180deg, rgba(20, 28, 51, 0.78) 0%, rgba(5, 8, 22, 0.95) 42%, var(--bg) 100%),
-        var(--bg);
+    background-image:
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(15, 23, 42, 0.86) 0%, rgba(11, 17, 32, 0.96) 46%, var(--bg) 100%);
 }
 
 @layer components {
@@ -216,19 +222,17 @@ body {
     .glass-card {
         background: var(--card);
         border: 1px solid var(--border);
-        backdrop-filter: blur(18px);
-        box-shadow: var(--shadow);
-        transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+        backdrop-filter: blur(14px);
+        box-shadow: none;
+        transition: border-color 180ms ease, background 180ms ease;
     }
 
     .glass-card:hover {
-        transform: translateY(-3px);
         border-color: color-mix(in srgb, var(--accent), transparent 58%);
-        box-shadow: 0 24px 70px rgba(16, 24, 40, 0.16);
     }
 
     .dark .glass-card:hover {
-        box-shadow: 0 28px 90px rgba(0, 0, 0, 0.34);
+        box-shadow: none;
     }
 
     .btn-nav {
@@ -239,12 +243,12 @@ body {
     }
 
     .btn-nav:hover {
-        background: color-mix(in srgb, var(--accent), transparent 92%);
+        background: color-mix(in srgb, var(--accent), transparent 94%);
         border-color: color-mix(in srgb, var(--accent), transparent 72%);
     }
 
     .btn-nav.active {
-        background: color-mix(in srgb, var(--accent), transparent 87%);
+        background: color-mix(in srgb, var(--accent), transparent 91%);
         border-color: color-mix(in srgb, var(--accent), transparent 58%);
         color: var(--text);
     }
@@ -286,23 +290,43 @@ body {
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), var(--shadow);
     }
 
+    .quiet-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        box-shadow: none;
+    }
+
     .metric-tile {
         background: var(--surface);
         border: 1px solid var(--soft-border);
+        box-shadow: none;
     }
 
     .code-chip {
         @apply rounded-full px-3 py-1 font-robotoMono text-xs;
-        background: color-mix(in srgb, var(--accent), transparent 91%);
-        border: 1px solid color-mix(in srgb, var(--accent), transparent 72%);
-        color: var(--accent);
+        background: color-mix(in srgb, var(--accent), transparent 94%);
+        border: 1px solid color-mix(in srgb, var(--accent), transparent 82%);
+        color: var(--muted);
+    }
+
+    .tool-chip {
+        @apply inline-flex min-h-[34px] items-center gap-2 rounded-md px-3 py-1.5 font-robotoMono text-xs;
+        background: color-mix(in srgb, var(--surface), transparent 12%);
+        border: 1px solid var(--soft-border);
+        color: var(--text);
+    }
+
+    .timeline-dot {
+        @apply absolute left-[-25px] top-1.5 h-2.5 w-2.5 rounded-full;
+        background: var(--accent);
+        box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent), transparent 88%);
     }
 
     .repo-card {
         background:
             linear-gradient(180deg, color-mix(in srgb, var(--surface), transparent 4%), var(--card));
         border: 1px solid var(--border);
-        box-shadow: var(--shadow);
+        box-shadow: none;
     }
 
     .dev-divider {
@@ -312,5 +336,25 @@ body {
     .editor-line {
         background: var(--code-bg);
         border: 1px solid var(--soft-border);
+    }
+
+    .prose-content h1 {
+        @apply mt-10 font-poppins text-[34px] font-[600] leading-[44px] text-foreground;
+    }
+
+    .prose-content h2 {
+        @apply mt-10 font-poppins text-[26px] font-[600] leading-[36px] text-foreground;
+    }
+
+    .prose-content p {
+        @apply mt-5 block font-inter text-[16px] leading-8 text-muted;
+    }
+
+    .prose-content ul {
+        @apply mt-5 flex list-disc flex-col gap-3 pl-5 font-inter text-[16px] leading-8 text-muted;
+    }
+
+    .prose-content li {
+        @apply pl-1;
     }
 }

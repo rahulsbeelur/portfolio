@@ -50,9 +50,9 @@ export const AppBar = (): JSX.Element => {
     }, [isOpen]);
 
     return (
-        <div className="fixed z-[999] w-full top-0 z-max bg-transparent pt-3 backdrop-blur-sm">
-            <Wrapper>
-                <div className="flex mobile:flex-row rounded-2xl border dev-divider p-3 shadow-[var(--shadow)] backdrop-blur-xl bg-[var(--nav-bg)]">
+        <div className="fixed z-[999] w-full top-0 z-max bg-transparent pt-2">
+            <Wrapper classes="!pt-0 tablet:!pt-0 desktop:!pt-0">
+                <div className="flex mobile:flex-row rounded-2xl border dev-divider bg-[var(--nav-bg)] p-3 shadow-[var(--shadow)]">
                     <div
                         className={`flex flex-row justify-between w-full ${
                             isOpen ? 'hidden' : ''

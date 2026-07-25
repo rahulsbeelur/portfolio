@@ -7,25 +7,26 @@ import { getMDData } from '../../modules/common/utils/mdxUtils';
 import { MdxPaths } from '../../constant/paths';
 
 const Projects = ({
-    projects
+    projects,
+    pageContent
 }: {
     projects: { code: string; frontmatter: Project }[];
+    pageContent: PageContent;
 }): JSX.Element => {
     return (
-        <Wrapper classes="engineer-grid normal-case">
+        <Wrapper classes="normal-case">
             <SEO
-                title="Projects | Rahul S Beelur"
-                description="Selected projects by Rahul S Beelur, including product interfaces, full-stack builds, and implementation details across React, Next.js, Python, and Node.js."
+                title={pageContent.seoTitle}
+                description={pageContent.seoDescription}
                 path="/projects"
             />
-            <div className="mx-auto max-w-[1180px] desktop:mt-[138px] tablet:mt-[128px] mt-24 py-8">
+            <div className="mx-auto max-w-[1080px] desktop:mt-[138px] tablet:mt-[128px] mt-24 py-8">
                 <header className="mb-10 max-w-3xl">
-                    <p className="font-robotoMono text-sm text-accent">git log --projects</p>
-                    <h1 className="desktop:h2 h4 mt-2 text-foreground">Projects that show how I build.</h1>
-                    <p className="body1 mt-4 text-foreground/75">
-                        Selected work with the stack, constraints, and implementation choices visible
-                        instead of hidden behind a sales pitch.
-                    </p>
+                    <p className="font-robotoMono text-sm text-muted">{pageContent.eyebrow}</p>
+                    <h1 className="mt-3 text-[44px] font-poppins font-[600] leading-[54px] text-foreground mobile:text-[34px] mobile:leading-[42px]">
+                        {pageContent.title}
+                    </h1>
+                    <p className="body1 mt-4 text-muted">{pageContent.description}</p>
                 </header>
                 {ProjectCard({ projects })}
             </div>
@@ -44,8 +45,16 @@ export interface Project {
     gitHubLink?: string;
 }
 
+interface PageContent {
+    seoTitle: string;
+    seoDescription: string;
+    eyebrow: string;
+    title: string;
+    description: string;
+}
+
 export const getStaticProps = async (): Promise<{
-    props: { projects: { code: string; frontmatter: Project }[] };
+    props: { projects: { code: string; frontmatter: Project }[]; pageContent: PageContent };
 }> => {
     const projectsFiles = fs.readdirSync(MdxPaths.Projects).reverse();
     const projects: { code: string; frontmatter: Project }[] = await Promise.all(
@@ -56,9 +65,13 @@ export const getStaticProps = async (): Promise<{
             return { code, frontmatter };
         })
     );
+    const { frontmatter: pageContent } = await getMDData<PageContent>(
+        `${MdxPaths.Pages}/projects.mdx`
+    );
     return {
         props: {
-            projects
+            projects,
+            pageContent
         }
     };
 };

@@ -29,16 +29,16 @@ export const BackToTopButton = (): JSX.Element => {
     return (
         <>
             {showBackToTopButton && (
-                <div className="fixed right-4 z-max bottom-20 opacity-50">
+                <div className="fixed right-5 bottom-6 z-[10000]">
                     <Button
                         icon={{
                             src: 'up-arrow',
-                            width: 12,
-                            height: 12,
-                            className: 'text-neutral-black-default dark:text-neutral-white-darker',
+                            width: 14,
+                            height: 14,
+                            className: 'text-foreground',
                             position: 'left'
                         }}
-                        classes="bg-primary-background-color hover:bg-primary-background-color-darker dark:bg-neutral-black-default hover:dark:bg-neutral-black-light p-3 rounded-lg shadow-[0_4px_8px_rgba(28,28,40)]"
+                        classes="quiet-card rounded-full p-4 shadow-[var(--shadow)] transition hover:border-[var(--accent)]"
                         onClick={scrollToTop}
                         ariaLabel="Back to top button"
                     />
