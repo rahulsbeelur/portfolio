@@ -208,11 +208,6 @@ export const QuickReadFeed = ({
                 </div>
             ) : (
                 <>
-                    <div className="quick-swipe-hint mobile-only">
-                        <span>←</span>
-                        <span>Swipe to navigate</span>
-                        <span>→</span>
-                    </div>
                     {posts.map((post, index) => (
                         <article
                             key={post.slug}

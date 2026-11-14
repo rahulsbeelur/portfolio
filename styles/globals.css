@@ -847,28 +847,6 @@ body {
             opacity: 1;
             transform: scale(1.2);
         }
-        .quick-swipe-hint {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 0;
-            font-size: 12px;
-            color: var(--muted);
-            animation: swipe-hint 2s ease-in-out infinite;
-        }
-        .mobile-only {
-            display: none;
-        }
-        @media (max-width: 717px) {
-            .mobile-only {
-                display: flex;
-            }
-        }
-        @keyframes swipe-hint {
-            0%, 100% { transform: translateX(0); }
-            50% { transform: translateX(10px); }
-        }
     }
 
     @media (prefers-reduced-motion: reduce) {
