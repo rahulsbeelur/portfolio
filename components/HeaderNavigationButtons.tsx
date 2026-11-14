@@ -2,14 +2,15 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 export const navigationWithBlog = [
-    { name: 'About Me', href: '/' },
-    { name: 'Resume', href: '/resume' },
+    { name: 'Home', href: '/' },
+    { name: 'Writing', href: '/blog' },
+    { name: 'Quick reads', href: '/quick-reads' },
     { name: 'Projects', href: '/projects' },
-    { name: 'Blog', href: '/blog' }
+    { name: 'Resume', href: '/resume' }
 ];
 
 export const navigationWithoutBlog = [
-    { name: 'About Me', href: '/' },
+    { name: 'Home', href: '/' },
     { name: 'Resume', href: '/resume' },
     { name: 'Projects', href: '/projects' }
 ];

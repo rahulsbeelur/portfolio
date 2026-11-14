@@ -26,9 +26,7 @@ export const WorkExperienceCard = (
                                 </div>
                             </div>
                         </div>
-                        <div>
-                            {renderMDSection(experience.code, 'ResumeLayout')}
-                        </div>
+                        <div>{renderMDSection(experience.code, 'ResumeLayout')}</div>
                     </div>
                 </article>
             ))}

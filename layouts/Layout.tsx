@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import { useTheme } from '../context/useTheme';
 import { ThemeColors } from '../context/ThemeProvider';
 import { AppBar } from '../components/AppBar';
@@ -15,6 +16,8 @@ interface LayoutProps {
 
 export const Layout = ({ children }: LayoutProps): JSX.Element => {
     const { isDarkTheme } = useTheme();
+    const { pathname } = useRouter();
+    const isQuickReadFocusMode = pathname === '/quick-reads/focus';
     return (
         <>
             <Head>
@@ -23,13 +26,13 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
                     content={isDarkTheme ? ThemeColors.DarkMode : ThemeColors.LightMode}
                 />
             </Head>
-            <AppBar />
-            <BackToTopButton />
+            {!isQuickReadFocusMode && <AppBar />}
+            {!isQuickReadFocusMode && <BackToTopButton />}
             {children}
             <Analytics />
             <SpeedInsights />
-            <Footer />
-            <MobileFooter />
+            {!isQuickReadFocusMode && <Footer />}
+            {!isQuickReadFocusMode && <MobileFooter />}
         </>
     );
 };

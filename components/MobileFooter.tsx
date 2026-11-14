@@ -2,9 +2,12 @@ import React from 'react';
 import { Wrapper } from '../modules/common/components/Wrapper';
 import { SocialHandles } from '../modules/common/components/SocialHandles';
 import { personDetails } from '../modules/common/data/person';
+import { useVersion } from '../hooks/useVersion';
 import Link from 'next/link';
 
 export const MobileFooter = (): JSX.Element => {
+    const versionInfo = useVersion();
+
     return (
         <div className="desktop:hidden tablet:hidden">
             <div className="border-t-[1px] border-neutral-black-dark dark:border-neutral-black-light mx-auto"></div>
@@ -34,6 +37,11 @@ export const MobileFooter = (): JSX.Element => {
                     </div>
                     <div className="mt-auto h7 tablet:small4 !leading-[44px] mobile:mx-auto mobile:body3">
                         &copy; 2026 {personDetails.name}. All rights reserved.
+                        {versionInfo && (
+                            <span className="ml-2 text-muted">
+                                v{versionInfo.version}
+                            </span>
+                        )}
                     </div>
                 </div>
             </Wrapper>

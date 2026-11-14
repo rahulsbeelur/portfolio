@@ -28,20 +28,24 @@ const Resume = ({
                 description={pageContent.seoDescription}
                 path="/resume"
             />
-            <div className="mx-auto max-w-[1120px] desktop:mt-[138px] tablet:mt-[128px] mt-24 py-8">
+            <div className="mx-auto max-w-[1120px] pt-32 pb-8 mobile:pt-20">
                 <header className="mb-10 grid gap-8 text-foreground desktop:grid-cols-[1fr_360px] desktop:items-end">
                     <div className="max-w-3xl">
-                    <p className="font-robotoMono text-sm text-muted">{pageContent.eyebrow}</p>
-                    <h1 className="mt-3 text-[44px] font-poppins font-[600] leading-[54px] mobile:text-[34px] mobile:leading-[42px]">
-                        {pageContent.title}
-                    </h1>
-                    <p className="body1 mt-4 text-foreground/75">{pageContent.description}</p>
+                        <p className="font-robotoMono text-sm text-muted">{pageContent.eyebrow}</p>
+                        <h1 className="mt-3 text-[44px] font-poppins font-[600] leading-[54px] mobile:text-[34px] mobile:leading-[42px]">
+                            {pageContent.title}
+                        </h1>
+                        <p className="body1 mt-4 text-foreground/75">{pageContent.description}</p>
                     </div>
                     <div className="quiet-card grid grid-cols-3 divide-x dev-divider overflow-hidden mobile:grid-cols-1 mobile:divide-x-0 mobile:divide-y">
                         {metrics.map((metric) => (
                             <div key={metric.label} className="p-4">
-                                <p className="font-robotoMono text-[11px] text-muted">{metric.label}</p>
-                                <p className="mt-2 text-sm font-[700] text-foreground">{metric.value}</p>
+                                <p className="font-robotoMono text-[11px] text-muted">
+                                    {metric.label}
+                                </p>
+                                <p className="mt-2 text-sm font-[700] text-foreground">
+                                    {metric.value}
+                                </p>
                             </div>
                         ))}
                     </div>
@@ -50,15 +54,23 @@ const Resume = ({
                     <div className="grid w-full gap-8 desktop:grid-cols-[minmax(0,1fr)_340px]">
                         <div>
                             <div className="mb-5 flex items-center justify-between border-b dev-divider pb-3">
-                                <h2 className="sub-headline1 text-foreground">{pageContent.workTitle}</h2>
-                                <span className="font-robotoMono text-xs text-muted">{pageContent.workMeta}</span>
+                                <h2 className="sub-headline1 text-foreground">
+                                    {pageContent.workTitle}
+                                </h2>
+                                <span className="font-robotoMono text-xs text-muted">
+                                    {pageContent.workMeta}
+                                </span>
                             </div>
                             {WorkExperienceCard(resume.workExperience)}
                         </div>
                         <div>
                             <div className="quiet-card p-5">
-                                <p className="font-robotoMono text-xs text-muted">{pageContent.profileTitle}</p>
-                                <p className="body2 mt-3 text-foreground/80">{pageContent.profileSummary}</p>
+                                <p className="font-robotoMono text-xs text-muted">
+                                    {pageContent.profileTitle}
+                                </p>
+                                <p className="body2 mt-3 text-foreground/80">
+                                    {pageContent.profileSummary}
+                                </p>
                                 <div className="mt-5 border-t dev-divider pt-5">
                                     <p className="font-robotoMono text-xs text-muted">
                                         {pageContent.researchInterestsTitle}
@@ -74,13 +86,17 @@ const Resume = ({
                             </div>
                             <div>
                                 <div className="mb-5 mt-8 border-b dev-divider pb-3">
-                                    <h2 className="sub-headline1 text-foreground">{pageContent.educationTitle}</h2>
+                                    <h2 className="sub-headline1 text-foreground">
+                                        {pageContent.educationTitle}
+                                    </h2>
                                 </div>
                                 {EducationCard(resume.education)}
                             </div>
                             <div className="mt-10">
                                 <div className="mb-5 border-b dev-divider pb-3">
-                                    <h2 className="sub-headline1 text-foreground">{pageContent.languagesTitle}</h2>
+                                    <h2 className="sub-headline1 text-foreground">
+                                        {pageContent.languagesTitle}
+                                    </h2>
                                 </div>
                                 <div className="quiet-card p-4 text-foreground">
                                     <div className="text-left flex flex-wrap gap-2">

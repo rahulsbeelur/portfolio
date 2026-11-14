@@ -104,10 +104,27 @@ module.exports = {
             white: '#FFFFFF'
         },
         fontFamily: {
-            inter: ['Inter', 'Lato', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+            inter: [
+                'Inter',
+                'Lato',
+                'system-ui',
+                '-apple-system',
+                'Segoe UI',
+                'Roboto',
+                'Helvetica',
+                'Arial',
+                'sans-serif'
+            ],
             lato: ['Lato'],
             poppins: ['Poppins', 'Inter', 'system-ui', 'sans-serif'],
-            robotoMono: ['Roboto Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'monospace']
+            robotoMono: [
+                'Roboto Mono',
+                'ui-monospace',
+                'SFMono-Regular',
+                'Menlo',
+                'Monaco',
+                'monospace'
+            ]
         },
         fontWeight: {
             basic: 325

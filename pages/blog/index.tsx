@@ -4,13 +4,14 @@ import { Wrapper } from '../../modules/common/components/Wrapper';
 import { SEO } from '../../modules/common/components/SEO';
 import { getMDData } from '../../modules/common/utils/mdxUtils';
 import { MdxPaths } from '../../constant/paths';
+import { getReadingTime } from '../../modules/common/utils/readTime';
 import type { BlogPost } from './[slug]';
 
 const BlogPage = ({
     posts,
     pageContent
 }: {
-    posts: { frontmatter: BlogPost; slug: string }[];
+    posts: { frontmatter: BlogPost; slug: string; readingTime: string }[];
     pageContent: PageContent;
 }): JSX.Element => {
     return (
@@ -20,7 +21,7 @@ const BlogPage = ({
                 description={pageContent.seoDescription}
                 path="/blog"
             />
-            <main className="mx-auto max-w-[980px] pt-32 pb-20">
+            <main className="mx-auto max-w-[980px] pt-32 pb-20 mobile:pt-20">
                 <header className="max-w-2xl">
                     <p className="font-robotoMono text-sm text-muted">{pageContent.eyebrow}</p>
                     <h1 className="mt-3 text-[48px] font-poppins font-[600] leading-[58px] text-foreground mobile:text-[36px] mobile:leading-[44px]">
@@ -37,12 +38,14 @@ const BlogPage = ({
                             className="quiet-card block p-6 transition hover:border-[var(--accent)]">
                             <div className="flex flex-wrap items-center gap-3 font-robotoMono text-sm text-muted">
                                 <span>{post.frontmatter.publishedAt}</span>
-                                {post.frontmatter.readingTime && <span>{post.frontmatter.readingTime}</span>}
+                                <span>{post.readingTime}</span>
                             </div>
                             <h2 className="sub-headline1 mt-3 text-foreground">
                                 {post.frontmatter.title}
                             </h2>
-                            <p className="body2 mt-3 max-w-2xl text-muted">{post.frontmatter.summary}</p>
+                            <p className="body2 mt-3 max-w-2xl text-muted">
+                                {post.frontmatter.summary}
+                            </p>
                             {post.frontmatter.tags && (
                                 <div className="mt-5 flex flex-wrap gap-2">
                                     {post.frontmatter.tags.map((tag) => (
@@ -71,7 +74,10 @@ interface PageContent {
 }
 
 export const getStaticProps = async (): Promise<{
-    props: { posts: { frontmatter: BlogPost; slug: string }[]; pageContent: PageContent };
+    props: {
+        posts: { frontmatter: BlogPost; slug: string; readingTime: string }[];
+        pageContent: PageContent;
+    };
 }> => {
     const files = fs.existsSync(MdxPaths.Blog) ? fs.readdirSync(MdxPaths.Blog) : [];
     const posts = await Promise.all(
@@ -80,7 +86,11 @@ export const getStaticProps = async (): Promise<{
             .map(async (file) => {
                 const slug = file.replace(/\.mdx$/, '');
                 const { frontmatter } = await getMDData<BlogPost>(`${MdxPaths.Blog}/${file}`);
-                return { frontmatter, slug };
+                return {
+                    frontmatter,
+                    slug,
+                    readingTime: getReadingTime(`${MdxPaths.Blog}/${file}`).label
+                };
             })
     );
     const { frontmatter: pageContent } = await getMDData<PageContent>(`${MdxPaths.Pages}/blog.mdx`);

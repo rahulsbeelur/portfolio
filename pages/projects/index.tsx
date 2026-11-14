@@ -20,7 +20,7 @@ const Projects = ({
                 description={pageContent.seoDescription}
                 path="/projects"
             />
-            <div className="mx-auto max-w-[1080px] desktop:mt-[138px] tablet:mt-[128px] mt-24 py-8">
+            <div className="mx-auto max-w-[1080px] pt-32 pb-8 mobile:pt-20">
                 <header className="mb-10 max-w-3xl">
                     <p className="font-robotoMono text-sm text-muted">{pageContent.eyebrow}</p>
                     <h1 className="mt-3 text-[44px] font-poppins font-[600] leading-[54px] text-foreground mobile:text-[34px] mobile:leading-[42px]">

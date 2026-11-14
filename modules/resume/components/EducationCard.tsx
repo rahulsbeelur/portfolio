@@ -26,10 +26,10 @@ export const EducationCard = (content: { code: string; frontmatter: Education }[
                             </div>
                         </div>
                         <div className="mt-4 border-t dev-divider pt-4">
-                            <div className="body3 text-muted">
-                                {education.frontmatter.course}
+                            <div className="body3 text-muted">{education.frontmatter.course}</div>
+                            <div className="mt-1 font-robotoMono text-xs text-foreground">
+                                {education.frontmatter.score}
                             </div>
-                            <div className="mt-1 font-robotoMono text-xs text-foreground">{education.frontmatter.score}</div>
                         </div>
                     </div>
                 </article>

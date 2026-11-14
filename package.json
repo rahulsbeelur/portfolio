@@ -1,6 +1,6 @@
 {
     "name": "rahulsbeelur",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "private": true,
     "scripts": {
         "dev": "env-cmd -f .env.local next dev",
@@ -9,7 +9,11 @@
         "lint": "eslint --fix .",
         "lint-check": "eslint .",
         "format": "prettier --write . --config ./.prettierrc",
-        "format-check": "prettier --check . --config ./.prettierrc"
+        "format-check": "prettier --check . --config ./.prettierrc",
+        "new:content": "node scripts/new-content.mjs",
+        "new:blog": "node scripts/new-blog.mjs",
+        "new:quick-read": "node scripts/new-quick-read.mjs",
+        "new:content:git": "./scripts/new-content-with-git.sh"
     },
     "dependencies": {
         "@hookform/resolvers": "^3.3.3",

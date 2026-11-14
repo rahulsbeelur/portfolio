@@ -14,7 +14,7 @@ export const ProjectCard = ({
             {projects.map((project, index) => (
                 <Link
                     key={project.frontmatter.projectName}
-                    href={(project.frontmatter?.deployedLink ?? project.frontmatter.gitHubLink) ?? ''}
+                    href={project.frontmatter?.deployedLink ?? project.frontmatter.gitHubLink ?? ''}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={project.frontmatter.projectName}
@@ -23,7 +23,9 @@ export const ProjectCard = ({
                         <div className="relative aspect-video overflow-hidden border-b dev-divider bg-[var(--code-bg)]">
                             <div
                                 className="absolute inset-x-0 top-0 h-1"
-                                style={{ backgroundColor: accentColors[index % accentColors.length] }}
+                                style={{
+                                    backgroundColor: accentColors[index % accentColors.length]
+                                }}
                             />
                             <Image
                                 src={'/projects/' + project.frontmatter.image}
