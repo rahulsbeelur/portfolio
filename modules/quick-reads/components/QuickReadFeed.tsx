@@ -44,45 +44,6 @@ export const QuickReadFeed = ({
 }: QuickReadFeedProps & { activeFilter: string; activeSeries?: string }): JSX.Element => {
     const feedRef = useRef<HTMLElement>(null);
     const router = useRouter();
-    const touchStartX = useRef<number>(0);
-    const touchEndX = useRef<number>(0);
-
-    const handleTouchStart = (e: React.TouchEvent): void => {
-        touchStartX.current = e.touches[0].clientX;
-    };
-
-    const handleTouchMove = (e: React.TouchEvent): void => {
-        touchEndX.current = e.touches[0].clientX;
-    };
-
-    const handleTouchEnd = (): void => {
-        if (!touchStartX.current || !touchEndX.current) return;
-        const diff = touchStartX.current - touchEndX.current;
-        const minSwipeDistance = 50;
-
-        if (Math.abs(diff) < minSwipeDistance) return;
-
-        const feed = feedRef.current;
-        if (!feed) return;
-        const cards = Array.from(feed.querySelectorAll<HTMLElement>('article'));
-        if (cards.length === 0) return;
-
-        const direction = diff > 0 ? 1 : -1;
-        const feedLeft = feed.getBoundingClientRect().left;
-        const current = cards.findIndex(
-            (card) => card.getBoundingClientRect().left >= feedLeft - 8
-        );
-        const index = current < 0 ? 0 : current;
-        const next = Math.min(cards.length - 1, Math.max(0, index + direction));
-        const card = cards[next];
-        const left = card.getBoundingClientRect().left - feedLeft + feed.scrollLeft;
-        feed.scrollTo({
-            left,
-            behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
-                ? 'auto'
-                : 'smooth'
-        });
-    };
 
     useEffect(() => {
         const onKeyDown = (event: KeyboardEvent): void => {
@@ -190,10 +151,7 @@ export const QuickReadFeed = ({
             id="quick-reads-feed"
             className={`quick-feed ${isFocusMode ? 'quick-feed--focus' : 'mt-6'}`}
             aria-label="Quick reads"
-            tabIndex={0}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}>
+            tabIndex={0}>
             {posts.length === 0 ? (
                 <div className="quick-empty">
                     <p>{emptyLabel}</p>
