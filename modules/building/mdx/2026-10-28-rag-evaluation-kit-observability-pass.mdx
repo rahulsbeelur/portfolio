@@ -1,0 +1,37 @@
+---
+title: Added an observability pass
+summary: Introduced the signals needed to understand what the system did and why
+    a run failed.
+publishedAt: '2026-10-28'
+project: rag-evaluation-kit
+status: in-progress
+progress: 49
+timeSpent: 1h 20m
+shipped:
+    - Added structured events
+    - Recorded useful timings
+    - Defined one actionable health signal
+next: Readable result reports
+tags:
+    - Python
+    - RAG
+    - PostgreSQL
+---
+
+This checkpoint focused on **Repeatable test cases**. It moved RAG Evaluation Kit toward its goal: Make it easy to test a RAG change before it reaches users.
+
+## What changed
+
+Introduced the signals needed to understand what the system did and why a run failed. I kept the change deliberately narrow so its effect could be checked before adding another layer.
+
+-   Added structured events
+-   Recorded useful timings
+-   Defined one actionable health signal
+
+## What I learned
+
+The useful part of this checkpoint was making the work visible and repeatable instead of relying on a one-off result. The project is easier to reason about when each decision leaves behind a small piece of evidence: a test, a trace, a comparison, or a written constraint.
+
+## Next
+
+The next checkpoint focuses on **Readable result reports** and tests whether this version still holds up with a less controlled example.

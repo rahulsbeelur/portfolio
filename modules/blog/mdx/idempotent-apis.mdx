@@ -1,0 +1,20 @@
+---
+title: 'Idempotent APIs make retries safer'
+summary: 'A retry should repeat a request, not repeat the business action behind it.'
+publishedAt: '2026-10-28'
+tags: ['APIs', 'Reliability', 'Backend']
+---
+
+Networks fail at inconvenient moments. A client can send a request, the server can finish the work, and the response can disappear before the client receives it. The client then has a reasonable reason to retry and the server has a duplicate request.
+
+For actions such as creating an order or starting a payment, “probably only once” is not a useful guarantee.
+
+An idempotency key gives the client a stable identity for one logical action. The server stores that key with the outcome of the first accepted request. A retry with the same key can return the recorded result instead of performing the action again.
+
+## The storage decision matters
+
+The key, request fingerprint, status, and response need a lifecycle. Concurrent requests with the same key must not both win. A reused key with a different payload should be rejected clearly. Old records need an expiry policy that matches the product’s retry window.
+
+Idempotency is not only an HTTP detail. It is a boundary around a business operation.
+
+When it is designed deliberately, clients can retry after timeouts without turning transient network failures into duplicate customer-facing work.

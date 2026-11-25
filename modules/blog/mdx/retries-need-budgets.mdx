@@ -1,0 +1,24 @@
+---
+title: 'Retries need budgets, backoff, and an exit'
+summary: 'Unbounded retries can turn one slow dependency into extra load across an entire system.'
+publishedAt: '2026-10-14'
+tags: ['Distributed systems', 'Reliability', 'Operations']
+---
+
+Retries are useful when a failure is temporary. They are dangerous when every caller retries immediately, indefinitely, and at the same time.
+
+A good retry policy answers three questions:
+
+1. Which failures are actually safe to retry?
+2. How much additional work may this request create?
+3. When should the system stop and surface the failure?
+
+Exponential backoff spreads attempts over time. Jitter prevents many clients from lining up on the same schedule. A retry budget limits amplification by putting a ceiling on the extra traffic created during failure.
+
+## Respect the original deadline
+
+A request with two seconds remaining should not start a retry that may take five seconds. Each attempt needs to fit within the caller’s overall deadline, including connection time and expected processing time.
+
+Retries also need idempotent operations. Repeating a read is usually safe; repeating a state-changing action may require an idempotency key or a different recovery path.
+
+The goal is graceful recovery, not persistence at any cost. Sometimes the reliable choice is to stop, return a clear error, and let a higher-level workflow decide what happens next.

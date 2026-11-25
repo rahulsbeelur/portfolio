@@ -1,4 +1,5 @@
 import '../styles/globals.css';
+import '../styles/editorial.css';
 import type { AppProps } from 'next/app';
 import { ThemeProvider } from '../context/ThemeProvider';
 import { Layout } from '../layouts/Layout';

@@ -1,0 +1,30 @@
+---
+title: 'The first useful feedback loop'
+summary: 'Mapped the smallest loop that lets an agent attempt work, observe the result, and make a better second pass.'
+publishedAt: '2026-11-24'
+project: 'harness-engineering'
+status: 'in-progress'
+progress: 28
+timeSpent: '2h 20m'
+shipped:
+    [
+        'Defined the attempt → observe → evaluate loop',
+        'Added a tiny pass/fail eval set',
+        'Captured the first trace shape'
+    ]
+next: 'Run the loop against a real repository task and catalogue where context goes missing.'
+tags: ['Harness engineering', 'Agents', 'Evals']
+---
+
+The first pass was about reducing the idea to a loop I can see and test:
+
+1. Give the agent a bounded task and explicit success conditions.
+2. Capture the context it received and the actions it took.
+3. Evaluate the result with a small, opinionated test set.
+4. Feed the failure back into the next attempt.
+
+The interesting part is not the model call. It is the harness around it—the part that turns one impressive attempt into a system that can improve.
+
+## What changed today
+
+I now have a trace shape for each attempt and a tiny set of checks that says more than “this feels right.” The next run will use a real repository task so I can see which missing context actually affects the result.

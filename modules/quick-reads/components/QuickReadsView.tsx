@@ -75,7 +75,7 @@ export const QuickReadsView = ({
                     isFocusMode ? 'quick-focus-main' : 'pt-32 pb-20 mobile:pt-20'
                 }`}>
                 {isFocusMode && (
-                    <div className="quick-focus-bar">
+                    <div className="quick-focus-bar hidden">
                         <p>{streamLabel(selectedFilter, selectedSeries)}</p>
                     </div>
                 )}
@@ -113,7 +113,9 @@ export const QuickReadsView = ({
                                                     hash: 'quick-reads-feed'
                                                 })}
                                                 className={`series-card series-card--${cardCount}`}>
-                                                <span>{group.posts.length} parts · focused stream</span>
+                                                <span>
+                                                    {group.posts.length} parts · focused stream
+                                                </span>
                                                 <h2>{group.name}</h2>
                                                 <p>
                                                     {group.posts

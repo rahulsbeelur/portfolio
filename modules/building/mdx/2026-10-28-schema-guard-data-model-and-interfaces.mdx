@@ -1,0 +1,37 @@
+---
+title: Clarified the data model and interfaces
+summary: Simplified the boundaries between inputs, stored state, and the output
+    shown to a user.
+publishedAt: '2026-10-28'
+project: schema-guard
+status: in-progress
+progress: 15
+timeSpent: 2h 10m
+shipped:
+    - Named the main data concepts
+    - Reduced interface ambiguity
+    - Documented input and output shapes
+next: Compatibility rules for common changes
+tags:
+    - Go
+    - Kafka
+    - JSON Schema
+---
+
+This checkpoint focused on **CI feedback for pull requests**. It moved SchemaGuard toward its goal: Make event-contract changes safe and understandable for both producers and consumers.
+
+## What changed
+
+Simplified the boundaries between inputs, stored state, and the output shown to a user. I kept the change deliberately narrow so its effect could be checked before adding another layer.
+
+-   Named the main data concepts
+-   Reduced interface ambiguity
+-   Documented input and output shapes
+
+## What I learned
+
+The useful part of this checkpoint was making the work visible and repeatable instead of relying on a one-off result. The project is easier to reason about when each decision leaves behind a small piece of evidence: a test, a trace, a comparison, or a written constraint.
+
+## Next
+
+The next checkpoint focuses on **Compatibility rules for common changes** and tests whether this version still holds up with a less controlled example.

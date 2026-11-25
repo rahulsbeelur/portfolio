@@ -1,0 +1,21 @@
+---
+title: 'The first readable agent timeline'
+summary: 'Grouped model decisions, tool calls, and evaluation results into one timeline that can be scanned without reading the raw trace.'
+publishedAt: '2026-11-25'
+project: 'tracegarden'
+status: 'in-progress'
+progress: 41
+timeSpent: '2h 10m'
+shipped:
+    [
+        'Added a run timeline',
+        'Grouped tool calls with their output',
+        'Highlighted failed evaluations'
+    ]
+next: 'Add a comparison view for a successful and failed attempt on the same task.'
+tags: ['Agents', 'Tracing', 'Developer tools']
+---
+
+Raw traces contain useful evidence, but they make the reader reconstruct the workflow by hand. The first TraceGarden view now groups each decision with the action it triggered and the observation that came back.
+
+The timeline also separates expected tool failures from failures that stopped the run. That makes the useful question—“where did this attempt stop making progress?”—much easier to answer.

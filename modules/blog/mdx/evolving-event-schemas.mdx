@@ -1,0 +1,22 @@
+---
+title: 'Evolving event schemas without surprising consumers'
+summary: 'Shared events are contracts, and small producer changes can become large consumer failures.'
+publishedAt: '2026-09-30'
+tags: ['Kafka', 'Event driven', 'System design']
+---
+
+An event is easy to publish and difficult to take back. Once several consumers depend on it, its shape and meaning become a shared contract.
+
+Compatible evolution begins with a simple habit: assume consumers update at different times. A producer should not require every consumer to deploy in lockstep.
+
+Additive changes are usually the safest. New optional fields allow newer consumers to gain information while older consumers continue reading the event they already understand. Removing a field, changing its type, or changing its meaning needs a migration plan.
+
+## Meaning is part of the schema
+
+A field can keep the same name and type while its semantics change completely. That break will not be caught by a JSON Schema comparison.
+
+Useful event documentation includes ownership, units, allowed values, null behaviour, and an example of the business moment the event represents.
+
+Compatibility checks in CI can catch structural risks early. Consumer metrics and dead-letter visibility catch assumptions that static checks cannot.
+
+The aim is not to prevent change. It is to let producers and consumers change independently without making the event stream unpredictable.

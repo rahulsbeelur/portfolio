@@ -1,0 +1,20 @@
+---
+title: 'Context is part of the agent architecture'
+summary: 'What an agent can see, when it sees it, and how that context is refreshed shapes the quality of every action.'
+publishedAt: '2026-07-18'
+tags: ['Agents', 'Context engineering', 'System design']
+---
+
+When an agent produces the wrong result, the model is an easy place to look first. Often the more useful question is whether the system gave it the right information at the right time.
+
+Context includes more than the user’s prompt. It can include repository instructions, nearby code, tool output, previous decisions, examples, and explicit success conditions.
+
+Too little context creates guesses. Too much context hides the important signal and increases cost. The architecture needs a selection strategy.
+
+## Refresh context after action
+
+An agent’s view becomes stale as soon as it changes a file, runs a migration, or receives new command output. A dependable loop observes the result and updates the working context before the next decision.
+
+It also separates durable rules from temporary evidence. Coding conventions belong in stable instructions. A single test failure belongs in the current attempt. Mixing them makes it harder to know what should remain across tasks.
+
+Context engineering is not prompt decoration. It is the design of the information boundary around an autonomous workflow. Treating it as architecture makes failures easier to understand and the system easier to improve.

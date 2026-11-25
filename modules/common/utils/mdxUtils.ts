@@ -9,28 +9,30 @@ import {
 import rehypeHighlight from 'rehype-highlight';
 import rehypeSanitize from 'rehype-sanitize';
 import { MDModel } from '../models/MDXModel';
+import type { BundleMDX } from 'mdx-bundler/dist/types';
 
 export const getMDData = async <T>(filePath: string): Promise<MDModel<T>> => {
     const source = fs.readFileSync(filePath, 'utf8');
-    const { code, frontmatter } = await bundleMDX({
+    const bundleOptions: BundleMDX<Record<string, unknown>> = {
         source,
         cwd: process.cwd(),
-        mdxOptions(options: any) {
+        mdxOptions(options) {
             options.rehypePlugins = [
                 ...(options.rehypePlugins ?? []),
                 [rehypeHighlight, rehypeSanitize]
             ];
-            options.remarkPlugins = [
-                ...(options.remarkPlugins ?? []),
-                [
-                    remarkEmbedder,
-                    { transformers: [YoutubeTransformer, DropboxTransformer, VideoTransformer] }
-                ]
-            ];
+            const embedderPlugin = [
+                remarkEmbedder,
+                {
+                    transformers: [YoutubeTransformer, DropboxTransformer, VideoTransformer]
+                }
+            ] as unknown as NonNullable<typeof options.remarkPlugins>[number];
+            options.remarkPlugins = [...(options.remarkPlugins ?? []), embedderPlugin];
             return options;
         }
-    } as any);
-    return { code, frontmatter: <T>frontmatter };
+    };
+    const { code, frontmatter } = await bundleMDX(bundleOptions);
+    return { code, frontmatter: frontmatter as T };
 };
 
 // The functions get all the slugs from a folder to create static paths during build time.

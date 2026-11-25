@@ -1,0 +1,20 @@
+---
+title: 'Practical SLOs start with a user action'
+summary: 'A useful reliability target describes what users need, how it is measured, and what the team does when it is missed.'
+publishedAt: '2026-09-12'
+tags: ['SLO', 'Observability', 'Reliability']
+---
+
+It is tempting to begin an SLO discussion with the metrics already available. CPU, memory, and pod health are important operational signals, but they do not directly describe whether a user can complete an action.
+
+I prefer to start with a concrete promise: requests should succeed, queue work should finish within an expected time, or fresh data should appear before it becomes misleading.
+
+From that promise, the service-level indicator becomes clearer. It needs a numerator, denominator, time window, and a definition of which events count.
+
+## Leave room for change
+
+An error budget makes the target useful for decisions. When reliability is healthy, a team can spend more of the budget on releases and experiments. When the budget is being consumed too quickly, reliability work becomes the priority.
+
+The target should be demanding enough to protect users but not so absolute that every small failure becomes an emergency. “100%” often hides trade-offs rather than removing them.
+
+A good SLO creates a shared language between product and engineering. It turns reliability from a vague ambition into a measurable choice.

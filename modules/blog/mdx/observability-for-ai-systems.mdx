@@ -1,0 +1,24 @@
+---
+title: 'Observability for AI systems needs more than latency'
+summary: 'Model calls need ordinary operational signals plus visibility into context, tools, evaluation, and output quality.'
+publishedAt: '2026-08-22'
+tags: ['AI systems', 'Observability', 'Production']
+---
+
+AI features still need the familiar signals: latency, request volume, error rate, saturation, and cost. Those tell us whether the service is available and affordable. They do not tell us whether the answer was useful.
+
+For an AI workflow, I also want to observe:
+
+-   which context was selected and how much was used
+-   which tools were called and whether they succeeded
+-   where the workflow stopped or changed direction
+-   which model and configuration produced the output
+-   how the result performed against relevant evaluations
+
+## Trace the workflow, not private data
+
+More visibility does not mean storing every prompt forever. Traces should use safe identifiers, redaction, sampling, and retention rules that match the sensitivity of the product.
+
+The important thing is preserving enough structure to compare a good run with a failed one. If a retrieval step returned no useful source, that should be visible without exposing the source content to everyone with dashboard access.
+
+Operational health and answer quality are different dimensions. A model can respond quickly with a poor answer. Production observability needs to make both visible.

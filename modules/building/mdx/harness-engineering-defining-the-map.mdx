@@ -1,0 +1,21 @@
+---
+title: 'Defining the harness map'
+summary: 'Broke a vague exploration into four testable layers: context, action, observation, and evaluation.'
+publishedAt: '2026-11-21'
+project: 'harness-engineering'
+status: 'exploring'
+progress: 16
+timeSpent: '1h 35m'
+shipped:
+    [
+        'Wrote the four-layer model',
+        'Listed failure modes for each layer',
+        'Picked one repository task as a test case'
+    ]
+next: 'Implement the first end-to-end loop with a deliberately small evaluation set.'
+tags: ['Harness engineering', 'System design']
+---
+
+“Harness engineering” can become a label for almost everything around an AI agent. I wanted a map small enough to use.
+
+I am starting with four layers: the context the agent receives, the actions it can take, the observations it produces, and the evaluation that decides whether the result is useful. Each layer has different failure modes, so each needs a different kind of visibility.

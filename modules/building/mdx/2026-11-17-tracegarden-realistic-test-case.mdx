@@ -1,0 +1,37 @@
+---
+title: Ran a realistic test case
+summary: Used a production-shaped example to find assumptions that smaller
+    fixtures did not expose.
+publishedAt: '2026-11-17'
+project: tracegarden
+status: in-progress
+progress: 28
+timeSpent: 2h 10m
+shipped:
+    - Added a realistic fixture
+    - Recorded the unexpected behaviour
+    - Turned the finding into a repeatable check
+next: Context and tool-call inspection
+tags:
+    - TypeScript
+    - OpenTelemetry
+    - PostgreSQL
+---
+
+This checkpoint focused on **A readable timeline for agent runs**. It moved TraceGarden toward its goal: Turn long agent traces into a clear explanation of what happened and where the run went off course.
+
+## What changed
+
+Used a production-shaped example to find assumptions that smaller fixtures did not expose. I kept the change deliberately narrow so its effect could be checked before adding another layer.
+
+-   Added a realistic fixture
+-   Recorded the unexpected behaviour
+-   Turned the finding into a repeatable check
+
+## What I learned
+
+The useful part of this checkpoint was making the work visible and repeatable instead of relying on a one-off result. The project is easier to reason about when each decision leaves behind a small piece of evidence: a test, a trace, a comparison, or a written constraint.
+
+## Next
+
+The next checkpoint focuses on **Context and tool-call inspection** and tests whether this version still holds up with a less controlled example.

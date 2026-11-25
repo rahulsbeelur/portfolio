@@ -24,9 +24,7 @@ export const Footer = (): JSX.Element => {
                     <div className="mt-auto h7 tablet:small4 !leading-[44px] mobile:mx-auto mobile:body3 mb-[-30px]">
                         &copy; 2026 {personDetails.name}. All rights reserved.
                         {versionInfo && (
-                            <span className="ml-2 text-muted">
-                                v{versionInfo.version}
-                            </span>
+                            <span className="ml-2 text-muted">v{versionInfo.version}</span>
                         )}
                     </div>
                     <Link

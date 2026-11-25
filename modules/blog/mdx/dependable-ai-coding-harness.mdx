@@ -1,0 +1,23 @@
+---
+title: 'What makes an AI coding harness dependable'
+summary: 'The useful engineering around an agent is the loop that gives it context, observes its work, and checks the result.'
+publishedAt: '2026-11-25'
+tags: ['AI systems', 'Agents', 'Evals']
+---
+
+An AI coding agent can produce an impressive patch and still be difficult to trust. The difference between a demo and a dependable workflow is usually the harness around the model.
+
+I think about that harness as four connected parts:
+
+1. **Context** — the repository, instructions, constraints, and examples the agent can actually see.
+2. **Action** — the tools it can use and the boundaries around those tools.
+3. **Observation** — the traces, command output, diffs, and errors produced during the attempt.
+4. **Evaluation** — the checks that decide whether the result solved the task without breaking something else.
+
+The loop matters more than any single prompt. A useful system lets the agent attempt bounded work, exposes what happened, runs clear checks, and feeds failures into the next pass.
+
+## Start with visible failure
+
+Before adding more autonomy, I want to know where context disappeared, which tool call failed, and why an evaluation rejected the result. If those answers require reading thousands of tokens, the harness is not yet doing enough.
+
+The goal is not to hide rough edges. It is to make each rough edge observable and actionable. That is what turns agent-assisted development into an engineering system that can improve.

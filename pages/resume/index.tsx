@@ -1,7 +1,7 @@
 import fs from 'fs';
-import React from 'react';
 import { Wrapper } from '../../modules/common/components/Wrapper';
 import { SEO } from '../../modules/common/components/SEO';
+import { PageHeader } from '../../modules/common/components/PageHeader';
 import { getMDData } from '../../modules/common/utils/mdxUtils';
 import { MdxPaths } from '../../constant/paths';
 import { WorkExperienceCard } from '../../modules/resume/components/WorkExperienceCard';
@@ -19,99 +19,89 @@ const Resume = ({
     pageContent: ResumePageContent;
 }): JSX.Element => {
     const metrics = pageContent.metrics ?? [];
-    const researchInterests = pageContent.researchInterests ?? [];
+    const interests = pageContent.researchInterests ?? [];
 
     return (
-        <Wrapper classes="normal-case">
+        <Wrapper classes="normal-case !max-w-[1120px]">
             <SEO
                 title={pageContent.seoTitle}
                 description={pageContent.seoDescription}
                 path="/resume"
             />
-            <div className="mx-auto max-w-[1120px] pt-32 pb-8 mobile:pt-20">
-                <header className="mb-10 grid gap-8 text-foreground desktop:grid-cols-[1fr_360px] desktop:items-end">
-                    <div className="max-w-3xl">
-                        <p className="font-robotoMono text-sm text-muted">{pageContent.eyebrow}</p>
-                        <h1 className="mt-3 text-[44px] font-poppins font-[600] leading-[54px] mobile:text-[34px] mobile:leading-[42px]">
-                            {pageContent.title}
-                        </h1>
-                        <p className="body1 mt-4 text-foreground/75">{pageContent.description}</p>
-                    </div>
-                    <div className="quiet-card grid grid-cols-3 divide-x dev-divider overflow-hidden mobile:grid-cols-1 mobile:divide-x-0 mobile:divide-y">
+            <main className="pb-20 pt-32 mobile:pt-24">
+                <PageHeader
+                    fileName={pageContent.eyebrow}
+                    title={pageContent.title}
+                    description={pageContent.description}
+                    action={
+                        <a
+                            href="mailto:srahulbeelur@gmail.com?subject=Resume%20request"
+                            className="text-link">
+                            Reach out for my resume →
+                        </a>
+                    }
+                />
+
+                <section className="resume-overview mt-16">
+                    <p>{pageContent.profileSummary}</p>
+                    <div className="resume-metrics">
                         {metrics.map((metric) => (
-                            <div key={metric.label} className="p-4">
-                                <p className="font-robotoMono text-[11px] text-muted">
-                                    {metric.label}
-                                </p>
-                                <p className="mt-2 text-sm font-[700] text-foreground">
-                                    {metric.value}
-                                </p>
+                            <div key={metric.label}>
+                                <span>{metric.label}</span>
+                                <strong>{metric.value}</strong>
                             </div>
                         ))}
                     </div>
-                </header>
-                <div className="flex justify-center mobile:flex-col text-foreground">
-                    <div className="grid w-full gap-8 desktop:grid-cols-[minmax(0,1fr)_340px]">
-                        <div>
-                            <div className="mb-5 flex items-center justify-between border-b dev-divider pb-3">
-                                <h2 className="sub-headline1 text-foreground">
-                                    {pageContent.workTitle}
-                                </h2>
-                                <span className="font-robotoMono text-xs text-muted">
-                                    {pageContent.workMeta}
-                                </span>
-                            </div>
-                            {WorkExperienceCard(resume.workExperience)}
-                        </div>
-                        <div>
-                            <div className="quiet-card p-5">
-                                <p className="font-robotoMono text-xs text-muted">
-                                    {pageContent.profileTitle}
-                                </p>
-                                <p className="body2 mt-3 text-foreground/80">
-                                    {pageContent.profileSummary}
-                                </p>
-                                <div className="mt-5 border-t dev-divider pt-5">
-                                    <p className="font-robotoMono text-xs text-muted">
-                                        {pageContent.researchInterestsTitle}
-                                    </p>
-                                    <div className="mt-3 flex flex-wrap gap-2">
-                                        {researchInterests.map((interest) => (
-                                            <span key={interest} className="code-chip">
-                                                {interest}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
+                </section>
+
+                <div className="resume-layout mt-20">
+                    <section>
+                        <div className="plain-section__heading">
                             <div>
-                                <div className="mb-5 mt-8 border-b dev-divider pb-3">
-                                    <h2 className="sub-headline1 text-foreground">
-                                        {pageContent.educationTitle}
-                                    </h2>
-                                </div>
-                                {EducationCard(resume.education)}
-                            </div>
-                            <div className="mt-10">
-                                <div className="mb-5 border-b dev-divider pb-3">
-                                    <h2 className="sub-headline1 text-foreground">
-                                        {pageContent.languagesTitle}
-                                    </h2>
-                                </div>
-                                <div className="quiet-card p-4 text-foreground">
-                                    <div className="text-left flex flex-wrap gap-2">
-                                        {resume.speakingLanguages.map((language) => (
-                                            <div key={language} className="code-chip">
-                                                {language}
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
+                                <p className="page-file">experience.md</p>
+                                <h2>{pageContent.workTitle}</h2>
                             </div>
                         </div>
-                    </div>
+                        {WorkExperienceCard(resume.workExperience)}
+                    </section>
+
+                    <aside className="resume-sidebar">
+                        <section>
+                            <p className="page-file">focus.md</p>
+                            <h2>{pageContent.researchInterestsTitle}</h2>
+                            <ul>
+                                {interests.map((interest) => (
+                                    <li key={interest}>{interest}</li>
+                                ))}
+                            </ul>
+                        </section>
+
+                        <section>
+                            <p className="page-file">education.md</p>
+                            <h2>{pageContent.educationTitle}</h2>
+                            {EducationCard(resume.education)}
+                        </section>
+
+                        <section>
+                            <p className="page-file">languages.md</p>
+                            <h2>{pageContent.languagesTitle}</h2>
+                            <p className="resume-languages">
+                                {resume.speakingLanguages.join(' · ')}
+                            </p>
+                        </section>
+                    </aside>
                 </div>
-            </div>
+
+                <section className="page-end-link mt-20">
+                    <div>
+                        <p className="page-file">contact.md</p>
+                        <h2>Want to work together?</h2>
+                    </div>
+                    <a href="mailto:srahulbeelur@gmail.com" className="text-link">
+                        Email me →
+                    </a>
+                </section>
+            </main>
         </Wrapper>
     );
 };
@@ -146,7 +136,6 @@ interface ResumePageContent {
     title: string;
     description: string;
     workTitle: string;
-    workMeta: string;
     educationTitle: string;
     languagesTitle: string;
     profileTitle: string;

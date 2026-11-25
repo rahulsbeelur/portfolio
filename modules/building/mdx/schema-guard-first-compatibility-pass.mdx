@@ -1,0 +1,21 @@
+---
+title: 'The first compatibility pass'
+summary: 'Added clear checks for removed fields, type changes, and newly required values in JSON event schemas.'
+publishedAt: '2026-11-24'
+project: 'schema-guard'
+status: 'in-progress'
+progress: 53
+timeSpent: '1h 50m'
+shipped:
+    [
+        'Compared old and new event schemas',
+        'Classified three breaking-change types',
+        'Produced migration guidance'
+    ]
+next: 'Run the checker against a multi-version consumer fixture in CI.'
+tags: ['Kafka', 'Schemas', 'CI']
+---
+
+The first SchemaGuard pass focuses on changes that are structurally easy to identify and operationally expensive to miss: removing a field, changing its type, or making an optional value required.
+
+Each failure now includes a short explanation and a suggested migration sequence. The aim is to help the author fix the change, not simply reject the pull request.

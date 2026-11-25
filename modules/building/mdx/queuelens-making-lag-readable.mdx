@@ -1,0 +1,23 @@
+---
+title: 'Making consumer lag easier to understand'
+summary: 'Turned raw Kafka lag numbers into a timeline that shows when a queue started falling behind and whether it is recovering.'
+publishedAt: '2026-11-23'
+project: 'queuelens'
+status: 'in-progress'
+progress: 62
+timeSpent: '2h 40m'
+shipped:
+    [
+        'Added a consumer lag timeline',
+        'Grouped partitions by consumer',
+        'Wrote a plain-language queue health summary'
+    ]
+next: 'Test the health summary against a real traffic spike and tune the warning thresholds.'
+tags: ['Kafka', 'Observability', 'Backend']
+---
+
+Raw lag numbers tell me that a consumer is behind, but not whether the situation is getting better or worse. Today I added a timeline and a short health summary so the first screen answers the practical question: “Do I need to act now?”
+
+## What changed
+
+Partitions are now grouped by consumer, and the dashboard separates a short traffic spike from lag that keeps growing. The next step is to test those rules against a real incident-shaped dataset.

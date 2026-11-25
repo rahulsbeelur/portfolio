@@ -1,0 +1,37 @@
+---
+title: Ran a realistic test case
+summary: Used a production-shaped example to find assumptions that smaller
+    fixtures did not expose.
+publishedAt: '2026-11-12'
+project: schema-guard
+status: in-progress
+progress: 37
+timeSpent: 2h 10m
+shipped:
+    - Added a realistic fixture
+    - Recorded the unexpected behaviour
+    - Turned the finding into a repeatable check
+next: Readable migration guidance
+tags:
+    - Go
+    - Kafka
+    - JSON Schema
+---
+
+This checkpoint focused on **Compatibility rules for common changes**. It moved SchemaGuard toward its goal: Make event-contract changes safe and understandable for both producers and consumers.
+
+## What changed
+
+Used a production-shaped example to find assumptions that smaller fixtures did not expose. I kept the change deliberately narrow so its effect could be checked before adding another layer.
+
+-   Added a realistic fixture
+-   Recorded the unexpected behaviour
+-   Turned the finding into a repeatable check
+
+## What I learned
+
+The useful part of this checkpoint was making the work visible and repeatable instead of relying on a one-off result. The project is easier to reason about when each decision leaves behind a small piece of evidence: a test, a trace, a comparison, or a written constraint.
+
+## Next
+
+The next checkpoint focuses on **Readable migration guidance** and tests whether this version still holds up with a less controlled example.

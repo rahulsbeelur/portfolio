@@ -8,8 +8,8 @@ export enum Theme {
 }
 
 export enum ThemeColors {
-    DarkMode = '#1C1C28',
-    LightMode = '#FFFFFF'
+    DarkMode = '#171813',
+    LightMode = '#F4F0E7'
 }
 
 export interface ThemeContextData {

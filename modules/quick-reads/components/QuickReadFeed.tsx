@@ -169,7 +169,9 @@ export const QuickReadFeed = ({
                     {posts.map((post, index) => (
                         <article
                             key={post.slug}
-                            className={`quick-card quick-card--${post.frontmatter.accent ?? 'blue'}`}>
+                            className={`quick-card quick-card--${
+                                post.frontmatter.accent ?? 'blue'
+                            }`}>
                             <div className="flex items-center justify-between gap-4 font-robotoMono text-xs uppercase tracking-[0.13em] text-foreground/60">
                                 <span>
                                     {String(index + 1).padStart(2, '0')} /{' '}
@@ -203,7 +205,9 @@ export const QuickReadFeed = ({
                                 <span>{post.readingTime}</span>
                                 <div className="flex flex-wrap items-center gap-4">
                                     {!isFocusMode && (
-                                        <Link href={cardFocusHref(post, activeFilter, activeSeries)} className="hover:text-foreground">
+                                        <Link
+                                            href={cardFocusHref(post, activeFilter, activeSeries)}
+                                            className="hover:text-foreground">
                                             Enter focus ↗
                                         </Link>
                                     )}
@@ -228,7 +232,7 @@ export const QuickReadFeed = ({
                             <button
                                 key={index}
                                 className={`quick-dot ${index === currentIndex ? 'active' : ''}`}
-                                onClick={() => scrollToIndex(index)}
+                                onClick={(): void => scrollToIndex(index)}
                                 aria-label={`Go to quick read ${index + 1}`}
                             />
                         ))}

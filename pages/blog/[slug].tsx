@@ -1,7 +1,6 @@
 import fs from 'fs';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { Wrapper } from '../../modules/common/components/Wrapper';
 import { SEO } from '../../modules/common/components/SEO';
 import { getMDData, getSlugs } from '../../modules/common/utils/mdxUtils';
@@ -16,33 +15,11 @@ export interface BlogPost {
     tags?: string[];
 }
 
-const quickReadsReturnPath = (value: string | string[] | undefined): string | undefined => {
-    if (typeof value !== 'string') return undefined;
-    if (
-        !value.startsWith('/quick-reads') ||
-        value.startsWith('//') ||
-        value.includes('://') ||
-        value.includes('\\')
-    ) {
-        return undefined;
-    }
-    return value;
-};
-
 const BlogPostPage = ({
     post
 }: {
     post: { code: string; frontmatter: BlogPost; slug: string; readingTime: string };
 }): JSX.Element => {
-    const { query } = useRouter();
-    const returnPath = quickReadsReturnPath(query.return);
-    const cameFromQuickReads = query.from === 'quick-reads' || Boolean(returnPath);
-    const backHref = returnPath ?? (cameFromQuickReads ? '/quick-reads' : '/blog');
-    const backLabel = returnPath?.startsWith('/quick-reads/focus')
-        ? 'Focus'
-        : cameFromQuickReads
-        ? 'Quick reads'
-        : 'Writing';
     return (
         <Wrapper classes="normal-case">
             <SEO
@@ -54,33 +31,18 @@ const BlogPostPage = ({
                 <nav aria-label="Breadcrumb" className="breadcrumb">
                     <Link href="/">Home</Link>
                     <span>/</span>
-                    {cameFromQuickReads ? (
-                        <>
-                            <Link href="/quick-reads">Quick reads</Link>
-                            {returnPath?.startsWith('/quick-reads/focus') && (
-                                <>
-                                    <span>/</span>
-                                    <Link href={returnPath}>Focus</Link>
-                                </>
-                            )}
-                            <span>/</span>
-                            <span>Deep dive</span>
-                        </>
-                    ) : (
-                        <>
-                            <Link href="/blog">Writing</Link>
-                            <span>/</span>
-                            <span>Article</span>
-                        </>
-                    )}
+                    <Link href="/blog">Blog</Link>
+                    <span>/</span>
+                    <span>Article</span>
                 </nav>
                 <Link
-                    href={backHref}
+                    href="/blog"
                     className="mt-5 inline-flex font-robotoMono text-sm text-muted hover:text-accent">
-                    {'←'} Back to {backLabel}
+                    {'←'} Back to the blog
                 </Link>
                 <header className="mt-8 border-b dev-divider pb-8">
-                    <p className="font-robotoMono text-sm text-muted">
+                    <p className="page-file">blog.md</p>
+                    <p className="mt-4 font-robotoMono text-sm text-muted">
                         {post.frontmatter.publishedAt}
                         {` · ${post.readingTime}`}
                     </p>
@@ -89,11 +51,9 @@ const BlogPostPage = ({
                     </h1>
                     <p className="body1 mt-4 text-muted">{post.frontmatter.summary}</p>
                     {post.frontmatter.tags && (
-                        <div className="mt-6 flex flex-wrap gap-2">
+                        <div className="article-tags mt-6">
                             {post.frontmatter.tags.map((tag) => (
-                                <span key={tag} className="code-chip">
-                                    {tag}
-                                </span>
+                                <span key={tag}>{tag}</span>
                             ))}
                         </div>
                     )}

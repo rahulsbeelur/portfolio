@@ -20,6 +20,22 @@ npm run dev
 
 Open http://localhost:3000 with your browser to see the result.
 
+## Managing website content
+
+Use the guided content menu for routine updates:
+
+```bash
+npm run new:content
+```
+
+To see the available commands in the terminal:
+
+```bash
+npm run content:help
+```
+
+The complete [content management guide](docs/CONTENT_GUIDE.md) explains which command or source file updates every page and section, what each prompt asks, where the result is saved, and how to preview and verify it.
+
 ## Scripts
 
 ### Development
@@ -37,31 +53,86 @@ Open http://localhost:3000 with your browser to see the result.
 
 ### Content Creation
 
-- `npm run new:content` - Interactive content creator (choose blog or quick-read)
+- `npm run content:help` - Print the page-to-command content index
+- `npm run new:content` - Interactive creator for every repeatable content section
 - `npm run new:blog` - Create a new blog post with guided prompts
-- `npm run new:quick-read` - Create a new quick read with guided prompts
+- `npm run new:build` - Add a dated update to a build-in-public project
+- `npm run new:build-project` - Create a build-in-public project
+- `npm run content:fill-build-updates` - Fill every build project to at least 10 updates without overwriting existing notes
+- `npm run new:portfolio-project` - Add a project to `/projects`
+- `npm run new:experience` - Add a work-experience entry to `/resume`
+- `npm run new:education` - Add an education entry to `/resume`
+- `npm run set:languages` - Update the languages shown on `/resume`
+- `npm run new:content:git -- <type>` - Optionally create, validate, commit, and push content on a new branch
 
-## Publishing writing
+## Publishing content
 
-Run `npm run new:blog` or `npm run new:quick-read` for a dedicated authoring flow. `npm run new:content` asks which of those two you want, then uses the same questions. Each flow writes a new MDX file and will not overwrite an existing slug.
+Run `npm run new:content` for one guided menu covering blog posts, build projects, build updates, portfolio projects, work experience, education, and languages. Each flow asks for the fields required by its page and validates the generated content.
 
-You can also add a `.mdx` file manually in `modules/blog/mdx` for long-form writing or `modules/quick-reads/mdx` for the swipe feed. Reading time is calculated during the build, so never add it to frontmatter manually.
+See [docs/CONTENT_GUIDE.md](docs/CONTENT_GUIDE.md) for the page and section map, every authoring command, editing existing content, the maintenance command, and the optional Git workflow.
 
-Quick reads support one broad `area` plus as many granular `topics` as needed:
+### Build in public
+
+Create a project once:
+
+```bash
+npm run new:build-project
+```
+
+Then publish each work session with:
+
+```bash
+npm run new:build
+```
+
+The build-update command asks which project changed, what was done, the status, overall progress, time invested, next step, tags, and a Markdown note. It creates a validated file in `modules/building/mdx`, updates the project progress in `modules/building/projects.yml`, and renders the entry on both the homepage and `/building`.
+
+More than one build project can be active at the same time. The project command never pauses another active project automatically.
+
+If you prefer to author manually, use this frontmatter shape:
 
 ```mdx
 ---
-title: Your idea
-summary: A concise description.
-publishedAt: '2026-11-14'
-area: AI
-topics: ['Inference', 'Evaluation']
-series: 'Operating AI in production' # optional
-seriesOrder: 1 # optional; controls card order in the series
+title: 'The first useful feedback loop'
+summary: 'A concise description of what moved.'
+publishedAt: '2026-11-24'
+project: 'harness-engineering'
+status: 'in-progress' # exploring | in-progress | shipped | blocked
+progress: 28
+timeSpent: '2h 20m'
+shipped: ['One concrete change', 'Another concrete change']
+next: 'The next useful step.' # optional
+tags: ['Agents', 'Evals'] # optional
 ---
+
+Write the public build note here.
 ```
 
-Areas and topics are discovered from this frontmatter automatically. Series appear as stacked cards and open a focused feed containing only the posts in that series.
+### Blog
+
+Run `npm run new:blog` to create a long-form post in `modules/blog/mdx`. Reading time is calculated during the build, so it should not be added to frontmatter manually. The existing blog index and article pages remain independent from the build log.
+
+### Portfolio projects
+
+Put the project image in `public/projects`, then run:
+
+```bash
+npm run new:portfolio-project
+```
+
+The command checks that the image exists, requires a technology list and summary, validates the live/GitHub URLs, and creates the numbered MDX entry rendered at `/projects`.
+
+### Resume
+
+Use the guided commands instead of writing frontmatter by hand:
+
+```bash
+npm run new:experience
+npm run new:education
+npm run set:languages
+```
+
+Experience entries ask for the company, role, dates, and impact points. Education asks for the institution, course, location, score, and years. Each entry is validated and appears automatically on `/resume`.
 
 ## Automatic deployment
 

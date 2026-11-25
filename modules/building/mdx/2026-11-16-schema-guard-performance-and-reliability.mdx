@@ -1,0 +1,37 @@
+---
+title: Improved performance and reliability
+summary: Measured the slow path and tightened the part of the system most likely
+    to fail under load.
+publishedAt: '2026-11-16'
+project: schema-guard
+status: in-progress
+progress: 42
+timeSpent: 2h 35m
+shipped:
+    - Measured the slowest operation
+    - Reduced repeated work
+    - Added a reliability regression check
+next: CI feedback for pull requests
+tags:
+    - Go
+    - Kafka
+    - JSON Schema
+---
+
+This checkpoint focused on **Readable migration guidance**. It moved SchemaGuard toward its goal: Make event-contract changes safe and understandable for both producers and consumers.
+
+## What changed
+
+Measured the slow path and tightened the part of the system most likely to fail under load. I kept the change deliberately narrow so its effect could be checked before adding another layer.
+
+-   Measured the slowest operation
+-   Reduced repeated work
+-   Added a reliability regression check
+
+## What I learned
+
+The useful part of this checkpoint was making the work visible and repeatable instead of relying on a one-off result. The project is easier to reason about when each decision leaves behind a small piece of evidence: a test, a trace, a comparison, or a written constraint.
+
+## Next
+
+The next checkpoint focuses on **CI feedback for pull requests** and tests whether this version still holds up with a less controlled example.

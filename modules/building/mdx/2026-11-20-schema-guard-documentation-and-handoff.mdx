@@ -1,0 +1,37 @@
+---
+title: Documented the operating model
+summary: Wrote down setup, ownership, expected behaviour, and the decisions
+    future work should preserve.
+publishedAt: '2026-11-20'
+project: schema-guard
+status: in-progress
+progress: 48
+timeSpent: 1h 20m
+shipped:
+    - Added setup guidance
+    - Recorded important trade-offs
+    - Documented ownership and support expectations
+next: Compatibility rules for common changes
+tags:
+    - Go
+    - Kafka
+    - JSON Schema
+---
+
+This checkpoint focused on **CI feedback for pull requests**. It moved SchemaGuard toward its goal: Make event-contract changes safe and understandable for both producers and consumers.
+
+## What changed
+
+Wrote down setup, ownership, expected behaviour, and the decisions future work should preserve. I kept the change deliberately narrow so its effect could be checked before adding another layer.
+
+-   Added setup guidance
+-   Recorded important trade-offs
+-   Documented ownership and support expectations
+
+## What I learned
+
+The useful part of this checkpoint was making the work visible and repeatable instead of relying on a one-off result. The project is easier to reason about when each decision leaves behind a small piece of evidence: a test, a trace, a comparison, or a written constraint.
+
+## Next
+
+The next checkpoint focuses on **Compatibility rules for common changes** and tests whether this version still holds up with a less controlled example.

@@ -1,0 +1,37 @@
+---
+title: Set the scope and success criteria
+summary: Turned the initial idea into a bounded problem with a clear result to
+    work toward.
+publishedAt: '2026-09-12'
+project: idempotency-lab
+status: exploring
+progress: 8
+timeSpent: 1h 20m
+shipped:
+    - Defined the primary user
+    - Wrote measurable success criteria
+    - Removed one distracting edge case
+next: Safe response replay
+tags:
+    - Go
+    - PostgreSQL
+    - Redis
+---
+
+This checkpoint focused on **Request-key storage**. It moved Idempotency Lab toward its goal: Provide a small, testable example of idempotent API design.
+
+## What changed
+
+Turned the initial idea into a bounded problem with a clear result to work toward. I kept the change deliberately narrow so its effect could be checked before adding another layer.
+
+-   Defined the primary user
+-   Wrote measurable success criteria
+-   Removed one distracting edge case
+
+## What I learned
+
+The useful part of this checkpoint was making the work visible and repeatable instead of relying on a one-off result. The project is easier to reason about when each decision leaves behind a small piece of evidence: a test, a trace, a comparison, or a written constraint.
+
+## Next
+
+The next checkpoint focuses on **Safe response replay** and tests whether this version still holds up with a less controlled example.

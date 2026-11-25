@@ -1,0 +1,37 @@
+---
+title: Clarified the data model and interfaces
+summary: Simplified the boundaries between inputs, stored state, and the output
+    shown to a user.
+publishedAt: '2026-07-30'
+project: api-contract-checker
+status: in-progress
+progress: 28
+timeSpent: 2h 10m
+shipped:
+    - Named the main data concepts
+    - Reduced interface ambiguity
+    - Documented input and output shapes
+next: OpenAPI comparison
+tags:
+    - Python
+    - OpenAPI
+    - GitHub Actions
+---
+
+This checkpoint focused on **Pull-request annotations**. It moved API Contract Checker toward its goal: Catch contract breaks before clients discover them in production.
+
+## What changed
+
+Simplified the boundaries between inputs, stored state, and the output shown to a user. I kept the change deliberately narrow so its effect could be checked before adding another layer.
+
+-   Named the main data concepts
+-   Reduced interface ambiguity
+-   Documented input and output shapes
+
+## What I learned
+
+The useful part of this checkpoint was making the work visible and repeatable instead of relying on a one-off result. The project is easier to reason about when each decision leaves behind a small piece of evidence: a test, a trace, a comparison, or a written constraint.
+
+## Next
+
+The next checkpoint focuses on **OpenAPI comparison** and tests whether this version still holds up with a less controlled example.

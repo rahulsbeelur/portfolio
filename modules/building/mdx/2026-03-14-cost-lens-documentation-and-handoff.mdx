@@ -1,0 +1,37 @@
+---
+title: Documented the operating model
+summary: Wrote down setup, ownership, expected behaviour, and the decisions
+    future work should preserve.
+publishedAt: '2026-03-14'
+project: cost-lens
+status: in-progress
+progress: 28
+timeSpent: 1h 20m
+shipped:
+    - Added setup guidance
+    - Recorded important trade-offs
+    - Documented ownership and support expectations
+next: Shared-cost allocation
+tags:
+    - Go
+    - ClickHouse
+    - Kubernetes
+---
+
+This checkpoint focused on **Trend explanations**. It moved Cost Lens toward its goal: Give engineering teams a useful cost conversation without pretending allocation is perfectly precise.
+
+## What changed
+
+Wrote down setup, ownership, expected behaviour, and the decisions future work should preserve. I kept the change deliberately narrow so its effect could be checked before adding another layer.
+
+-   Added setup guidance
+-   Recorded important trade-offs
+-   Documented ownership and support expectations
+
+## What I learned
+
+The useful part of this checkpoint was making the work visible and repeatable instead of relying on a one-off result. The project is easier to reason about when each decision leaves behind a small piece of evidence: a test, a trace, a comparison, or a written constraint.
+
+## Next
+
+The next checkpoint focuses on **Shared-cost allocation** and tests whether this version still holds up with a less controlled example.

@@ -1,0 +1,37 @@
+---
+title: Added an observability pass
+summary: Introduced the signals needed to understand what the system did and why
+    a run failed.
+publishedAt: '2026-11-09'
+project: queuelens
+status: in-progress
+progress: 30
+timeSpent: 1h 20m
+shipped:
+    - Added structured events
+    - Recorded useful timings
+    - Defined one actionable health signal
+next: Clear incident summaries
+tags:
+    - Go
+    - Kafka
+    - Prometheus
+---
+
+This checkpoint focused on **Useful alert thresholds**. It moved QueueLens toward its goal: Help engineers understand queue health quickly without digging through several monitoring screens.
+
+## What changed
+
+Introduced the signals needed to understand what the system did and why a run failed. I kept the change deliberately narrow so its effect could be checked before adding another layer.
+
+-   Added structured events
+-   Recorded useful timings
+-   Defined one actionable health signal
+
+## What I learned
+
+The useful part of this checkpoint was making the work visible and repeatable instead of relying on a one-off result. The project is easier to reason about when each decision leaves behind a small piece of evidence: a test, a trace, a comparison, or a written constraint.
+
+## Next
+
+The next checkpoint focuses on **Clear incident summaries** and tests whether this version still holds up with a less controlled example.

@@ -1,0 +1,26 @@
+---
+title: 'A small RAG evaluation set that people will actually run'
+summary: 'A compact set of deliberate questions often catches more retrieval problems than a large collection of vague examples.'
+publishedAt: '2026-11-08'
+tags: ['RAG', 'Evaluation', 'AI systems']
+---
+
+Retrieval systems change in ways that are difficult to judge by intuition alone. A new chunking strategy can improve one answer while quietly making three other answer types worse.
+
+The most useful starting point is not a huge benchmark. It is a small set that represents the decisions the product must get right.
+
+My first categories are usually:
+
+-   questions with one clear supporting source
+-   questions that require combining two sources
+-   questions where the available sources conflict
+-   questions with missing context
+-   questions the system should decline to answer
+
+Each example needs an expected behaviour, not necessarily one exact sentence. The checks can ask whether the answer is grounded, whether it includes the important facts, and whether it avoids claims that the retrieved material cannot support.
+
+## Keep the report readable
+
+A score is useful for tracking direction, but a developer also needs to see the question, retrieved passages, answer, and reason for failure together. That turns an evaluation from a gate into a debugging tool.
+
+The best evaluation set is the one a team trusts enough to run after every meaningful retrieval change. Small and deliberate is a strong place to begin.

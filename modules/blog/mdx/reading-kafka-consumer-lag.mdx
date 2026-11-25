@@ -1,0 +1,29 @@
+---
+title: 'Reading Kafka consumer lag without guessing'
+summary: 'A lag number becomes useful only when it explains direction, duration, ownership, and whether the consumer is recovering.'
+publishedAt: '2026-11-17'
+tags: ['Kafka', 'Observability', 'Backend']
+---
+
+Kafka consumer lag is easy to collect and surprisingly easy to misunderstand. A large number might mean a consumer is unhealthy, or it might be a short burst that the system is already processing.
+
+The first useful question is not “How large is the lag?” It is “What is the lag doing?”
+
+I want a queue-health view to answer four things quickly:
+
+-   Is lag growing, flat, or falling?
+-   How long has that direction continued?
+-   Which consumer and partitions are responsible?
+-   Is throughput high enough to recover?
+
+## Direction before thresholds
+
+A static threshold treats every workload the same. A timeline gives the number context. Growing lag with falling consumer throughput is very different from a brief spike followed by a steady recovery.
+
+Alerting should combine the amount of lag with its duration and direction. That avoids waking someone for a queue that is already healing while still catching a smaller backlog that has quietly grown for an hour.
+
+## Explain the next action
+
+The best dashboard does not stop at “lag: 42,000.” It says which consumer changed, when the change began, and whether a deploy or traffic spike lines up with it.
+
+Metrics become useful when they shorten the path from noticing a problem to deciding what to do next.

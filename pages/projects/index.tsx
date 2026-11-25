@@ -5,6 +5,7 @@ import { SEO } from '../../modules/common/components/SEO';
 import { ProjectCard } from '../../modules/projects/components/ProjectCard';
 import { getMDData } from '../../modules/common/utils/mdxUtils';
 import { MdxPaths } from '../../constant/paths';
+import { PageHeader } from '../../modules/common/components/PageHeader';
 
 const Projects = ({
     projects,
@@ -20,16 +21,14 @@ const Projects = ({
                 description={pageContent.seoDescription}
                 path="/projects"
             />
-            <div className="mx-auto max-w-[1080px] pt-32 pb-8 mobile:pt-20">
-                <header className="mb-10 max-w-3xl">
-                    <p className="font-robotoMono text-sm text-muted">{pageContent.eyebrow}</p>
-                    <h1 className="mt-3 text-[44px] font-poppins font-[600] leading-[54px] text-foreground mobile:text-[34px] mobile:leading-[42px]">
-                        {pageContent.title}
-                    </h1>
-                    <p className="body1 mt-4 text-muted">{pageContent.description}</p>
-                </header>
-                {ProjectCard({ projects })}
-            </div>
+            <main className="mx-auto max-w-[1080px] pt-32 pb-20 mobile:pt-24">
+                <PageHeader
+                    fileName={pageContent.eyebrow}
+                    title={pageContent.title}
+                    description={pageContent.description}
+                />
+                <div className="mt-16">{ProjectCard({ projects })}</div>
+            </main>
         </Wrapper>
     );
 };

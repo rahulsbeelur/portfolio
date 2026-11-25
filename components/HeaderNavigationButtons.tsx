@@ -3,8 +3,8 @@ import { useRouter } from 'next/router';
 
 export const navigationWithBlog = [
     { name: 'Home', href: '/' },
-    { name: 'Writing', href: '/blog' },
-    { name: 'Quick reads', href: '/quick-reads' },
+    { name: 'Build log', href: '/building' },
+    { name: 'Blog', href: '/blog' },
     { name: 'Projects', href: '/projects' },
     { name: 'Resume', href: '/resume' }
 ];
@@ -20,14 +20,19 @@ const isNavigationButtonActive = (pathname: string, href: string): boolean => {
 };
 
 export const HeaderNavigationButtons = ({
-    setOpenMenu
+    setOpenMenu,
+    isMenu = false
 }: {
     setOpenMenu?: React.Dispatch<React.SetStateAction<boolean>>;
+    isMenu?: boolean;
 }): JSX.Element => {
     const { pathname } = useRouter();
     const navigationHeader = [...navigationWithBlog];
     return (
-        <div className="mobile:mt-10 text-center flex mobile:flex-col gap-3 mobile:gap-5">
+        <div
+            className={`flex text-center ${
+                isMenu ? 'flex-col gap-3' : 'gap-3 mobile:mt-10 mobile:flex-col mobile:gap-5'
+            }`}>
             {navigationHeader.map((item) => (
                 <div
                     key={item.name}
@@ -38,8 +43,8 @@ export const HeaderNavigationButtons = ({
                     }}>
                     <Link
                         className={`btn-nav ${
-                            isNavigationButtonActive(pathname, item.href) ? 'active' : ''
-                        }
+                            isMenu ? 'w-full !justify-between !rounded-xl !px-5 !py-4' : ''
+                        } ${isNavigationButtonActive(pathname, item.href) ? 'active' : ''}
                        `}
                         aria-label={item.name}
                         href={item.href}>

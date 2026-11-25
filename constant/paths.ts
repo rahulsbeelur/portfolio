@@ -10,6 +10,7 @@ export enum MdxPaths {
     SpeakingLanguages = 'modules/resume/mdx/speak/languages.mdx',
     Projects = 'modules/projects/mdx',
     Blog = 'modules/blog/mdx',
+    Building = 'modules/building/mdx',
     QuickReads = 'modules/quick-reads/mdx',
     Pages = 'modules/pages/mdx'
 }

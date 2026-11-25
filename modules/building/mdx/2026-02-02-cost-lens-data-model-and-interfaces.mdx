@@ -1,0 +1,37 @@
+---
+title: Clarified the data model and interfaces
+summary: Simplified the boundaries between inputs, stored state, and the output
+    shown to a user.
+publishedAt: '2026-02-02'
+project: cost-lens
+status: in-progress
+progress: 8
+timeSpent: 2h 10m
+shipped:
+    - Named the main data concepts
+    - Reduced interface ambiguity
+    - Documented input and output shapes
+next: Shared-cost allocation
+tags:
+    - Go
+    - ClickHouse
+    - Kubernetes
+---
+
+This checkpoint focused on **Trend explanations**. It moved Cost Lens toward its goal: Give engineering teams a useful cost conversation without pretending allocation is perfectly precise.
+
+## What changed
+
+Simplified the boundaries between inputs, stored state, and the output shown to a user. I kept the change deliberately narrow so its effect could be checked before adding another layer.
+
+-   Named the main data concepts
+-   Reduced interface ambiguity
+-   Documented input and output shapes
+
+## What I learned
+
+The useful part of this checkpoint was making the work visible and repeatable instead of relying on a one-off result. The project is easier to reason about when each decision leaves behind a small piece of evidence: a test, a trace, a comparison, or a written constraint.
+
+## Next
+
+The next checkpoint focuses on **Shared-cost allocation** and tests whether this version still holds up with a less controlled example.

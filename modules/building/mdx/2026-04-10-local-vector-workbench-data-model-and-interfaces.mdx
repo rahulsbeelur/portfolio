@@ -1,0 +1,37 @@
+---
+title: Clarified the data model and interfaces
+summary: Simplified the boundaries between inputs, stored state, and the output
+    shown to a user.
+publishedAt: '2026-04-10'
+project: local-vector-workbench
+status: in-progress
+progress: 13
+timeSpent: 2h 10m
+shipped:
+    - Named the main data concepts
+    - Reduced interface ambiguity
+    - Documented input and output shapes
+next: Embedding comparisons
+tags:
+    - Python
+    - SQLite
+    - Embeddings
+---
+
+This checkpoint focused on **Local result inspection**. It moved Local Vector Workbench toward its goal: Make retrieval experiments private, quick, and reproducible on a laptop.
+
+## What changed
+
+Simplified the boundaries between inputs, stored state, and the output shown to a user. I kept the change deliberately narrow so its effect could be checked before adding another layer.
+
+-   Named the main data concepts
+-   Reduced interface ambiguity
+-   Documented input and output shapes
+
+## What I learned
+
+The useful part of this checkpoint was making the work visible and repeatable instead of relying on a one-off result. The project is easier to reason about when each decision leaves behind a small piece of evidence: a test, a trace, a comparison, or a written constraint.
+
+## Next
+
+The next checkpoint focuses on **Embedding comparisons** and tests whether this version still holds up with a less controlled example.

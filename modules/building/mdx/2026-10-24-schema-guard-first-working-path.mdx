@@ -1,0 +1,37 @@
+---
+title: Built the first working path
+summary: Connected the smallest end-to-end flow so the project could be tested
+    with real inputs.
+publishedAt: '2026-10-24'
+project: schema-guard
+status: in-progress
+progress: 9
+timeSpent: 1h 45m
+shipped:
+    - Connected the core workflow
+    - Added a representative input
+    - Captured the first usable output
+next: CI feedback for pull requests
+tags:
+    - Go
+    - Kafka
+    - JSON Schema
+---
+
+This checkpoint focused on **Readable migration guidance**. It moved SchemaGuard toward its goal: Make event-contract changes safe and understandable for both producers and consumers.
+
+## What changed
+
+Connected the smallest end-to-end flow so the project could be tested with real inputs. I kept the change deliberately narrow so its effect could be checked before adding another layer.
+
+-   Connected the core workflow
+-   Added a representative input
+-   Captured the first usable output
+
+## What I learned
+
+The useful part of this checkpoint was making the work visible and repeatable instead of relying on a one-off result. The project is easier to reason about when each decision leaves behind a small piece of evidence: a test, a trace, a comparison, or a written constraint.
+
+## Next
+
+The next checkpoint focuses on **CI feedback for pull requests** and tests whether this version still holds up with a less controlled example.

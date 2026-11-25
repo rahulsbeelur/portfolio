@@ -1,216 +1,237 @@
 import fs from 'fs';
 import Image from 'next/image';
 import Link from 'next/link';
-import YAML from 'yaml';
-import { headerCase, paramCase } from 'change-case';
 import { Wrapper } from '../modules/common/components/Wrapper';
 import { SEO } from '../modules/common/components/SEO';
-import { personDetails } from '../modules/common/data/person';
-import { checkImageResolutions } from '../modules/common/utils/imageUtils';
 import { getMDData } from '../modules/common/utils/mdxUtils';
-import { MdxPaths, TechnologiesPath } from '../constant/paths';
-import { AboutMeIntroduction } from '../modules/about-me/models/type';
-import { QuickRead } from '../modules/quick-reads/content';
-import { loadQuickReads } from '../modules/quick-reads/loadQuickReads';
+import { getReadingTime } from '../modules/common/utils/readTime';
+import { MdxPaths } from '../constant/paths';
+import { personDetails } from '../modules/common/data/person';
+import { loadBuildProjects, loadBuildUpdates } from '../modules/building/loadBuilding';
+import { getProject } from '../modules/building/utils';
+import { BuildProject, BuildUpdateDocument } from '../modules/building/types';
+import { BuildUpdateCard, formatBuildDate } from '../modules/building/components/BuildUpdateCard';
+import { ActiveBuildPanel } from '../modules/building/components/ActiveBuildPanel';
 
-interface Technology {
-    fileName: string;
+interface LatestPost {
     title: string;
-    level: number;
+    summary: string;
+    publishedAt: string;
+    slug: string;
+    readingTime: string;
 }
-interface TechnologiesData {
-    [key: string]: Technology[];
+
+interface HomeProps {
+    buildProjects: BuildProject[];
+    buildUpdates: BuildUpdateDocument[];
+    latestPost: LatestPost | null;
+    morePosts: LatestPost[];
 }
 
 const Home = ({
-    introductionContent,
-    techStack,
-    quickReads
-}: {
-    introductionContent: AboutMeIntroduction;
-    techStack: TechnologiesData;
-    quickReads: { frontmatter: QuickRead; slug: string }[];
-}): JSX.Element => {
-    const highlights = introductionContent.highlights ?? [];
-    return (
-        <div className="relative overflow-hidden pt-[80px]">
-            <SEO
-                title="Rahul S Beelur | AI Systems & Backend Engineer"
-                description="Rahul S Beelur builds reliable backend systems and thoughtful AI-powered products."
-            />
-            <Wrapper classes="relative py-8 desktop:py-12">
-                <section className="hero-grid">
-                    <div className="max-w-4xl">
-                        <p className="eyebrow">
-                            AI systems · backend engineering · product thinking
-                        </p>
-                        <h1 className="display-title mt-5">
-                            Building the dependable layer beneath intelligent products.
+    buildProjects = [],
+    buildUpdates = [],
+    latestPost,
+    morePosts = []
+}: HomeProps): JSX.Element => (
+    <div className="home-shell relative overflow-hidden pt-[108px] mobile:pt-[88px]">
+        <SEO
+            title="Rahul S Beelur | Backend, AI & Systems Engineering"
+            description="Rahul S Beelur builds dependable backend and AI systems—and shares the work as it happens."
+        />
+        <div className="home-glow home-glow--one" aria-hidden="true" />
+
+        <Wrapper classes="relative !max-w-[1180px] !pt-8 mobile:!pt-5">
+            <main>
+                <section className="simple-home-hero">
+                    <div className="home-hero__copy">
+                        <div className="mobile-profile">
+                            <Image
+                                src="/my-photo.jpeg"
+                                alt="Rahul S Beelur"
+                                width={64}
+                                height={64}
+                                priority
+                            />
+                            <div>
+                                <strong>{personDetails.name}</strong>
+                                <span>Backend and AI engineer</span>
+                            </div>
+                        </div>
+
+                        <p className="page-file">home.md</p>
+                        <h1 className="home-title mt-6">
+                            I build software that stays{' '}
+                            <span className="home-title__accent">reliable.</span>
                         </h1>
-                        <p className="lead-copy mt-7 max-w-2xl">
-                            I’m Rahul, a software engineer moving deeper into AI. I write about
-                            turning ambitious ideas into systems that are useful, observable, and
-                            built to last.
+                        <p className="lead-copy mt-7 max-w-[620px]">
+                            I’m Rahul, a backend and AI engineer. See what I’m building now, explore
+                            my projects, or read my technical notes.
                         </p>
                         <div className="mt-9 flex flex-wrap gap-3">
-                            <Link href="/blog" className="button-primary">
-                                Read my writing <span>↗</span>
+                            <Link href="#building-now" className="button-primary">
+                                See what I’m building <span aria-hidden="true">↓</span>
                             </Link>
-                            <Link href="/quick-reads" className="button-secondary">
-                                Explore quick reads <span>↓</span>
+                            <Link href="/blog" className="button-secondary">
+                                Read the blog <span aria-hidden="true">↗</span>
                             </Link>
                         </div>
-                        <div className="mt-12 grid gap-3 sm:grid-cols-2">
-                            {highlights.map((highlight) => (
-                                <div key={highlight.label} className="signal-card">
-                                    <p>{highlight.label}</p>
-                                    <strong>{highlight.value}</strong>
-                                </div>
+                    </div>
+
+                    <aside className="home-portrait" aria-label="About Rahul">
+                        <div className="home-portrait__image">
+                            <Image
+                                src="/my-photo.jpeg"
+                                alt="Rahul S Beelur"
+                                width={520}
+                                height={620}
+                                priority
+                            />
+                        </div>
+                    </aside>
+                </section>
+            </main>
+        </Wrapper>
+
+        <section id="building-now" className="build-section scroll-mt-28">
+            <Wrapper classes="!max-w-[1180px] !py-16 mobile:!py-12">
+                <div className="section-heading">
+                    <div>
+                        <p className="page-file">build-log.md</p>
+                        <h2 className="section-title mt-4">Projects I’m building.</h2>
+                    </div>
+                    <p className="section-heading__copy">
+                        Short, honest updates on what changed, what I learned, and what comes next.
+                    </p>
+                </div>
+
+                <div className="mt-10">
+                    <ActiveBuildPanel projects={buildProjects} />
+                </div>
+                <div className="mt-7 text-right mobile:text-left">
+                    <Link href="/building" className="text-link">
+                        Open the full build log →
+                    </Link>
+                </div>
+
+                {buildUpdates.length > 0 && (
+                    <div className="home-build-updates mt-12">
+                        <div className="home-section-label">
+                            <p>Recent updates</p>
+                            <span>
+                                Updated {formatBuildDate(buildUpdates[0].frontmatter.publishedAt)}
+                            </span>
+                        </div>
+                        <div className="build-entry-grid">
+                            {buildUpdates.slice(0, 2).map((update, index) => (
+                                <BuildUpdateCard
+                                    key={update.slug}
+                                    update={update}
+                                    project={getProject(buildProjects, update.frontmatter.project)}
+                                    featured={index === 0}
+                                />
                             ))}
                         </div>
                     </div>
-                    <aside className="profile-panel">
-                        <div className="flex items-center justify-between border-b dev-divider pb-5 font-robotoMono text-xs text-muted">
-                            <span>now.md</span>
-                            <span>open to ideas</span>
-                        </div>
-                        <div className="mt-7 flex items-center gap-5">
-                            <div className="relative h-20 w-20 overflow-hidden rounded-2xl border dev-divider">
-                                <Image
-                                    src="/my-photo.jpeg"
-                                    alt="Rahul S Beelur"
-                                    width={320}
-                                    height={320}
-                                    priority
-                                    className="h-full w-full object-cover"
-                                />
-                            </div>
-                            <div>
-                                <p className="text-xl font-semibold text-foreground">
-                                    {personDetails.name}
-                                </p>
-                                <p className="mt-1 font-robotoMono text-xs text-muted">
-                                    {personDetails.designation}
-                                </p>
-                            </div>
-                        </div>
-                        <div className="profile-note mt-8">
-                            Currently exploring the junction of dependable infrastructure and AI
-                            systems that earn trust in production.
-                        </div>
-                        <Link
-                            href="/resume"
-                            className="mt-8 inline-flex font-robotoMono text-sm text-accent hover:text-foreground">
-                            View background →
-                        </Link>
-                    </aside>
-                </section>
+                )}
             </Wrapper>
+        </section>
 
-            <section className="border-y dev-divider bg-surface/40">
-                <Wrapper classes="py-16 desktop:py-20">
-                    <div className="flex flex-wrap items-end justify-between gap-5">
-                        <div>
-                            <p className="eyebrow">A faster format</p>
-                            <h2 className="section-title mt-3">Worth your next minute.</h2>
-                        </div>
-                        <Link href="/quick-reads" className="text-link">
-                            See every quick read →
-                        </Link>
-                    </div>
-                    <div className="quick-preview mt-10">
-                        {quickReads.map((post, index) => (
-                            <Link
-                                href="/quick-reads"
-                                key={post.slug}
-                                className="quick-preview-card">
-                                <span>
-                                    {String(index + 1).padStart(2, '0')} — {post.frontmatter.area}
-                                </span>
-                                <h3>{post.frontmatter.title}</h3>
-                                <p>{post.frontmatter.summary}</p>
-                                <b>Read in 60 sec ↗</b>
-                            </Link>
-                        ))}
-                    </div>
-                </Wrapper>
-            </section>
-
-            <Wrapper classes="py-16 desktop:py-20">
-                <section className="grid gap-10 desktop:grid-cols-[0.75fr_1.25fr] desktop:items-start">
+        <Wrapper classes="!max-w-[1180px] !py-16 mobile:!py-12">
+            {latestPost && (
+                <section className="home-writing">
                     <div>
-                        <p className="eyebrow">How I work</p>
-                        <h2 className="section-title mt-3">Practical systems thinking.</h2>
-                        <p className="lead-copy mt-5 text-[17px]">
-                            The tools change. Clear boundaries, meaningful telemetry, and calm
-                            operational defaults do not.
+                        <p className="page-file">blog.md</p>
+                        <h2 className="section-title mt-4">Blog.</h2>
+                        <p className="home-writing__intro">
+                            Practical lessons from backend systems, AI tools, and product work.
                         </p>
+                        <Link href="/blog" className="text-link home-writing__all">
+                            View every post →
+                        </Link>
                     </div>
-                    <div className="space-y-3">
-                        {Object.entries(techStack).map(([category, technologies]) => (
-                            <div key={category} className="stack-row">
-                                <p>{headerCase(category).replace('-', ' ')}</p>
-                                <div>
-                                    {technologies.slice(0, 6).map((tech) => (
-                                        <span key={tech.fileName}>
-                                            <Image
-                                                src={`/tech-stack/${paramCase(category)}/${
-                                                    tech.fileName
-                                                }.png`}
-                                                alt=""
-                                                width={18}
-                                                height={18}
-                                            />
-                                            {tech.title}
-                                        </span>
-                                    ))}
-                                </div>
+                    <div className="home-writing__feed">
+                        <Link
+                            href={`/blog/${latestPost.slug}`}
+                            className="home-writing__post group">
+                            <div className="home-writing__meta">
+                                <span>Latest article</span>
+                                <span>
+                                    {formatBuildDate(latestPost.publishedAt)} ·{' '}
+                                    {latestPost.readingTime}
+                                </span>
                             </div>
-                        ))}
+                            <h3>{latestPost.title}</h3>
+                            <p>{latestPost.summary}</p>
+                            <b>Read the post →</b>
+                        </Link>
+
+                        {morePosts.length > 0 && (
+                            <div className="home-writing__more" aria-label="More recent blog posts">
+                                {morePosts.map((post) => (
+                                    <Link key={post.slug} href={`/blog/${post.slug}`}>
+                                        <span>
+                                            {formatBuildDate(post.publishedAt)} · {post.readingTime}
+                                        </span>
+                                        <strong>{post.title}</strong>
+                                        <b aria-hidden="true">↗</b>
+                                    </Link>
+                                ))}
+                            </div>
+                        )}
                     </div>
                 </section>
-            </Wrapper>
-        </div>
-    );
-};
+            )}
+
+            <section className="home-cta mt-16">
+                <div>
+                    <p className="page-file">contact.md</p>
+                    <p className="home-cta__prompt">Want to talk about backend or AI?</p>
+                    <h2>Let’s have a conversation.</h2>
+                </div>
+                <a href="mailto:srahulbeelur@gmail.com" className="button-primary">
+                    Start a conversation <span aria-hidden="true">↗</span>
+                </a>
+            </section>
+        </Wrapper>
+    </div>
+);
 
 export default Home;
 
-export const getStaticProps = async (): Promise<{
-    props: {
-        introductionContent: AboutMeIntroduction;
-        techStack: TechnologiesData;
-        quickReads: { frontmatter: QuickRead; slug: string }[];
-    };
-}> => {
-    checkImageResolutions('public');
-    const introduction = await getMDData<AboutMeIntroduction>(
-        `${MdxPaths.AboutMeIntroduction}/introduction.mdx`
+export const getStaticProps = async (): Promise<{ props: HomeProps }> => {
+    const projects = loadBuildProjects();
+    const buildUpdates = await loadBuildUpdates();
+    const blogFiles = fs.existsSync(MdxPaths.Blog)
+        ? fs.readdirSync(MdxPaths.Blog).filter((file) => file.endsWith('.mdx'))
+        : [];
+    const posts = await Promise.all(
+        blogFiles.map(async (file) => {
+            const slug = file.replace(/\.mdx$/, '');
+            const { frontmatter } = await getMDData<{
+                title: string;
+                summary: string;
+                publishedAt: string;
+            }>(`${MdxPaths.Blog}/${file}`);
+            return {
+                ...frontmatter,
+                slug,
+                readingTime: getReadingTime(`${MdxPaths.Blog}/${file}`).label
+            };
+        })
     );
-    const technologies: TechnologiesData = {};
-    Object.entries(TechnologiesPath).forEach(([key, value]) => {
-        technologies[key] = YAML.parse(fs.readFileSync(value, 'utf8')).technologies as Technology[];
-    });
-    const quickReads = (await loadQuickReads())
-        .slice(0, 3)
-        .map(({ frontmatter, slug }) => ({ frontmatter, slug }));
+    const latestPost =
+        posts.sort(
+            (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+        )[0] ?? null;
+    const morePosts = posts.slice(1, 3);
+
     return {
         props: {
-            introductionContent: {
-                code: introduction.code,
-                layout: introduction.frontmatter.layout ?? 'DefaultLayout',
-                eyebrow: introduction.frontmatter.eyebrow,
-                headline: introduction.frontmatter.headline,
-                summary: introduction.frontmatter.summary,
-                profileFileName: introduction.frontmatter.profileFileName,
-                profileStatus: introduction.frontmatter.profileStatus,
-                profileSnippet: introduction.frontmatter.profileSnippet,
-                highlights: introduction.frontmatter.highlights,
-                toolsEyebrow: introduction.frontmatter.toolsEyebrow,
-                toolsTitle: introduction.frontmatter.toolsTitle
-            },
-            techStack: technologies,
-            quickReads
+            buildProjects: projects,
+            buildUpdates: buildUpdates.slice(0, 2),
+            latestPost,
+            morePosts
         }
     };
 };

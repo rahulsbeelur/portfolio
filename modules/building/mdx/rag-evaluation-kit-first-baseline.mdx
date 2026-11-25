@@ -1,0 +1,23 @@
+---
+title: 'A baseline for grounded answers'
+summary: 'Created a small evaluation set that checks whether generated answers use the retrieved source instead of filling gaps with guesses.'
+publishedAt: '2026-11-22'
+project: 'rag-evaluation-kit'
+status: 'shipped'
+progress: 100
+timeSpent: '3h 15m'
+shipped:
+    [
+        'Created 24 representative questions',
+        'Added groundedness and relevance checks',
+        'Generated a readable before-and-after report'
+    ]
+next: 'Use the kit as the starting point for the next retrieval experiment.'
+tags: ['RAG', 'Evaluation', 'AI systems']
+---
+
+I wanted a test small enough to run after every meaningful retrieval change. The first version uses 24 questions that cover clear answers, missing context, conflicting sources, and questions the system should decline to answer.
+
+## What I learned
+
+A small, carefully chosen set catches more useful problems than a large collection of vague examples. The report now shows which source supported an answer and where the system guessed beyond its context.
