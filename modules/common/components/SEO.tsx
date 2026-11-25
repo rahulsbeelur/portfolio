@@ -1,7 +1,9 @@
 import Head from 'next/head';
 import { personDetails } from '../data/person';
 
-const siteUrl = 'https://rahulsbeelur.com';
+const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    'https://rahul-s-beelur-rahul-s-beelurs-projects.vercel.app';
 const defaultDescription =
     'Rahul S Beelur builds dependable backend and AI systems and shares the work as it happens.';
 const defaultImagePath = '/social-preview.png';

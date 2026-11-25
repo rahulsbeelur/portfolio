@@ -4,7 +4,7 @@ Personal Website using NextJS
 
 ## Deployed link
 
-[rahulsbeelur](https://rahulsbeelur.com/)
+[rahulsbeelur](https://rahul-s-beelur-rahul-s-beelurs-projects.vercel.app/)
 
 This is a Next.js project bootstrapped with create-next-app.
 
