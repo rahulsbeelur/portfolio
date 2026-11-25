@@ -136,7 +136,7 @@ Experience entries ask for the company, role, dates, and impact points. Educatio
 
 ## Automatic deployment
 
-The included GitHub Actions workflow deploys every push to `main`. Add `VERCEL_TOKEN`, `VERCEL_ORG_ID`, and `VERCEL_PROJECT_ID` as GitHub repository secrets before using it. If this repository is already connected to Vercel through its Git integration, Vercel can deploy on push itself and the workflow is optional.
+Vercel's Git integration deploys every push to `main` and reports the production status directly on the GitHub commit. Deployment is managed by the linked Vercel project, so this repository does not need a second token-based deployment workflow.
 
 ## Formatting
 

@@ -26,6 +26,9 @@ const BlogPostPage = ({
                 title={`${post.frontmatter.title} | Rahul S Beelur`}
                 description={post.frontmatter.summary}
                 path={`/blog/${post.slug}`}
+                type="article"
+                publishedAt={post.frontmatter.publishedAt}
+                tags={post.frontmatter.tags}
             />
             <main className="mx-auto max-w-[760px] pt-32 pb-20">
                 <nav aria-label="Breadcrumb" className="breadcrumb">

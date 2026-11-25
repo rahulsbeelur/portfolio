@@ -24,6 +24,9 @@ const BuildEntryPage = ({ update, project }: BuildEntryPageProps): JSX.Element =
                 title={`${frontmatter.title} | Build log`}
                 description={frontmatter.summary}
                 path={`/building/${update.slug}`}
+                type="article"
+                publishedAt={frontmatter.publishedAt}
+                tags={frontmatter.tags}
             />
             <main className="pb-20 pt-32 mobile:pt-24">
                 <nav aria-label="Breadcrumb" className="breadcrumb">
